@@ -1,0 +1,1832 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/10/2021 5:02:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TXBI-DWA-01"
+  DTS:CreatorName="CLOUD\Excel_admin3"
+  DTS:DTSID="{D7335E34-08FA-46AF-B504-756C33D0A4BA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Post_Execution"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{AFE3D3C1-C00C-410B-9F88-F40197AFC03D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cleanse the Declarations' json_Dims"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{585D4804-B322-4FA5-A490-AA23A76B4423}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cleanse the Declarations' json_Dims">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Purchases_Details_Jason"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{47A48B9F-E688-4400-B5C2-D7D69128F296}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Dim_NonTable_Purchases_Details_Jason"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete j&#xA;from Dim_NonTable_Purchases_Details_Jason j left join Dim_Declarations dc&#xA;on j.FK_ID=dc.ID&#xA;where dc.ID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Sales_Details_Jason"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FD3207D7-4074-4210-9A8F-2977272399EA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Dim_NonTable_Sales_Details_Jason"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete j&#xA;from Dim_NonTable_Sales_Details_Jason j left join Dim_Declarations dc&#xA;on j.FK_ID=dc.ID&#xA;where dc.ID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Purchases_Details_Jason"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EB0C64E5-D884-4876-A984-6F97B1278E34}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Dim_Table_Purchases_Details_Jason"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete j&#xA;from [dbo].[Dim_Table_Purchases_Details_Jason] j left join Dim_Declarations dc&#xA;on j.FK_ID=dc.ID&#xA;where dc.ID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Sales_Details_Jason"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{23A35327-DD0D-4621-ABB4-94824C8B73D9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Dim_Table_Sales_Details_Jason"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete j&#xA;from [dbo].[Dim_Table_Sales_Details_Jason] j left join Dim_Declarations dc&#xA;on j.FK_ID=dc.ID&#xA;where dc.ID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Tax_Details_Jason"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{57BED6C5-560A-4420-980A-0CFAAA418B15}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Dim_Table_Tax_Details_Jason"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete j&#xA;from [dbo].[Dim_Table_Tax_Details_Jason] j left join Dim_Declarations dc&#xA;on j.FK_ID=dc.ID&#xA;where dc.ID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{451719D5-D343-49A5-9E3C-85FDD7C7384A}"
+          DTS:From="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Purchases_Details_Jason"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 11"
+          DTS:To="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Sales_Details_Jason" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{A5366ACD-3512-49A4-AA2F-E9B7A65212C0}"
+          DTS:From="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Sales_Details_Jason"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Sales_Details_Jason" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{64E1DCEC-02B4-4934-B117-BCEAE99DCD1A}"
+          DTS:From="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Sales_Details_Jason"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 13"
+          DTS:To="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Purchases_Details_Jason" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 14]"
+          DTS:CreationName=""
+          DTS:DTSID="{5088A632-57AE-4642-9EFF-E158DD164724}"
+          DTS:From="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Purchases_Details_Jason"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 14"
+          DTS:To="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Tax_Details_Jason" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{7788BECA-31BE-46CA-897E-BE27843B0377}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_102"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A97CAFAB-A840-42FF-8B75-904AD60FB153}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete from Dim_Dec_Income_102"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="delete trgt&#xA;from&#xA;Staging_Area.[dbo].[vw_Income_Duplicates_of_102_106] src&#xA;join Dim_Dec_IncomeTax_102 trgt on src.AK=trgt.Unique_Tax_ID+'_'+trgt.DeclarationYear &#xA;and src.CreationDate=trgt.CreationDate&#xA;where src.type=102&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_106"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DA3C8382-F4F3-469C-99F6-C1BD48610CDA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete from Dim_Dec_Income_106"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="&#xA;delete trgt&#xA;from&#xA;Staging_Area.[dbo].[vw_Income_Duplicates_of_102_106] src&#xA;join Dim_Dec_IncomeTax_106 trgt on src.AK=trgt.Unique_Tax_ID+'_'+trgt.DeclarationYear &#xA;and src.CreationDate=trgt.CreationDate&#xA;where src.type=106" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AFC9DCAF-E52A-4D44-B78B-A776E401B2DE}"
+          DTS:From="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_102"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_106" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DWH Index's Creations"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{61CE1715-4C21-45A3-9FF9-CED20A7A8D70}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DWH Index's Creations"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+          SQLTask:SqlStatementSource="CREATE NONCLUSTERED INDEX [IDX_FK_TaxPeriod_ID] ON [dbo].[Dim_Declarations](FK_TaxPeriod_ID ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_ID&amp;Namozag_Name] ON [dbo].[Dim_Declarations](ID ASC, Namozag_Name ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_Update_Namozag_Name_&amp;_ID] ON [dbo].[Dim_Declarations](Namozag_Name ASC) &#xA;INCLUDE (ID)&#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_Unique_Tax_Id] ON [dbo].[Dim_Dummy_Companies](Unique_Tax_ID ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_Unique_Tax_Id] ON [dbo].[Dim_Gehat_5asm_w_ta7seel](Unique_Tax_Id ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_for_update_Income] ON [dbo].[Dim_Invoices](FK_Inv_Type_ID ASC, Company_Unique_Tax_Id ASC) &#xA;INCLUDE (Product_Total_Net, FK_Sub_inv_type, TaxPeriod)&#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_FK_ID] ON [dbo].[Dim_NonTable_Sales_Details_Jason](FK_ID ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_Rin] ON [dbo].[Dim_Not_Registered_TaxPayers](rin ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [_dta_index_Dim_Registered_TaxPayers_11_1349579846__K2_K23_K56_3] ON [dbo].[Dim_Registered_TaxPayers](Unique_Tax_Id ASC, DistrictVAT ASC, FK_Region_id ASC) &#xA;INCLUDE (Taxpayer_Name)&#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_Unique_Tax_Id] ON [dbo].[Dim_Registered_TaxPayers](Unique_Tax_Id ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_FK_ID] ON [dbo].[Dim_Table_Sales_Details_Jason](FK_ID ASC) &#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];&#xA; &#xA;CREATE NONCLUSTERED INDEX [IDX_UPDATE_TotalValue&amp;FK_ID&amp;Tax] ON [dbo].[Dim_Table_Tax_Details_Jason](TotalValue ASC) &#xA;INCLUDE (FK_ID, Tax)&#xA;WITH (PAD_INDEX = OFF, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, SORT_IN_TEMPDB = OFF ) ON [PRIMARY];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\The Rest Sent Invoices TASK"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{DEB1C4D6-9214-434E-BDF9-289B744D25FA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="The Rest Sent Invoices TASK">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Backup_Declarations"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{81e45b7f-830a-4d17-ab8b-52a589fb63ef}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup_Declarations"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into [dbo].[Declarations_Backup]&#xA;select  a.*&#xA;from DWH_TAX.dbo.Dim_Declarations a join Sent_Tables_Try_out.dbo.Declarations_Finalll b &#xA;on a.Artificial_Key=b.ak collate database_default" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Backup_Declarations_SCD"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{66e9030a-92db-4d1f-8884-94809f9c46ff}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup_Declarations_SCD"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into [dbo].[Declarations_SCD_Backup]&#xA;select  a.*&#xA;from DWH_TAX.dbo.Dim_Declarations_SCD a join Sent_Tables_Try_out.dbo.Declarations_Finalll b &#xA;on a.Artificial_Key=b.ak collate database_default" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c822a333-cab2-46f1-ace0-a1207b91578c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete_Dim_Declarations"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="Delete a&#xA;from DWH_TAX.dbo.Dim_Declarations a join Sent_Tables_Try_out.dbo.Declarations_Finalll b &#xA;on a.Artificial_Key=b.ak collate database_default" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations_SCD"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{373a21b1-a24f-4280-82a9-7eb5eee0362a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete_Dim_Declarations_SCD"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="Delete a&#xA;from DWH_TAX.dbo.Dim_Declarations_SCD a join Sent_Tables_Try_out.dbo.Declarations_Finalll b &#xA;on a.Artificial_Key=b.ak collate database_default" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Fill_All_Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6d533dee-dc64-42f8-ae50-06e988919534}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill_All_Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec [dbo].[all_declaraitons_with_no_invoices_The_Rest]&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Truncate Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3835D3A7-244C-4531-944D-8F8FFC556113}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="truncate table [Sent_Tables_Try_out].[dbo].[Declarations_Finalll]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\The Rest Sent Invoices TASK\Truncate_Declarations_Backups"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B42762BB-DA60-4647-BB96-ED61537264DA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate_Declarations_Backups"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="truncate table [dbo].[Declarations_SCD_Backup]&#xA;truncate table [dbo].[Declarations_Backup]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3EC2DB41-88B3-47FC-84ED-72D93870635B}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Truncate Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\The Rest Sent Invoices TASK\Fill_All_Declarations_with no Invoices_The_Rest(Declarations_Finalll)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{f25e38e2-9427-4369-a589-21bca6fa9c03}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Backup_Declarations_SCD"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 10"
+          DTS:To="Package\The Rest Sent Invoices TASK\Backup_Declarations" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{474552F0-90D5-4A0A-B7DF-D0D4E8E8DF12}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Fill_All_Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\The Rest Sent Invoices TASK\Truncate_Declarations_Backups" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{3427129E-C84E-415D-8B4B-2901DDB2971A}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Backup_Declarations"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations_SCD" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A0C7298-B351-46AD-A187-B719E6FC7590}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations_SCD"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{F32CD0FF-C78B-4F58-B559-9382CC9A2A36}"
+          DTS:From="Package\The Rest Sent Invoices TASK\Truncate_Declarations_Backups"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\The Rest Sent Invoices TASK\Backup_Declarations_SCD" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C900958A-769E-4F90-A7AE-5E96D07ABB80}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Dim_Declarations (SalesNet &amp; SalesTableNet)">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update NonTable_Declarations (SalesNet &amp; SalesTableNet)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{eb7cbefb-07a9-4eb4-9426-393981061471}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update NonTable_Declarations (SalesNet &amp; SalesTableNet)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="--with Get_TotalValue as&#xA;--(&#xA;--select sum([TotalValue]) as TotalValue,[FK_ID]&#xA;--from [dbo].[Dim_NonTable_Sales_Details_Jason] Non&#xA;--group by [FK_ID]&#xA;--) &#xA;&#xA;&#xA;update  dec&#xA;set dec.[SalesNet]=(select sum(nsdj.TotalValue) from [Dim_NonTable_Sales_Details_Jason] nsdj &#xA;where nsdj.FK_ID=dec.ID ),&#xA;dec.SalesTableNet=0&#xA;--select dec.*&#xA;from [dbo].[Dim_Declarations] dec&#xA;--join Get_TotalValue g&#xA;--on dec.[ID]=g.[FK_ID]&#xA;where  dec.[Namozag_Name]=10&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update Table_Declarations (SalesNet &amp; SalesTableNet)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{28A62BD0-44B3-4CB3-BEB7-C36F4EB90DB2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Table_Declarations (SalesNet &amp; SalesTableNet)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="--with Get_Total_TableValue as&#xA;--(&#xA;--select sum(TotalValue) as tbl,[FK_ID]&#xA;--from [dbo].Dim_Table_Tax_Details_Jason Non&#xA;--where Tax/TotalValue&lt;&gt;.08&#xA;--where TotalValue &lt;&gt;0.0 and Tax/TotalValue&lt;&gt;0.08&#xA;--group by FK_ID&#xA;--) &#xA;--, Get_Total_TaxValue as&#xA;--(&#xA;--select sum(TaxContainer) as tax,[FK_ID]&#xA;--from [dbo].Dim_Table_Sales_Details_Jason Non&#xA;----where Tax/TotalValue&lt;&gt;.08&#xA;--group by FK_ID&#xA;--) &#xA;&#xA;update  dec&#xA;set dec.[SalesNet]=(&#xA;select sum(TaxContainer) as tax&#xA;from [dbo].Dim_Table_Sales_Details_Jason vat&#xA;where vat.FK_ID=dec.ID),&#xA;&#xA;dec.SalesTableNet=(&#xA;select sum(TotalValue) as tbl&#xA;from [dbo].Dim_Table_Tax_Details_Jason tbl&#xA;where tbl.FK_ID=dec.ID)&#xA;&#xA;--select ID,isnull(tax.tax,0)+isnull(tbl.tbl,0) as lol&#xA;from [dbo].[Dim_Declarations] dec&#xA;--join Get_Total_TaxValue tax&#xA;--on dec.[ID]=tax.FK_ID&#xA;--left join Get_Total_TableValue tbl&#xA;--on dec.[ID]=tbl.[FK_ID]&#xA;where  dec.[Namozag_Name]=101" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet).PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{C7FD2875-BAEF-4EA2-AA67-B106E2B239F2}"
+          DTS:From="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update NonTable_Declarations (SalesNet &amp; SalesTableNet)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update Table_Declarations (SalesNet &amp; SalesTableNet)" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{539EF4F9-4A5D-40AA-8819-88E0AD0B540E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+          SQLTask:SqlStatementSource="UPDATE &#xA;    decs&#xA;SET &#xA;    est5las_Sales_Is_Correct=est5las_Sales_Flag.flag&#xA;FROM &#xA;    (   SELECT &#xA;            CASE &#xA;                WHEN&#xA;                    (   SELECT &#xA;                            SUM( &#xA;                            CASE &#xA;                                WHEN FK_Sub_inv_type=3 &#xA;                                THEN -1*lol &#xA;                                ELSE lol &#xA;                            END) &#xA;                        FROM&#xA;                            (   SELECT&#xA;                                    CASE &#xA;                                        WHEN SectionType=0 &#xA;                                        THEN Product_Total_Tax_Value&#xA;                                        WHEN SectionType=2 &#xA;                                        THEN Product_Total_Money*0.14&#xA;                                        ELSE 0 &#xA;                                    END AS lol , &#xA;                                    FK_Sub_inv_type , &#xA;                                    Company_Unique_Tax_Id , &#xA;                                    TaxPeriod&#xA;                                FROM &#xA;                                    Dim_Invoices AS inv&#xA;                                WHERE &#xA;                                    inv.Company_Unique_Tax_Id=trgt.UniqueTaxID &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and inv.TaxPeriod=trgt.TaxPeriod&#xA;                                AND FK_Inv_Type_ID=2) AS subinvs&#xA;                        WHERE &#xA;                            subinvs.Company_Unique_Tax_Id=trgt.UniqueTaxID&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and subinvs.TaxPeriod=trgt.TaxPeriod) &#xA;                    - SalesVat = 0 &#xA;                THEN 1 &#xA;                ELSE 0 &#xA;            END AS flag, &#xA;            Artificial_Key&#xA;            --,(select decs.SalesVat from Dim_Declarations decs where decs.UniqueTaxID= &#xA;            -- trgt.Unique_Tax_ID and DeclarationTypeID=1)&#xA;        FROM &#xA;            [DWH_TAX].[dbo].Dim_Declarations trgt) AS est5las_Sales_Flag&#xA;JOIN &#xA;    Dim_Declarations decs &#xA;ON &#xA;    decs.Artificial_Key=est5las_Sales_Flag.Artificial_Key" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9F392103-59AC-4C27-8336-FBDD8B0F24D3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_IncomeTax_Dim_Tables(102 &amp; 106)">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales )"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{002BEE88-61B2-41B4-B484-B36D9B730799}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_102(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales )"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;set trgt.VAT_DEC_NET_SALES=&#xA;(select sum(dc.SalesNet) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo),&#xA;&#xA;trgt.VAT_DEC_NET_Table_SALES=(select sum(dc.SalesTableNet) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo)&#xA;&#xA;from [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_102] trgt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_Sales_Adjustment)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3E937FEF-4BFE-45E6-8D2D-B38F52DC9EAD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_102(Vat_DEC_Sales_Adjustment)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;set VAT_DEC_SALES_ADJUSTMENT=&#xA;(select sum(dc.SalesAdjustment) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo)&#xA;from [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_102] trgt&#xA;where (select sum(dc.SalesAdjustment) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo) is not null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_Net_Sales)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{D818A5DD-DD23-45D8-8165-D4D79D6C2F5A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_102(Vat_Net_Sales)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;  set [VAT_Net_Sales]=(select sum(case when FK_Sub_inv_type=3 then -1*Product_Total_Net else Product_Total_Net end ) as lol&#xA;  from Dim_Invoices inv --join Dim_Declarations dc on dc.Artificial_Key=inv.FK_Artificial_Key &#xA;  where FK_Inv_Type_ID=2 &#xA;  --and dc.est5las_Sales_Is_Correct=1&#xA;  and trgt.Unique_Tax_ID=Company_Unique_Tax_Id&#xA;  and CONVERT(int,inv.TaxPeriod) between _TaxPeriodFrom and _TaxPeriodTo )  &#xA;  &#xA;  FROM [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_102] trgt&#xA;  join Dim_Declarations dc on dc.UniqueTaxID=trgt.Unique_Tax_ID&#xA;  &#xA;  where --is_Motada5el=1  and&#xA;        dc.est5las_Sales_Is_Correct=1 and&#xA;   (select sum(case when FK_Sub_inv_type=3 then -1*Product_Total_Net else Product_Total_Net end ) as lol&#xA;  from Dim_Invoices inv --join Dim_Declarations dc on dc.Artificial_Key=inv.FK_Artificial_Key &#xA;  where FK_Inv_Type_ID=2 &#xA;  --and dc.est5las_Sales_Is_Correct=1&#xA;  and trgt.Unique_Tax_ID=Company_Unique_Tax_Id&#xA;  and CONVERT(int,inv.TaxPeriod) between _TaxPeriodFrom and _TaxPeriodTo )  is not null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9FE9F7C0-950A-48F2-B534-708913BDF8FC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_106(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;set trgt.VAT_DEC_NET_SALES=&#xA;(select sum(dc.SalesNet) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo),&#xA;&#xA;trgt.VAT_DEC_NET_Table_SALES=(select sum(dc.SalesTableNet) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo)&#xA;&#xA;from [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_106] trgt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_Sales_Adjustment)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A4E49838-7A1D-4FF1-BE12-8FBA97F98E82}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_106(Vat_DEC_Sales_Adjustment)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;set VAT_DEC_SALES_ADJUSTMENT=&#xA;(select sum(dc.SalesAdjustment) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo)&#xA;from [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_106] trgt&#xA;where (select sum(dc.SalesAdjustment) from Dim_Declarations dc&#xA;where trgt.Unique_Tax_ID=dc.UniqueTaxID&#xA;and dc.TaxPeriod between trgt._TaxPeriodFrom and trgt._TaxPeriodTo) is not null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_Net_Sales)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{3A664D2D-A4BD-4A7B-81BA-FAE967440C29}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_IncomeTax_106(Vat_Net_Sales)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update trgt&#xA;  set [VAT_Net_Sales]=(select sum(case when FK_Sub_inv_type=3 then -1*Product_Total_Net else Product_Total_Net end ) as lol&#xA;  from Dim_Invoices inv --join Dim_Declarations dc on dc.Artificial_Key=inv.FK_Artificial_Key &#xA;  where FK_Inv_Type_ID=2 &#xA;  --and dc.est5las_Sales_Is_Correct=1&#xA;  and trgt.Unique_Tax_ID=Company_Unique_Tax_Id&#xA;  and CONVERT(int,inv.TaxPeriod) between _TaxPeriodFrom and _TaxPeriodTo )  &#xA;  &#xA;  FROM [DWH_TAX].[dbo].[Dim_Dec_IncomeTax_106] trgt&#xA;  join Dim_Declarations dc on dc.UniqueTaxID=trgt.Unique_Tax_ID&#xA;  &#xA;  where --is_Motada5el=1  and&#xA;        dc.est5las_Sales_Is_Correct=1 and&#xA;   (select sum(case when FK_Sub_inv_type=3 then -1*Product_Total_Net else Product_Total_Net end ) as lol&#xA;  from Dim_Invoices inv --join Dim_Declarations dc on dc.Artificial_Key=inv.FK_Artificial_Key &#xA;  where FK_Inv_Type_ID=2 &#xA;  --and dc.est5las_Sales_Is_Correct=1&#xA;  and trgt.Unique_Tax_ID=Company_Unique_Tax_Id&#xA;  and CONVERT(int,inv.TaxPeriod) between _TaxPeriodFrom and _TaxPeriodTo )  is not null&#xA;&#xA;  --update Dim_Dec_IncomeTax_106&#xA;  --set VAT_Net_Sales=null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5701FA08-0A26-4437-8A85-32BB6861E698}"
+          DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_Net_Sales)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_Sales_Adjustment)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3E7546FE-2450-4FE7-BFD3-7665DB12659E}"
+          DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_Net_Sales)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_Net_Sales)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{4F1E52DD-CE56-44C3-A1E1-824394EAD678}"
+          DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_Sales_Adjustment)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_Sales_Adjustment)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{9A08974A-CB73-4823-9F97-BDB194CD3938}"
+          DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_Sales_Adjustment)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales )" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{8BC0899A-F138-4A79-A793-2E5E7BA9440A}"
+          DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales )"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales)" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update_Registered_TaxPayers"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{42C064A7-449D-4740-A694-34CCBC39A8B9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_Registered_TaxPayers">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_Registered_TaxPayers\Set them with Null at first"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{796EBDC6-864D-4EBC-8944-C9BEBF389C3F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set them with Null at first"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="update lol&#xA;set is_not_sending_Declarations=null&#xA;,is_Dummy_Company=null&#xA;,is_sent_Zero_or_NoValue_Dec_3times=null&#xA;from Dim_Registered_TaxPayers lol" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is Dummy_Company)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ced673a9-b0fc-4bcf-a203-799fad4e4747}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Dim_Registered_Tax_Payers(is Dummy_Company)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="with is_Dummy_Company  as (&#xA;select tp.Unique_Tax_Id,1 as flag&#xA;from Dim_Registered_TaxPayers tp join Dim_Dummy_Companies dc&#xA;on tp.Unique_Tax_Id = dc.Unique_Tax_ID&#xA;&#xA;)&#xA;&#xA;&#xA;&#xA;update tpr&#xA;set tpr.is_Dummy_Company= cte.flag&#xA;from Dim_Registered_TaxPayers tpr join is_Dummy_Company cte&#xA;on tpr.Unique_Tax_Id = cte.Unique_Tax_Id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is not sending declarations)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9cac44ae-7bfc-47f8-af99-68c06e4d4323}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Dim_Registered_Tax_Payers(is not sending declarations)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="with is_not_sending_Declarations  as (&#xA;select tp.Unique_Tax_Id,1 as flag&#xA;from Dim_Registered_TaxPayers tp left join Dim_Declarations dc&#xA;on tp.Unique_Tax_Id = dc.UniqueTaxID&#xA;where dc.UniqueTaxID is null&#xA;)&#xA;&#xA;&#xA;&#xA;update tpr&#xA;set tpr.is_not_sending_Declarations= cte.flag&#xA;from Dim_Registered_TaxPayers tpr join is_not_sending_Declarations cte&#xA;on tpr.Unique_Tax_Id = cte.Unique_Tax_Id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is sent Zero or NoValue Dec 3times)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d753de4f-5846-48a9-bb56-6a209acc2009}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Dim_Registered_Tax_Payers(is sent Zero or NoValue Dec 3times)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;convert(datetime,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0  &#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9C20E5C6-3A27-4B17-983D-6C5D52AB9B13}"
+          DTS:From="Package\Update_Registered_TaxPayers\Set them with Null at first"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is not sending declarations)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{413e82a2-d3ac-4630-9c39-ce523d58cdbf}"
+          DTS:From="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is not sending declarations)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is Dummy_Company)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{47b27f9b-c385-4ada-a06e-7da4a174d9b0}"
+          DTS:From="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is Dummy_Company)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is sent Zero or NoValue Dec 3times)" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E8D44B4C-FBE7-44EB-9EAE-CD4D2A9E58A8}"
+      DTS:From="Package\Update_Registered_TaxPayers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{BD7917C0-3032-46F0-B54B-26EDC09A3D16}"
+      DTS:From="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{12BB004F-27F4-4D93-8E74-C06D13E352C6}"
+      DTS:From="Package\The Rest Sent Invoices TASK"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Cleanse the Declarations' json_Dims" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0DEECA76-32AF-48CB-9F3C-982E5AF7F964}"
+      DTS:From="Package\Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{4FA03CF4-B0CB-4FD3-9E25-7F11A53FB17A}"
+      DTS:From="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\The Rest Sent Invoices TASK" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{09EF10D9-D7A9-4FF5-83E2-6694A28BB28A}"
+      DTS:From="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C8F9C5E-D679-4D35-8E49-C49EF0C292AE}"
+      DTS:From="Package\DWH Index's Creations"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Update_Registered_TaxPayers" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="304,41.6"
+          Id="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Purchases_Details_Jason"
+          TopLeft="5.5,3.48235489736351" />
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\Cleanse the Declarations' json_Dims\Delete Dim_NonTable_Sales_Details_Jason"
+          TopLeft="12.4714286492795,68.2352963312273" />
+        <NodeLayout
+          Size="284.8,41.6"
+          Id="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Purchases_Details_Jason"
+          TopLeft="17.614285879719,199.435296477084" />
+        <NodeLayout
+          Size="262.4,41.6"
+          Id="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Sales_Details_Jason"
+          TopLeft="35.3285718956772,131.200002479553" />
+        <NodeLayout
+          Size="255.2,41.6"
+          Id="Package\Cleanse the Declarations' json_Dims\Delete Dim_Table_Tax_Details_Jason"
+          TopLeft="23.3285716913184,255.200002041985" />
+        <EdgeLayout
+          Id="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 11]"
+          TopLeft="155.18571432464,45.0823548973635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.1529414338638"
+              Start="0,0"
+              End="0,15.6529414338638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6529414338638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 12]"
+          TopLeft="152.87142864928,109.835296331227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.542856753602,42.1647061483256"
+              Start="0,0"
+              End="-110.042856753602,42.1647061483256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.1647061483256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.1647061483256"
+                    Point2="0,42.1647061483256"
+                    Point3="-4,42.1647061483256" />
+                  <mssgle:LineSegment
+                    End="-110.042856753602,42.1647061483256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 13]"
+          TopLeft="163.271428887698,172.800002479553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.6352939975304"
+              Start="0,0"
+              End="0,19.1352939975304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1352939975304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleanse the Declarations' json_Dims.PrecedenceConstraints[Constraint 14]"
+          TopLeft="160.014285879719,241.035296477084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.514285811599,34.9647055649012"
+              Start="0,0"
+              End="111.014285811599,34.9647055649012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.9647055649012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.9647055649012"
+                    Point2="0,34.9647055649012"
+                    Point3="4,34.9647055649012" />
+                  <mssgle:LineSegment
+                    End="111.014285811599,34.9647055649012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="314.4,352"
+          Size="272.8,43.2"
+          Id="Package\Cleanse the Declarations' json_Dims"
+          TopLeft="234.971432532097,630.352937641605" />
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_102"
+          TopLeft="17.8285755060157,12.2352966229396" />
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)\Delete from Dim_Dec_Income_106"
+          TopLeft="29.2571471292145,99.7176507910232" />
+        <EdgeLayout
+          Id="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint]"
+          TopLeft="139.828575506016,53.8352966229396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.4285716231988,45.8823541680835"
+              Start="0,0"
+              End="11.4285716231988,38.3823541680835">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9411770840418" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9411770840418"
+                    Point2="0,22.9411770840418"
+                    Point3="4,22.9411770840418" />
+                  <mssgle:LineSegment
+                    End="7.42857162319882,22.9411770840418" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.42857162319882,22.9411770840418"
+                    Point2="11.4285716231988,22.9411770840418"
+                    Point3="11.4285716231988,26.9411770840418" />
+                  <mssgle:LineSegment
+                    End="11.4285716231988,38.3823541680835" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="398.4,192.8"
+          Size="398.4,43.2"
+          Id="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)"
+          TopLeft="221.714289490057,305.364707315175" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\DWH Index's Creations"
+          TopLeft="476.571436687392,45.7411767194016" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Backup_Declarations"
+          TopLeft="114.376192698187,213.954902438391" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Backup_Declarations_SCD"
+          TopLeft="103.138097268709,158.378432304883" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations"
+          TopLeft="107.519049724267,333.343135244375" />
+        <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Delete_Dim_Declarations_SCD"
+          TopLeft="63.7095251686715,273.280393163556" />
+        <NodeLayout
+          Size="403.2,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Fill_All_Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          TopLeft="3.78571425652012,56.2764713003562" />
+        <NodeLayout
+          Size="412.8,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Truncate Declarations_with no Invoices_The_Rest(Declarations_Finalll)"
+          TopLeft="29.8285758466138,2.96471081571997" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\The Rest Sent Invoices TASK\Truncate_Declarations_Backups"
+          TopLeft="21.5000002724783,105.076469258371" />
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint]"
+          TopLeft="29.8285758466138,23.76471081572">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175.557138409906,32.5117604846362"
+              Start="0,0"
+              End="175.557138409906,25.0117604846362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="171.557138409906,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171.557138409906,0"
+                    Point2="175.557138409906,0"
+                    Point3="175.557138409906,4" />
+                  <mssgle:LineSegment
+                    End="175.557138409906,25.0117604846362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 10]"
+          TopLeft="304.738097268709,179.178432304883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.3619045705215,55.5764701335074"
+              Start="0,0"
+              End="-6.86190457052152,55.5764701335074">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,51.5764701335074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,51.5764701335074"
+                    Point2="22.5,55.5764701335074"
+                    Point3="18.5,55.5764701335074" />
+                  <mssgle:LineSegment
+                    End="-6.86190457052152,55.5764701335074" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 4]"
+          TopLeft="205.38571425652,97.8764713003562">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.1142860159582,22.3999979580144"
+              Start="0,0"
+              End="36.6142860159582,22.3999979580144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3999979580144" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.3999979580144"
+                    Point2="0,22.3999979580144"
+                    Point3="4,22.3999979580144" />
+                  <mssgle:LineSegment
+                    End="36.6142860159582,22.3999979580144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 7]"
+          TopLeft="114.376192698187,234.754902438391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.1333324704842,38.525490725165"
+              Start="0,0"
+              End="60.1333324704842,31.025490725165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.1333324704842,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.1333324704842,0"
+                    Point2="60.1333324704842,0"
+                    Point3="60.1333324704842,4" />
+                  <mssgle:LineSegment
+                    End="60.1333324704842,31.025490725165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 8]"
+          TopLeft="174.509525168672,314.880393163556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.9904754444045,39.2627420808196"
+              Start="0,0"
+              End="-59.4904754444045,39.2627420808196">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.2627420808196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.2627420808196"
+                    Point2="0,39.2627420808196"
+                    Point3="-4,39.2627420808196" />
+                  <mssgle:LineSegment
+                    End="-59.4904754444045,39.2627420808196" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\The Rest Sent Invoices TASK.PrecedenceConstraints[Constraint 9]"
+          TopLeft="249.500000272478,125.876469258371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.5619030037695,32.5019630465127"
+              Start="0,0"
+              End="-45.5619030037695,25.0019630465127">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-41.5619030037695,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.5619030037695,0"
+                    Point2="-45.5619030037695,0"
+                    Point3="-45.5619030037695,4" />
+                  <mssgle:LineSegment
+                    End="-45.5619030037695,25.0019630465127" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="521.6,429.6"
+          Size="238.4,43.2"
+          Id="Package\The Rest Sent Invoices TASK"
+          TopLeft="185.14286029582,544.235291080408" />
+        <NodeLayout
+          Size="356,41.6"
+          Id="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update NonTable_Declarations (SalesNet &amp; SalesTableNet)"
+          TopLeft="6.07142858116026,5.5" />
+        <NodeLayout
+          Size="336.8,41.6"
+          Id="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)\Update Table_Declarations (SalesNet &amp; SalesTableNet)"
+          TopLeft="5.5,68.8882406822133" />
+        <EdgeLayout
+          Id="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet).PrecedenceConstraints[Constraint 5]"
+          TopLeft="362.07142858116,26.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.7714285811603,63.3882406822133"
+              Start="0,0"
+              End="-12.2714285811603,63.3882406822133">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,59.3882406822133" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,59.3882406822133"
+                    Point2="22.5,63.3882406822133"
+                    Point3="18.5,63.3882406822133" />
+                  <mssgle:LineSegment
+                    End="-12.2714285811603,63.3882406822133" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="389.6,165.6"
+          Size="353.6,43.2"
+          Id="Package\Update Dim_Declarations (SalesNet &amp; SalesTableNet)"
+          TopLeft="76.0000012942723,231.71764758219" />
+        <NodeLayout
+          Size="408.8,41.6"
+          Id="Package\Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table)"
+          TopLeft="58.8571438594741,143.623527678652" />
+        <NodeLayout
+          Size="417.6,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales )"
+          TopLeft="5.5,241.929417401614" />
+        <NodeLayout
+          Size="332,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_DEC_Sales_Adjustment)"
+          TopLeft="15.5428620669306,127.529415797197" />
+        <NodeLayout
+          Size="269.6,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_102(Vat_Net_Sales)"
+          TopLeft="80.914288672622,3.29412136209811" />
+        <NodeLayout
+          Size="414.4,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_NET_Sales &amp; Vat_DEC_Table_Sales)"
+          TopLeft="25.8285765278094,311.670594850296" />
+        <NodeLayout
+          Size="332,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_DEC_Sales_Adjustment)"
+          TopLeft="14.4000049046108,183.811769527713" />
+        <NodeLayout
+          Size="269.6,41.6"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)\Update_IncomeTax_106(Vat_Net_Sales)"
+          TopLeft="95.2000032016211,70.6823578144861" />
+        <EdgeLayout
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint]"
+          TopLeft="95.2000032016211,91.4823578144861">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.3428588653095,36.0470579827113"
+              Start="0,0"
+              End="86.3428588653095,28.5470579827113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="82.3428588653095,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.3428588653095,0"
+                    Point2="86.3428588653095,0"
+                    Point3="86.3428588653095,4" />
+                  <mssgle:LineSegment
+                    End="86.3428588653095,28.5470579827113" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 1]"
+          TopLeft="215.714288672622,44.8941213620981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.2857145289991,25.788236452388"
+              Start="0,0"
+              End="14.2857145289991,18.288236452388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.89411822619401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.89411822619401"
+                    Point2="0,12.894118226194"
+                    Point3="4,12.894118226194" />
+                  <mssgle:LineSegment
+                    End="10.2857145289991,12.894118226194" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.2857145289991,12.894118226194"
+                    Point2="14.2857145289991,12.894118226194"
+                    Point3="14.2857145289991,16.894118226194" />
+                  <mssgle:LineSegment
+                    End="14.2857145289991,18.288236452388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 11]"
+          TopLeft="347.542862066931,148.329415797197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1.14285716231979,50.6823537305152"
+              Start="0,0"
+              End="6.35714283768021,50.6823537305152">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,46.6823537305152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,46.6823537305152"
+                    Point2="22.5,50.6823537305152"
+                    Point3="18.5,50.6823537305152" />
+                  <mssgle:LineSegment
+                    End="6.35714283768021,50.6823537305152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 4]"
+          TopLeft="346.400004904611,210.211769527713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-132.100004904611,31.717647873901"
+              Start="0,0"
+              End="-132.100004904611,24.217647873901">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-128.100004904611,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-128.100004904611,0"
+                    Point2="-132.100004904611,0"
+                    Point3="-132.100004904611,4" />
+                  <mssgle:LineSegment
+                    End="-132.100004904611,24.217647873901" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106).PrecedenceConstraints[Constraint 5]"
+          TopLeft="214.3,283.529417401614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.7285765278093,28.141177448682"
+              Start="0,0"
+              End="18.7285765278093,20.641177448682">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.070588724341" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.070588724341"
+                    Point2="0,14.070588724341"
+                    Point3="4,14.070588724341" />
+                  <mssgle:LineSegment
+                    End="14.7285765278093,14.070588724341" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.7285765278093,14.070588724341"
+                    Point2="18.7285765278093,14.070588724341"
+                    Point3="18.7285765278093,18.070588724341" />
+                  <mssgle:LineSegment
+                    End="18.7285765278093,20.641177448682" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="452,408"
+          Size="312,43.2"
+          Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)"
+          TopLeft="217.714289421938,416.564708190311" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Update_Registered_TaxPayers\Set them with Null at first"
+          TopLeft="106.057146107421,28.6117647144621" />
+        <NodeLayout
+          Size="354.4,41.6"
+          Id="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is Dummy_Company)"
+          TopLeft="49.490477130364,164.909807939761" />
+        <NodeLayout
+          Size="383.2,41.6"
+          Id="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is not sending declarations)"
+          TopLeft="15.547619218728,99.4823566476368" />
+        <NodeLayout
+          Size="423.2,41.6"
+          Id="Package\Update_Registered_TaxPayers\Update Dim_Registered_Tax_Payers(is sent Zero or NoValue Dec 3times)"
+          TopLeft="5.5,219.443141005692" />
+        <EdgeLayout
+          Id="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint]"
+          TopLeft="206.402382663074,70.2117647144621">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.2705919331747"
+              Start="0,0"
+              End="0,21.7705919331747">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7705919331747" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint 5]"
+          TopLeft="207.147619218728,141.082356647637">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.542857911636,23.8274512921241"
+              Start="0,0"
+              End="19.542857911636,16.3274512921241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.91372564606203" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.91372564606203"
+                    Point2="0,11.913725646062"
+                    Point3="4,11.913725646062" />
+                  <mssgle:LineSegment
+                    End="15.542857911636,11.913725646062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.542857911636,11.913725646062"
+                    Point2="19.542857911636,11.913725646062"
+                    Point3="19.542857911636,15.913725646062" />
+                  <mssgle:LineSegment
+                    End="19.542857911636,16.3274512921241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Registered_TaxPayers.PrecedenceConstraints[Constraint 6]"
+          TopLeft="49.490477130364,185.709807939761">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.609522869636,33.7333330659305"
+              Start="0,0"
+              End="167.609522869636,26.2333330659305">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="163.609522869636,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.609522869636,0"
+                    Point2="167.609522869636,0"
+                    Point3="167.609522869636,4" />
+                  <mssgle:LineSegment
+                    End="167.609522869636,26.2333330659305" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.2"
+          IsExpanded="False"
+          PanelSize="433.6,316"
+          Size="245.6,43.2"
+          Id="Package\Update_Registered_TaxPayers"
+          TopLeft="30.8571433826364,28" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="153.657143382636,71.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.600000476838,72.423527678652"
+              Start="0,0"
+              End="109.600000476838,64.923527678652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.211763839326" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.211763839326"
+                    Point2="0,36.211763839326"
+                    Point3="4,36.211763839326" />
+                  <mssgle:LineSegment
+                    End="105.600000476838,36.211763839326" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.600000476838,36.211763839326"
+                    Point2="109.600000476838,36.211763839326"
+                    Point3="109.600000476838,40.211763839326" />
+                  <mssgle:LineSegment
+                    End="109.600000476838,64.923527678652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="252.800001294272,274.91764758219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="168.114288195785,30.447059732985"
+              Start="0,0"
+              End="168.114288195785,22.947059732985">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.2235298664925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2235298664925"
+                    Point2="0,15.2235298664925"
+                    Point3="4,15.2235298664925" />
+                  <mssgle:LineSegment
+                    End="164.114288195785,15.2235298664925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="164.114288195785,15.2235298664925"
+                    Point2="168.114288195785,15.2235298664925"
+                    Point3="168.114288195785,19.2235298664925" />
+                  <mssgle:LineSegment
+                    End="168.114288195785,22.947059732985" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="304.34286029582,587.435291080408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.0285722362771,42.9176465611969"
+              Start="0,0"
+              End="67.0285722362771,35.4176465611969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4588232805984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4588232805984"
+                    Point2="0,21.4588232805984"
+                    Point3="4,21.4588232805984" />
+                  <mssgle:LineSegment
+                    End="63.0285722362771,21.4588232805984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.0285722362771,21.4588232805984"
+                    Point2="67.0285722362771,21.4588232805984"
+                    Point3="67.0285722362771,25.4588232805984" />
+                  <mssgle:LineSegment
+                    End="67.0285722362771,35.4176465611969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="263.257143859474,185.223527678652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.4571425652018,46.494119903538"
+              Start="0,0"
+              End="-10.4571425652018,38.994119903538">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.247059951769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.247059951769"
+                    Point2="0,23.247059951769"
+                    Point3="-4,23.247059951769" />
+                  <mssgle:LineSegment
+                    End="-6.45714256520182,23.247059951769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.45714256520182,23.247059951769"
+                    Point2="-10.4571425652018,23.247059951769"
+                    Point3="-10.4571425652018,27.247059951769" />
+                  <mssgle:LineSegment
+                    End="-10.4571425652018,38.994119903538" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="373.714289421938,459.764708190311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.371429126118,84.4705828900971"
+              Start="0,0"
+              End="-69.371429126118,76.9705828900971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2352914450485" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.2352914450485"
+                    Point2="0,42.2352914450485"
+                    Point3="-4,42.2352914450485" />
+                  <mssgle:LineSegment
+                    End="-65.371429126118,42.2352914450485" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-65.371429126118,42.2352914450485"
+                    Point2="-69.371429126118,42.2352914450485"
+                    Point3="-69.371429126118,46.2352914450485" />
+                  <mssgle:LineSegment
+                    End="-69.371429126118,76.9705828900971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="420.914289490057,348.564707315175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.200000068119,68.000000875136"
+              Start="0,0"
+              End="-47.200000068119,60.500000875136">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.000000437568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.000000437568"
+                    Point2="0,34.000000437568"
+                    Point3="-4,34.000000437568" />
+                  <mssgle:LineSegment
+                    End="-43.200000068119,34.000000437568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.200000068119,34.000000437568"
+                    Point2="-47.200000068119,34.000000437568"
+                    Point3="-47.200000068119,38.000000437568" />
+                  <mssgle:LineSegment
+                    End="-47.200000068119,60.500000875136" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="476.571436687392,66.5411767194016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.114293304756,-16.9411767194016"
+              Start="0,0"
+              End="-192.614293304756,-16.9411767194016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-96.0571466523778,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-96.0571466523778,0"
+                    Point2="-100.057146652378,0"
+                    Point3="-100.057146652378,-4" />
+                  <mssgle:LineSegment
+                    End="-100.057146652378,-12.9411767194016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.057146652378,-12.9411767194016"
+                    Point2="-100.057146652378,-16.9411767194016"
+                    Point3="-104.057146652378,-16.9411767194016" />
+                  <mssgle:LineSegment
+                    End="-192.614293304756,-16.9411767194016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
