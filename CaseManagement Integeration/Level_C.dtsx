@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/17/2021 11:33:26 AM"
@@ -7,12 +7,12 @@
   DTS:CreatorName="CLOUD\Excel_admin3"
   DTS:DTSID="{F0CD83F8-B846-46F8-9D22-93FD453A4F73}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LastModifiedProductVersion="15.0.2000.68"
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{86F3B250-E9B2-45EF-A3BF-A47EAEC29107}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{BC5D7FDF-6C28-4840-93C6-45588542CA8E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -57,7 +57,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -182,7 +182,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -335,7 +335,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -460,7 +460,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -622,7 +622,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -779,7 +779,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -988,7 +988,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1145,7 +1145,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Payment_ID,rin,taxyrmo,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Payment_ID,rin,taxyrmo,
   case when vat is null then 0 else vat end as Tax_vat_Value,
   case when goods is null then 0 else goods end as Tax_Table_Value from(
   select cons.rin,sum(cons.vat) as vat,sum(cons.goods) as goods,cons.taxyrmo 
@@ -1413,7 +1413,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1538,7 +1538,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1691,7 +1691,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1816,7 +1816,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1969,7 +1969,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2094,7 +2094,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2268,7 +2268,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2393,7 +2393,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2555,7 +2555,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select b.DeclarationYear,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select b.DeclarationYear,
  b.NetDeclarationData
 ,b.TaxPayerID,a.DeclarationType,a.CreationDate,
 a.DeclarationNum from
@@ -2757,7 +2757,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4482,7 +4482,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select b.DeclarationData,b.DeclarationYear,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select b.DeclarationData,b.DeclarationYear,
 b.TaxPayerID,a.DeclarationType,a.CreationDate
 ,a.DeclarationNum from
 tblDeclarations a join [tblDeclarationProfit] b
@@ -4683,7 +4683,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -10756,7 +10756,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -10912,6 +10912,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           cachedName="DistrictName"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[DistrictName]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[DistrictName]" />
+                        <inputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].Columns[Artificial_Key]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="Artificial_Key"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11009,6 +11017,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="VAT_DEC_NET_Table_SALES"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -11062,7 +11076,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11252,6 +11266,17 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[DistrictName]"
                           name="DistrictName"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].ExternalColumns[Artificial_Key]"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]"
+                          name="Artificial_Key"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11338,6 +11363,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="wstr"
                           length="1000"
                           name="DistrictName" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -11440,6 +11471,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[is_Motada5el]"
                           name="is_Motada5el" />
                         <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[Artificial_Key]"
+                          name="Artificial_Key" />
+                        <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -11506,7 +11544,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -11685,11 +11723,18 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Unique_Tax_ID]" />
                         <inputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].Columns[VAT_Net_Sales]"
-                          cachedDataType="numeric"
+                          cachedDataType="i4"
                           cachedName="VAT_Net_Sales"
-                          cachedPrecision="18"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[VAT_Net_Sales]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]" />
+                        <inputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].Columns[Artifical_Key]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="Artifical_Key"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11807,6 +11852,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="VAT_DEC_NET_Table_SALES"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -11860,7 +11911,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -12023,13 +12074,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]"
-                          dataType="numeric"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[VAT_Net_Sales]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]"
                           name="VAT_Net_Sales"
-                          precision="18"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[is_Motada5el]"
@@ -12089,6 +12139,17 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[SalesWaste_705_13]"
                           name="SalesWaste_705_13"
                           precision="18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[Artifical_Key]"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]"
+                          name="Artifical_Key"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -12195,6 +12256,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="SalesWaste_705_13"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          name="Artifical_Key" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -12319,6 +12386,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="i4"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[is_Motada5el]"
                           name="is_Motada5el" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[Artifical_Key]"
+                          name="Artifical_Key" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -12490,11 +12564,11 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\Dim_Invoice_Types"
           TopLeft="104.285716061689,2.29411767923299" />
         <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\Dim_ItemTypes"
           TopLeft="85.7142871739913,185.117649150143" />
         <NodeLayout
@@ -12505,6 +12579,10 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Size="148.8,41.6"
           Id="Package\DIM_Payments\STG_Payments"
           TopLeft="50.4571513866892,69.9294141927806" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\DIM_Payments\Truncate STG &amp; DWH Payments"
+          TopLeft="42.0571447450288,5.5" />
         <EdgeLayout
           Id="Package\DIM_Payments.PrecedenceConstraints[Constraint]"
           TopLeft="126.642865702814,111.529414192781">
@@ -12524,13 +12602,11 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="229.6,41.6"
-          Id="Package\DIM_Payments\Truncate STG &amp; DWH Payments"
-          TopLeft="42.0571447450288,5.5" />
         <EdgeLayout
           Id="Package\DIM_Payments.PrecedenceConstraints[Constraint 1]"
           TopLeft="156.857144745029,47.1">
@@ -12562,42 +12638,44 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="280.8,237.6"
-          Size="280.8,43.2"
+          Size="281,43"
           Id="Package\DIM_Payments"
           TopLeft="69.0000011750631,365.305886185953" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\Dim_ProductTypes"
           TopLeft="72.8571440978929,307.070590948646" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\Dim_SectionTypes"
           TopLeft="85.0000014475413,125.411766464735" />
         <NodeLayout
-          Size="194.4,41.6"
+          Size="194,42"
           Id="Package\Dim_Sub_Invoice_Types"
           TopLeft="95.0000016178403,58.8823537669793" />
         <NodeLayout
-          Size="148,41.6"
+          Size="148,42"
           Id="Package\Dim_TaxTypes"
           TopLeft="86.4285729004413,247.070590219366" />
         <NodeLayout
-          Size="144,41.6"
+          Size="144,42"
           Id="Package\Income_Declarations_Flatteining\102_transfere"
           TopLeft="36.600002179827,76.7647071693189" />
         <NodeLayout
-          Size="140.8,41.6"
+          Size="141,42"
           Id="Package\Income_Declarations_Flatteining\106_Trasfere"
           TopLeft="28.4571450175072,137.447059732986" />
         <NodeLayout
-          Size="204,41.6"
+          Size="204,42"
           Id="Package\Income_Declarations_Flatteining\Truncate_namazeg el Da5l"
           TopLeft="39.3142874464697,8.6117667564472" />
         <EdgeLayout
@@ -12631,9 +12709,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12667,28 +12743,26 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
-          PanelSize="256,236.8"
-          Size="256,43.2"
+          IsExpanded="True"
+          PanelSize="256,237"
+          Size="256,280"
           Id="Package\Income_Declarations_Flatteining"
           TopLeft="98.8571445406701,431.905885347281" />
         <NodeLayout
-          Size="271.2,41.6"
+          Size="271,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)"
           TopLeft="5.5,74.517649624175" />
         <NodeLayout
-          Size="270.4,41.6"
+          Size="270,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)"
           TopLeft="11.5,145.517649624175" />
         <NodeLayout
-          Size="244,41.6"
+          Size="244,42"
           Id="Package\Namazeg el Da5l STG to DWH\Truncate_Namazeg el Da5l in DWH"
           TopLeft="11.7714362786741,6.72941288007581" />
         <EdgeLayout
@@ -12737,13 +12811,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
-          PanelSize="313.6,242.4"
-          Size="313.6,43.2"
+          IsExpanded="True"
+          PanelSize="314,242"
+          Size="314,285"
           Id="Package\Namazeg el Da5l STG to DWH"
           TopLeft="318.857148287249,495.132029497528" />
         <NodeLayout
-          Size="190.4,41.6"
+          Size="190,42"
           Id="Package\Truncate_Level_C_LKPs"
           TopLeft="439.285721766706,52.764706622358" />
         <EdgeLayout
@@ -12980,30 +13054,30 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="209.400001175063,408.505886185953">
+          TopLeft="209.500001175063,408.305886185953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.457143365607,23.399999161328"
+              EndConnector="17.357143365607,23.599999161328"
               Start="0,0"
-              End="17.457143365607,15.899999161328">
+              End="17.357143365607,16.099999161328">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.69999958066401" />
+                    End="0,7.79999958066401" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.69999958066401"
-                    Point2="0,11.699999580664"
-                    Point3="4,11.699999580664" />
+                    Point1="0,7.79999958066401"
+                    Point2="0,11.799999580664"
+                    Point3="4,11.799999580664" />
                   <mssgle:LineSegment
-                    End="13.457143365607,11.699999580664" />
+                    End="13.357143365607,11.799999580664" />
                   <mssgle:CubicBezierSegment
-                    Point1="13.457143365607,11.699999580664"
-                    Point2="17.457143365607,11.699999580664"
-                    Point3="17.457143365607,15.699999580664" />
+                    Point1="13.357143365607,11.799999580664"
+                    Point2="17.357143365607,11.799999580664"
+                    Point3="17.357143365607,15.799999580664" />
                   <mssgle:LineSegment
-                    End="17.457143365607,15.899999161328" />
+                    End="17.357143365607,16.099999161328" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13014,24 +13088,24 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="354.85714454067,453.505885347281">
+          TopLeft="354.85714454067,571.905885347281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="120.800003746579,41.6261441502469"
+              EndConnector="121.000003746579,-76.773855849753"
               Start="0,0"
-              End="120.800003746579,34.1261441502469">
+              End="121.000003746579,-69.273855849753">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="116.800003746579,0" />
+                    End="117.000003746579,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="116.800003746579,0"
-                    Point2="120.800003746579,0"
-                    Point3="120.800003746579,4" />
+                    Point1="117.000003746579,0"
+                    Point2="121.000003746579,0"
+                    Point3="121.000003746579,-4" />
                   <mssgle:LineSegment
-                    End="120.800003746579,34.1261441502469" />
+                    End="121.000003746579,-69.273855849753" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13643,17 +13717,17 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Income_Declarations_Flatteining\102_transfere">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182.4,41.6"
+          Size="182,42"
           Id="Package\Income_Declarations_Flatteining\102_transfere\XML Parser Transform"
           TopLeft="60,162" />
         <NodeLayout
-          Size="96,41.6"
+          Size="96,42"
           Id="Package\Income_Declarations_Flatteining\102_transfere\102"
           TopLeft="60,60" />
         <NodeLayout
-          Size="160,41.6"
+          Size="160,42"
           Id="Package\Income_Declarations_Flatteining\102_transfere\Income_Tax_102"
           TopLeft="68,236" />
         <EdgeLayout
@@ -13675,9 +13749,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13711,9 +13783,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13824,13 +13894,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102"
           TopLeft="164,40" />
         <NodeLayout
-          Size="202.4,41.6"
+          Size="202,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102"
           TopLeft="187,174" />
         <EdgeLayout
@@ -13864,9 +13934,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13902,13 +13970,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106"
           TopLeft="262,35" />
         <NodeLayout
-          Size="203.2,41.6"
+          Size="203,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106"
           TopLeft="313,158" />
         <EdgeLayout
@@ -13942,9 +14010,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
