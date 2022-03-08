@@ -7,12 +7,12 @@
   DTS:CreatorName="CLOUD\Excel_admin3"
   DTS:DTSID="{F0CD83F8-B846-46F8-9D22-93FD453A4F73}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.68"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{BC5D7FDF-6C28-4840-93C6-45588542CA8E}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{D05C69EC-C2C6-4471-B876-2CDBAA68536A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -57,7 +57,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -182,7 +182,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -335,7 +335,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -460,7 +460,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -622,7 +622,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -779,7 +779,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -988,7 +988,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1145,7 +1145,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Payment_ID,rin,taxyrmo,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Payment_ID,rin,taxyrmo,
   case when vat is null then 0 else vat end as Tax_vat_Value,
   case when goods is null then 0 else goods end as Tax_Table_Value from(
   select cons.rin,sum(cons.vat) as vat,sum(cons.goods) as goods,cons.taxyrmo 
@@ -1413,7 +1413,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1538,7 +1538,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1691,7 +1691,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1816,7 +1816,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1969,7 +1969,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2094,7 +2094,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2268,7 +2268,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2393,7 +2393,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2555,7 +2555,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select b.DeclarationYear,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select b.DeclarationYear,
  b.NetDeclarationData
 ,b.TaxPayerID,a.DeclarationType,a.CreationDate,
 a.DeclarationNum from
@@ -2757,7 +2757,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3323,7 +3323,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                     <output
                       refId="Package\Income_Declarations_Flatteining\102_transfere\XML Parser Transform.Outputs[XmlParserTransformOutput]"
                       errorOrTruncationOperation="Error"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       name="XmlParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
@@ -4482,7 +4482,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select b.DeclarationData,b.DeclarationYear,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select b.DeclarationData,b.DeclarationYear,
 b.TaxPayerID,a.DeclarationType,a.CreationDate
 ,a.DeclarationNum from
 tblDeclarations a join [tblDeclarationProfit] b
@@ -4683,7 +4683,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5351,7 +5351,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                     <output
                       refId="Package\Income_Declarations_Flatteining\106_Trasfere\XML Parser Transform.Outputs[XmlParserTransformOutput]"
                       errorOrTruncationOperation="Error"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       name="XmlParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
@@ -10756,7 +10756,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -11076,7 +11076,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11544,7 +11544,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -11911,7 +11911,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -12564,11 +12564,11 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Dim_Invoice_Types"
           TopLeft="104.285716061689,2.29411767923299" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\Dim_ItemTypes"
           TopLeft="85.7142871739913,185.117649150143" />
         <NodeLayout
@@ -12646,36 +12646,36 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
-          PanelSize="280.8,237.6"
-          Size="281,43"
+          PanelSize="281,237.6"
+          Size="280.8,43.2"
           Id="Package\DIM_Payments"
           TopLeft="69.0000011750631,365.305886185953" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Dim_ProductTypes"
           TopLeft="72.8571440978929,307.070590948646" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\Dim_SectionTypes"
           TopLeft="85.0000014475413,125.411766464735" />
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\Dim_Sub_Invoice_Types"
           TopLeft="95.0000016178403,58.8823537669793" />
         <NodeLayout
-          Size="148,42"
+          Size="148,41.6"
           Id="Package\Dim_TaxTypes"
           TopLeft="86.4285729004413,247.070590219366" />
         <NodeLayout
-          Size="144,42"
+          Size="144,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere"
           TopLeft="36.600002179827,76.7647071693189" />
         <NodeLayout
-          Size="141,42"
+          Size="140.8,41.6"
           Id="Package\Income_Declarations_Flatteining\106_Trasfere"
           TopLeft="28.4571450175072,137.447059732986" />
         <NodeLayout
-          Size="204,42"
+          Size="204,41.6"
           Id="Package\Income_Declarations_Flatteining\Truncate_namazeg el Da5l"
           TopLeft="39.3142874464697,8.6117667564472" />
         <EdgeLayout
@@ -12749,20 +12749,20 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="True"
-          PanelSize="256,237"
+          PanelSize="256,236.8"
           Size="256,280"
           Id="Package\Income_Declarations_Flatteining"
           TopLeft="98.8571445406701,431.905885347281" />
         <NodeLayout
-          Size="271,42"
+          Size="271.2,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)"
           TopLeft="5.5,74.517649624175" />
         <NodeLayout
-          Size="270,42"
+          Size="270.4,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)"
           TopLeft="11.5,145.517649624175" />
         <NodeLayout
-          Size="244,42"
+          Size="244,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Truncate_Namazeg el Da5l in DWH"
           TopLeft="11.7714362786741,6.72941288007581" />
         <EdgeLayout
@@ -12812,12 +12812,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="True"
-          PanelSize="314,242"
-          Size="314,285"
+          PanelSize="313.6,241.6"
+          Size="313.6,284.8"
           Id="Package\Namazeg el Da5l STG to DWH"
           TopLeft="318.857148287249,495.132029497528" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\Truncate_Level_C_LKPs"
           TopLeft="439.285721766706,52.764706622358" />
         <EdgeLayout
@@ -13719,15 +13719,15 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182,42"
+          Size="182.4,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere\XML Parser Transform"
           TopLeft="60,162" />
         <NodeLayout
-          Size="96,42"
+          Size="96,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere\102"
           TopLeft="60,60" />
         <NodeLayout
-          Size="160,42"
+          Size="160,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere\Income_Tax_102"
           TopLeft="68,236" />
         <EdgeLayout
@@ -13814,7 +13814,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Income_Declarations_Flatteining\106_Trasfere">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Income_Declarations_Flatteining\106_Trasfere\XML Parser Transform"
@@ -13846,9 +13846,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13882,9 +13880,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13972,11 +13968,11 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118,42"
+          Size="118.4,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106"
           TopLeft="262,35" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106"
           TopLeft="313,158" />
         <EdgeLayout
