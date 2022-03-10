@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{CEBDAFC2-5B5C-4459-A66D-0C73FBEEC94B}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{8F7448CE-18B4-4E5C-83D0-EFD5005803AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -17646,7 +17646,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Declaration_Jasons_Vat_to_STG\truncate_STG_Jasons"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{71470AD1-F044-4B57-97B0-7D6BDA0B816A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -17684,7 +17683,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Gamarek_Invoices_Details"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{DA48EC83-99F1-4DBD-9B2A-968629116C8E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -18482,7 +18480,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Gamarek_Invoices_Master"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{6E9D1186-183C-4291-AF75-BCA61B0E54B7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -19694,7 +19691,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened_to_DWH"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{8E359F25-9C79-42F1-B3AA-8A3C587A2A76}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -21203,7 +21199,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{F83DC66F-E03C-4283-88E9-41C2A44A1B0A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -21214,7 +21209,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{4093027C-63A3-4EEF-9047-DED55230E495}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -35483,7 +35477,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate_stg_namozag_41"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{8B939ECB-08F9-423B-8A40-FA71BEF06476}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -35561,7 +35554,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Truncate_Gamarek_Invoices"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{48CAFC7E-AE2A-4A2C-AC6C-6C95F0F95910}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -35663,7 +35655,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons"
@@ -35809,9 +35801,9 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="256.8,206.4"
-          Size="256.8,249.6"
+          Size="254.4,43.2"
           Id="Package\Declaration_Jasons_Vat_to_STG"
           TopLeft="588.328575880674,51.2000007292804" />
         <NodeLayout
@@ -35861,9 +35853,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -35872,7 +35862,7 @@ SELECT  [TaxPeriod]
           PanelSize="404,221.6"
           Size="404,43.2"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened_to_DWH"
-          TopLeft="409.714292691678,552.800002187841" />
+          TopLeft="410.285721272838,554.023531616765" />
         <NodeLayout
           Size="189.6,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
@@ -36121,11 +36111,11 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="323.2,524.8"
-          Size="323.2,568"
+          Size="323.2,43.2"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening"
-          TopLeft="409.714292691679,454.482356611172" />
+          TopLeft="410.285721272839,454.482356611172" />
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Truncate_Gamarek_Invoices"
@@ -36196,9 +36186,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="53.4571432293681,53.529410911018"
+              EndConnector="54.0285718105281,53.529410911018"
               Start="0,0"
-              End="53.4571432293681,46.029410911018">
+              End="54.0285718105281,46.029410911018">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -36209,13 +36199,13 @@ SELECT  [TaxPeriod]
                     Point2="0,26.764705455509"
                     Point3="4,26.764705455509" />
                   <mssgle:LineSegment
-                    End="49.4571432293681,26.764705455509" />
+                    End="50.0285718105281,26.764705455509" />
                   <mssgle:CubicBezierSegment
-                    Point1="49.4571432293681,26.764705455509"
-                    Point2="53.4571432293681,26.764705455509"
-                    Point3="53.4571432293681,30.764705455509" />
+                    Point1="50.0285718105281,26.764705455509"
+                    Point2="54.0285718105281,26.764705455509"
+                    Point3="54.0285718105281,30.764705455509" />
                   <mssgle:LineSegment
-                    End="53.4571432293681,46.029410911018" />
+                    End="54.0285718105281,46.029410911018" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36226,30 +36216,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="806.685726211509,204.882354715044">
+          TopLeft="806.685726211509,163.282354715044">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-89.957150330835,95.9176460142364"
+              EndConnector="-91.157150330835,-68.8823539857636"
               Start="0,0"
-              End="-89.957150330835,103.417646014236">
+              End="-91.157150330835,-61.3823539857636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,114.417646014236" />
+                    End="0,-30.4411769928818" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,114.417646014236"
-                    Point2="0,118.417646014236"
-                    Point3="-4,118.417646014236" />
+                    Point1="0,-30.4411769928818"
+                    Point2="0,-34.4411769928818"
+                    Point3="-4,-34.4411769928818" />
                   <mssgle:LineSegment
-                    End="-85.957150330835,118.417646014236" />
+                    End="-87.157150330835,-34.4411769928818" />
                   <mssgle:CubicBezierSegment
-                    Point1="-85.957150330835,118.417646014236"
-                    Point2="-89.957150330835,118.417646014236"
-                    Point3="-89.957150330835,114.417646014236" />
+                    Point1="-87.157150330835,-34.4411769928818"
+                    Point2="-91.157150330835,-34.4411769928818"
+                    Point3="-91.157150330835,-38.4411769928818" />
                   <mssgle:LineSegment
-                    End="-89.957150330835,103.417646014236" />
+                    End="-91.157150330835,-61.3823539857636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36260,24 +36250,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="732.914292691679,738.482356611172">
+          TopLeft="571.885721272839,497.682356611172">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.200000000001,-142.482354423331"
+              EndConnector="40.3999999999988,56.3411750055931"
               Start="0,0"
-              End="-121.200000000001,-134.982354423331">
+              End="40.3999999999988,48.8411750055931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-117.200000000001,0" />
+                    End="0,24.1705875027966" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.200000000001,0"
-                    Point2="-121.200000000001,0"
-                    Point3="-121.200000000001,-4" />
+                    Point1="0,24.1705875027966"
+                    Point2="0,28.1705875027966"
+                    Point3="4,28.1705875027966" />
                   <mssgle:LineSegment
-                    End="-121.200000000001,-134.982354423331" />
+                    End="36.3999999999988,28.1705875027966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.3999999999988,28.1705875027966"
+                    Point2="40.3999999999988,28.1705875027966"
+                    Point3="40.3999999999988,32.1705875027966" />
+                  <mssgle:LineSegment
+                    End="40.3999999999988,48.8411750055931" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36288,13 +36284,13 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="588.328575880674,176.00000072928">
+          TopLeft="588.328575880674,72.8000007292804">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-281.585721306899,-134.823529866492"
+              EndConnector="-281.585721306899,-31.6235298664925"
               Start="0,0"
-              End="-274.085721306899,-134.823529866492">
+              End="-274.085721306899,-31.6235298664925">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -36305,13 +36301,13 @@ SELECT  [TaxPeriod]
                     Point2="-140.792860653449,0"
                     Point3="-140.792860653449,-4" />
                   <mssgle:LineSegment
-                    End="-140.792860653449,-130.823529866492" />
+                    End="-140.792860653449,-27.6235298664925" />
                   <mssgle:CubicBezierSegment
-                    Point1="-140.792860653449,-130.823529866492"
-                    Point2="-140.792860653449,-134.823529866492"
-                    Point3="-144.792860653449,-134.823529866492" />
+                    Point1="-140.792860653449,-27.6235298664925"
+                    Point2="-140.792860653449,-31.6235298664925"
+                    Point3="-144.792860653449,-31.6235298664925" />
                   <mssgle:LineSegment
-                    End="-274.085721306899,-134.823529866492" />
+                    End="-274.085721306899,-31.6235298664925" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

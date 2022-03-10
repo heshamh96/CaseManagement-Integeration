@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Deployment_Version Does Auto Refresh when Deployed"
   DTS:PackageType="5"
-  DTS:VersionBuild="121"
-  DTS:VersionGUID="{DD280D8F-9D63-4D6E-8F9E-6888060F50CF}">
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{944A2938-B356-4432-BCA2-5413480C1321}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -522,7 +522,6 @@
       DTS:refId="Package\Post_Excution_Package"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Execute Package Task"
-      DTS:Disabled="True"
       DTS:DTSID="{60376A09-70EB-46E0-B9CB-0FA1B097E1B0}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
@@ -596,7 +595,6 @@
       DTS:refId="Package\Truncate DWH_Declarations_&amp;_Invoices"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{960bcfa8-7ee8-4748-ab5d-024fcd7cacc6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1293,9 +1291,9 @@
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="261.6,188"
-          Size="261.6,231.2"
+          Size="261.6,43.2"
           Id="Package\Set DevelopedBY to ExcelSystems"
           TopLeft="6.17142681005095,81.9764731964854" />
         <EdgeLayout
@@ -1322,24 +1320,24 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="267.771426810051,205.370589453621">
+          TopLeft="267.771426810051,103.576473196485">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.657146107421,-22.5"
+              EndConnector="72.1904794407539,37.6941162571358"
               Start="0,0"
-              End="115.657146107421,-15">
+              End="72.1904794407539,30.1941162571358">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="111.657146107421,0" />
+                    End="68.1904794407539,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="111.657146107421,0"
-                    Point2="115.657146107421,0"
-                    Point3="115.657146107421,-4" />
+                    Point1="68.1904794407539,0"
+                    Point2="72.1904794407539,0"
+                    Point3="72.1904794407539,4" />
                   <mssgle:LineSegment
-                    End="115.657146107421,-15" />
+                    End="72.1904794407539,30.1941162571358" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
