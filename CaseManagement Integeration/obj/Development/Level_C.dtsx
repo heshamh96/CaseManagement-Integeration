@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{86F3B250-E9B2-45EF-A3BF-A47EAEC29107}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{87233403-4781-4C42-843A-073FC7F26C15}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3323,7 +3323,7 @@ where a.DeclarationNum=102 and a.DeclarationType!=4</property>
                     <output
                       refId="Package\Income_Declarations_Flatteining\102_transfere\XML Parser Transform.Outputs[XmlParserTransformOutput]"
                       errorOrTruncationOperation="Error"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       name="XmlParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
@@ -5351,7 +5351,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                     <output
                       refId="Package\Income_Declarations_Flatteining\106_Trasfere\XML Parser Transform.Outputs[XmlParserTransformOutput]"
                       errorOrTruncationOperation="Error"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       name="XmlParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
@@ -10912,6 +10912,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           cachedName="DistrictName"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[DistrictName]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[DistrictName]" />
+                        <inputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].Columns[Artificial_Key]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="Artificial_Key"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11009,6 +11017,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="VAT_DEC_NET_Table_SALES"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -11252,6 +11266,17 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[DistrictName]"
                           name="DistrictName"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].ExternalColumns[Artificial_Key]"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].Columns[Artificial_Key]"
+                          name="Artificial_Key"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11338,6 +11363,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="wstr"
                           length="1000"
                           name="DistrictName" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Output].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -11439,6 +11470,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="i4"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[is_Motada5el]"
                           name="is_Motada5el" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[Artificial_Key]"
+                          name="Artificial_Key" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -11685,11 +11723,18 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Unique_Tax_ID]" />
                         <inputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].Columns[VAT_Net_Sales]"
-                          cachedDataType="numeric"
+                          cachedDataType="i4"
                           cachedName="VAT_Net_Sales"
-                          cachedPrecision="18"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[VAT_Net_Sales]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]" />
+                        <inputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].Columns[Artifical_Key]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="Artifical_Key"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11807,6 +11852,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="VAT_DEC_NET_Table_SALES"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\Dim_Dec_IncomeTax_106.Inputs[OLE DB Destination Input].ExternalColumns[Artificial_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Artificial_Key" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -12023,13 +12074,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]"
-                          dataType="numeric"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[VAT_Net_Sales]"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[VAT_Net_Sales]"
                           name="VAT_Net_Sales"
-                          precision="18"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[is_Motada5el]"
@@ -12089,6 +12139,17 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[SalesWaste_705_13]"
                           name="SalesWaste_705_13"
                           precision="18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[Artifical_Key]"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].Columns[Artifical_Key]"
+                          name="Artifical_Key"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -12195,6 +12256,12 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="numeric"
                           name="SalesWaste_705_13"
                           precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Output].ExternalColumns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          name="Artifical_Key" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -12319,6 +12386,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                           dataType="i4"
                           lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[is_Motada5el]"
                           name="is_Motada5el" />
+                        <outputColumn
+                          refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[Artifical_Key]"
+                          codePage="1256"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[Artifical_Key]"
+                          name="Artifical_Key" />
                         <outputColumn
                           refId="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -12490,7 +12564,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="169.6,41.6"
           Id="Package\Dim_Invoice_Types"
           TopLeft="104.285716061689,2.29411767923299" />
         <NodeLayout
@@ -12505,6 +12579,10 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Size="148.8,41.6"
           Id="Package\DIM_Payments\STG_Payments"
           TopLeft="50.4571513866892,69.9294141927806" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\DIM_Payments\Truncate STG &amp; DWH Payments"
+          TopLeft="42.0571447450288,5.5" />
         <EdgeLayout
           Id="Package\DIM_Payments.PrecedenceConstraints[Constraint]"
           TopLeft="126.642865702814,111.529414192781">
@@ -12524,13 +12602,11 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="229.6,41.6"
-          Id="Package\DIM_Payments\Truncate STG &amp; DWH Payments"
-          TopLeft="42.0571447450288,5.5" />
         <EdgeLayout
           Id="Package\DIM_Payments.PrecedenceConstraints[Constraint 1]"
           TopLeft="156.857144745029,47.1">
@@ -12562,13 +12638,15 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
-          PanelSize="280.8,237.6"
+          PanelSize="281,237.6"
           Size="280.8,43.2"
           Id="Package\DIM_Payments"
           TopLeft="69.0000011750631,365.305886185953" />
@@ -12581,7 +12659,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Id="Package\Dim_SectionTypes"
           TopLeft="85.0000014475413,125.411766464735" />
         <NodeLayout
-          Size="194.4,41.6"
+          Size="193.6,41.6"
           Id="Package\Dim_Sub_Invoice_Types"
           TopLeft="95.0000016178403,58.8823537669793" />
         <NodeLayout
@@ -12631,9 +12709,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12667,16 +12743,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="256,236.8"
-          Size="256,43.2"
+          Size="256,280"
           Id="Package\Income_Declarations_Flatteining"
           TopLeft="98.8571445406701,431.905885347281" />
         <NodeLayout
@@ -12737,9 +12811,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
-          PanelSize="313.6,242.4"
-          Size="313.6,43.2"
+          IsExpanded="True"
+          PanelSize="313.6,241.6"
+          Size="313.6,284.8"
           Id="Package\Namazeg el Da5l STG to DWH"
           TopLeft="318.857148287249,495.132029497528" />
         <NodeLayout
@@ -12980,30 +13054,30 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="209.400001175063,408.505886185953">
+          TopLeft="209.500001175063,408.305886185953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.457143365607,23.399999161328"
+              EndConnector="17.357143365607,23.599999161328"
               Start="0,0"
-              End="17.457143365607,15.899999161328">
+              End="17.357143365607,16.099999161328">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.69999958066401" />
+                    End="0,7.79999958066401" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.69999958066401"
-                    Point2="0,11.699999580664"
-                    Point3="4,11.699999580664" />
+                    Point1="0,7.79999958066401"
+                    Point2="0,11.799999580664"
+                    Point3="4,11.799999580664" />
                   <mssgle:LineSegment
-                    End="13.457143365607,11.699999580664" />
+                    End="13.357143365607,11.799999580664" />
                   <mssgle:CubicBezierSegment
-                    Point1="13.457143365607,11.699999580664"
-                    Point2="17.457143365607,11.699999580664"
-                    Point3="17.457143365607,15.699999580664" />
+                    Point1="13.357143365607,11.799999580664"
+                    Point2="17.357143365607,11.799999580664"
+                    Point3="17.357143365607,15.799999580664" />
                   <mssgle:LineSegment
-                    End="17.457143365607,15.899999161328" />
+                    End="17.357143365607,16.099999161328" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13014,24 +13088,24 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="354.85714454067,453.505885347281">
+          TopLeft="354.85714454067,571.905885347281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="120.800003746579,41.6261441502469"
+              EndConnector="121.000003746579,-76.773855849753"
               Start="0,0"
-              End="120.800003746579,34.1261441502469">
+              End="121.000003746579,-69.273855849753">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="116.800003746579,0" />
+                    End="117.000003746579,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="116.800003746579,0"
-                    Point2="120.800003746579,0"
-                    Point3="120.800003746579,4" />
+                    Point1="117.000003746579,0"
+                    Point2="121.000003746579,0"
+                    Point3="121.000003746579,-4" />
                   <mssgle:LineSegment
-                    End="120.800003746579,34.1261441502469" />
+                    End="121.000003746579,-69.273855849753" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13643,7 +13717,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Income_Declarations_Flatteining\102_transfere">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere\XML Parser Transform"
@@ -13675,9 +13749,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13711,9 +13783,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13744,7 +13814,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Income_Declarations_Flatteining\106_Trasfere">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Income_Declarations_Flatteining\106_Trasfere\XML Parser Transform"
@@ -13776,9 +13846,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13812,9 +13880,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13824,13 +13890,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\VW_102"
           TopLeft="164,40" />
         <NodeLayout
-          Size="202.4,41.6"
+          Size="202,42"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_102 (Stg_To_DWH)\Dim_Dec_IncomeTax_102"
           TopLeft="187,174" />
         <EdgeLayout
@@ -13864,9 +13930,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13902,7 +13966,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="118.4,41.6"
           Id="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106"
@@ -13942,9 +14006,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

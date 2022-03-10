@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>DWH_VAT_BI</Name>
-    <LastWriteTime>2022-02-22T11:32:13.6436236Z</LastWriteTime>
+    <LastWriteTime>2022-03-08T08:33:28.6522287Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,12 +18,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Level_C.dtsx</Name>
-      <LastWriteTime>2022-02-22T09:28:22.6551853Z</LastWriteTime>
+      <LastWriteTime>2022-03-08T08:46:32.6577656Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Level_C_and_D_Monthly_Loop.dtsx</Name>
-      <LastWriteTime>2022-02-22T09:28:22.8272096Z</LastWriteTime>
+      <LastWriteTime>2022-03-09T14:26:59.1847207Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -38,7 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Deployment_Version(Does Auto Refresh when Deployed).dtsx</Name>
-      <LastWriteTime>2022-02-22T09:28:23.2592374Z</LastWriteTime>
+      <LastWriteTime>2022-03-09T14:27:47.1394116Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -48,12 +48,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Post_Execution.dtsx</Name>
-      <LastWriteTime>2022-02-22T09:28:23.5562663Z</LastWriteTime>
+      <LastWriteTime>2022-03-09T09:07:28.0617002Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Transfer IBM's TaxVat Data to Excel's.dtsx</Name>
-      <LastWriteTime>2022-02-22T09:28:23.6662756Z</LastWriteTime>
+      <LastWriteTime>2022-03-09T14:26:59.126682Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

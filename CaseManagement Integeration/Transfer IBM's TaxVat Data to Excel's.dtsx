@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/23/2021 8:03:59 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Transfer IBM s TaxVat Data to Excel s"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{15A7FFC9-BE5D-4FA3-B775-F46BF783C83C}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{8361BD92-D1E9-4104-94FC-5D8BCD0BCD28}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,6 @@
       DTS:refId="Package\DDLs"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{CB878B3F-FAC8-4096-8BAD-2BFC74712710}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -117,7 +116,6 @@
           DTS:refId="Package\DDLs\SentPurchaseInvoices add Column (Developed_By)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{19715418-1732-4BF2-9DD6-6D6EE7348ECD}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -135,7 +133,6 @@
           DTS:refId="Package\DDLs\SentSalesInvoices add Column (Developed_By)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{04B64589-72C0-458E-AD0B-714D0701DE57}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -4056,14 +4053,6 @@
                           cachedName="IsAPI"
                           externalMetadataColumnId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[IsAPI]"
                           lineageId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_IBM.Outputs[OLE DB Source Output].Columns[IsAPI]" />
-                        <inputColumn
-                          refId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel.Inputs[OLE DB Destination Input].Columns[Developed_By]"
-                          cachedCodepage="1256"
-                          cachedDataType="str"
-                          cachedLength="3"
-                          cachedName="Developed_By"
-                          externalMetadataColumnId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          lineageId="Package\Invoice Details\Purchase_Invoice_Details\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -4182,12 +4171,6 @@
                           refId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDate]"
                           dataType="dbDate"
                           name="InvoiceDate" />
-                        <externalMetadataColumn
-                          refId="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          name="Developed_By" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -5122,14 +5105,6 @@
                           externalMetadataColumnId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[IsAPI]"
                           lineageId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_IBM.Outputs[OLE DB Source Output].Columns[IsAPI]" />
                         <inputColumn
-                          refId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].Columns[Developed_By]"
-                          cachedCodepage="1256"
-                          cachedDataType="str"
-                          cachedLength="3"
-                          cachedName="Developed_By"
-                          externalMetadataColumnId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          lineageId="Package\Invoice Details\Sales_Invoice_Details\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
-                        <inputColumn
                           refId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].Columns[SalesInvoicesDetails_Id]"
                           cachedDataType="guid"
                           cachedName="SalesInvoicesDetails_Id"
@@ -5251,12 +5226,6 @@
                           refId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDate]"
                           dataType="dbDate"
                           name="InvoiceDate" />
-                        <externalMetadataColumn
-                          refId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          name="Developed_By" />
                         <externalMetadataColumn
                           refId="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel.Inputs[OLE DB Destination Input].ExternalColumns[SalesInvoicesDetails_Id]"
                           dataType="guid"
@@ -9163,9 +9132,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9187,9 +9154,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9211,9 +9176,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9235,9 +9198,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9259,9 +9220,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9295,9 +9254,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9331,16 +9288,14 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="424.8,640.8"
-          Size="424.8,43.2"
+          Size="424.8,684"
           Id="Package\DDLs"
           TopLeft="143.87143191902,123.388235431394" />
         <NodeLayout
@@ -9375,11 +9330,11 @@
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="204.8,144.8"
-          Size="160,43.2"
+          Size="204.8,188"
           Id="Package\Declarations"
-          TopLeft="7.55713895486318,452.894121216243" />
+          TopLeft="6.41428179254329,452.894121216243" />
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Invoice Details\Purchase_Invoice_Details"
@@ -9580,20 +9535,20 @@
         <NodeLayout
           Size="192.8,41.6"
           Id="Package\Set DevelopedBY to ExcelSystems\Update NonTableVatTax"
-          TopLeft="28.9142893538184,12.8470607539775" />
+          TopLeft="28.9142893538184,13.4588254684396" />
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Set DevelopedBY to ExcelSystems\Update TableVatTax"
           TopLeft="26.0571464480186,74.2117673398714" />
         <EdgeLayout
           Id="Package\Set DevelopedBY to ExcelSystems.PrecedenceConstraints[Constraint]"
-          TopLeft="221.714289353818,33.6470607539775">
+          TopLeft="221.714289353818,34.2588254684396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.0571429057997,61.3647065858939"
+              EndConnector="-22.0571429057998,60.7529418714318"
               Start="0,0"
-              End="-14.5571429057997,61.3647065858939">
+              End="-14.5571429057998,60.7529418714318">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9604,21 +9559,19 @@
                     Point2="22.5,0"
                     Point3="22.5,4" />
                   <mssgle:LineSegment
-                    End="22.5,57.3647065858939" />
+                    End="22.5,56.7529418714318" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.5,57.3647065858939"
-                    Point2="22.5,61.3647065858939"
-                    Point3="18.5,61.3647065858939" />
+                    Point1="22.5,56.7529418714318"
+                    Point2="22.5,60.7529418714318"
+                    Point3="18.5,60.7529418714318" />
                   <mssgle:LineSegment
-                    End="-14.5571429057997,61.3647065858939" />
+                    End="-14.5571429057998,60.7529418714318" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -9630,18 +9583,18 @@
           TopLeft="224.214292146722,264.705884472145" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="355.642862032871,166.588235431394">
+          TopLeft="355.642862032871,807.388235431394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,98.1176490407509"
+              EndConnector="0,-542.682350959249"
               Start="0,0"
-              End="0,90.6176490407509">
+              End="0,-535.182350959249">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,90.6176490407509" />
+                    End="0,-535.182350959249" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9656,9 +9609,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-267.457153191859,144.988236744098"
+              EndConnector="-246.200010354179,144.988236744098"
               Start="0,0"
-              End="-267.457153191859,137.488236744098">
+              End="-246.200010354179,137.488236744098">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9669,13 +9622,13 @@
                     Point2="0,72.494118372049"
                     Point3="-4,72.494118372049" />
                   <mssgle:LineSegment
-                    End="-263.457153191859,72.494118372049" />
+                    End="-242.200010354179,72.494118372049" />
                   <mssgle:CubicBezierSegment
-                    Point1="-263.457153191859,72.494118372049"
-                    Point2="-267.457153191859,72.494118372049"
-                    Point3="-267.457153191859,76.494118372049" />
+                    Point1="-242.200010354179,72.494118372049"
+                    Point2="-246.200010354179,72.494118372049"
+                    Point3="-246.200010354179,76.494118372049" />
                   <mssgle:LineSegment
-                    End="-267.457153191859,137.488236744098" />
+                    End="-246.200010354179,137.488236744098" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9742,30 +9695,24 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="87.5571389548632,496.094121216243">
+          TopLeft="211.214281792543,546.894121216243">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="69.7285686940564,38.399995770174"
+              EndConnector="-95.5285741436237,30.7999957701741"
               Start="0,0"
-              End="69.7285686940564,30.899995770174">
+              End="-95.5285741436237,23.2999957701741">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.199997885087" />
+                    End="-91.5285741436237,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.199997885087"
-                    Point2="0,19.199997885087"
-                    Point3="4,19.199997885087" />
+                    Point1="-91.5285741436237,0"
+                    Point2="-95.5285741436237,0"
+                    Point3="-95.5285741436237,4" />
                   <mssgle:LineSegment
-                    End="65.7285686940564,19.199997885087" />
-                  <mssgle:CubicBezierSegment
-                    Point1="65.7285686940564,19.199997885087"
-                    Point2="69.7285686940564,19.199997885087"
-                    Point3="69.7285686940564,23.199997885087" />
-                  <mssgle:LineSegment
-                    End="69.7285686940564,30.899995770174" />
+                    End="-95.5285741436237,23.2999957701741" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
