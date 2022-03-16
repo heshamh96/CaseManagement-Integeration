@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="113"
-  DTS:VersionGUID="{8F7448CE-18B4-4E5C-83D0-EFD5005803AC}">
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{46E84627-0A90-4921-B6B3-BAAC18F2DFF0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -727,7 +727,7 @@
                         <inputColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].Columns[PurchaseTypeName]"
                           cachedDataType="wstr"
-                          cachedLength="60"
+                          cachedLength="1000"
                           cachedName="PurchaseTypeName"
                           externalMetadataColumnId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTypeName]"
                           lineageId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Purchases_Details_Jason.Outputs[OLE DB Source Output].Columns[PurchaseTypeName]" />
@@ -938,7 +938,7 @@
                         <inputColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].Columns[TaxTypeName]"
                           cachedDataType="wstr"
-                          cachedLength="50"
+                          cachedLength="1000"
                           cachedName="TaxTypeName"
                           externalMetadataColumnId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[TaxTypeName]"
                           lineageId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Sales_Details_Jason.Outputs[OLE DB Source Output].Columns[TaxTypeName]" />
@@ -1164,7 +1164,7 @@ SELECT  [TaxPeriod]
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Purchases_Details_Jason.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTypeName]"
-                          length="60"
+                          length="1000"
                           lineageId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Purchases_Details_Jason.Outputs[OLE DB Source Output].Columns[PurchaseTypeName]"
                           name="PurchaseTypeName"
                           truncationRowDisposition="FailComponent" />
@@ -1463,7 +1463,7 @@ SELECT  [TaxPeriod]
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Sales_Details_Jason.Outputs[OLE DB Source Output].ExternalColumns[TaxTypeName]"
-                          length="50"
+                          length="1000"
                           lineageId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Sales_Details_Jason.Outputs[OLE DB Source Output].Columns[TaxTypeName]"
                           name="TaxTypeName"
                           truncationRowDisposition="FailComponent" />
@@ -18942,6 +18942,10 @@ SELECT  [TaxPeriod]
                       dataType="str"
                       length="37"
                       name="FK_Artificial_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Gamarek_Invoices_Master\Dim_Gamarek_Invoices_Master.Inputs[OLE DB Destination Input].ExternalColumns[ID_Gamarek]"
+                      dataType="i4"
+                      name="ID_Gamarek" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -35655,7 +35659,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons"
@@ -35726,9 +35730,9 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="262.4,249.6"
-          Size="262.4,43.2"
+          Size="262.4,292.8"
           Id="Package\Declaration_Jasons_STG_to_DWH"
           TopLeft="44.3428545737751,19.5764708627879" />
         <NodeLayout
@@ -35853,7 +35857,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -35926,7 +35932,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35954,7 +35962,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35982,7 +35992,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36010,7 +36022,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36044,7 +36058,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36078,7 +36094,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36106,7 +36124,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -36288,26 +36308,26 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-281.585721306899,-31.6235298664925"
+              EndConnector="-281.585721306899,45.7098034668408"
               Start="0,0"
-              End="-274.085721306899,-31.6235298664925">
+              End="-274.085721306899,45.7098034668408">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-136.792860653449,0" />
+                    End="-164.03321847553,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-136.792860653449,0"
-                    Point2="-140.792860653449,0"
-                    Point3="-140.792860653449,-4" />
+                    Point1="-164.03321847553,0"
+                    Point2="-168.03321847553,0"
+                    Point3="-168.03321847553,4" />
                   <mssgle:LineSegment
-                    End="-140.792860653449,-27.6235298664925" />
+                    End="-168.03321847553,41.7098034668408" />
                   <mssgle:CubicBezierSegment
-                    Point1="-140.792860653449,-27.6235298664925"
-                    Point2="-140.792860653449,-31.6235298664925"
-                    Point3="-144.792860653449,-31.6235298664925" />
+                    Point1="-168.03321847553,41.7098034668408"
+                    Point2="-168.03321847553,45.7098034668408"
+                    Point3="-172.03321847553,45.7098034668408" />
                   <mssgle:LineSegment
-                    End="-274.085721306899,-31.6235298664925" />
+                    End="-274.085721306899,45.7098034668408" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36318,30 +36338,18 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="175.542854573775,62.7764708627879">
+          TopLeft="306.742854573775,209.621569803952">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="304.628580240328,122.223531215661"
+              EndConnector="59.8285802403279,0"
               Start="0,0"
-              End="304.628580240328,114.723531215661">
+              End="52.3285802403279,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.1117656078305" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,57.1117656078305"
-                    Point2="0,61.1117656078305"
-                    Point3="4,61.1117656078305" />
-                  <mssgle:LineSegment
-                    End="300.628580240328,61.1117656078305" />
-                  <mssgle:CubicBezierSegment
-                    Point1="300.628580240328,61.1117656078305"
-                    Point2="304.628580240328,61.1117656078305"
-                    Point3="304.628580240328,65.1117656078305" />
-                  <mssgle:LineSegment
-                    End="304.628580240328,114.723531215661" />
+                    End="52.3285802403279,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36835,20 +36843,7 @@ SELECT  [TaxPeriod]
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases">
+    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -36874,7 +36869,20 @@ SELECT  [TaxPeriod]
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales">
+    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -37270,7 +37278,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Dim_Gamarek_Invoices_Master">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\Dim_Gamarek_Invoices_Master\Gamarek_Invoices_Header"
@@ -37310,9 +37318,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
