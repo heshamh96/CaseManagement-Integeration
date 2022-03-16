@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C_and_D_Monthly_Loop"
   DTS:PackageType="5"
-  DTS:VersionBuild="252"
-  DTS:VersionGUID="{23B6C84D-3186-45A6-A7F9-FB93A4076E18}">
+  DTS:VersionBuild="262"
+  DTS:VersionGUID="{B7333D9A-A192-4E34-BEA2-B1EB9F7D2D1F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -777,11 +777,11 @@ SELECT
 ,'' as IsPaidTable               
 ,[ReconciliationValue]              
 ,10 as Namozag_Name               
-,Developed_By             
-FROM [TaxVAT].[dbo].[NonTableVatTax]
+,'Excel Systems' as Developed_By             
+FROM [TaxVAT].[dbo].[NonTableVatTax] with(nolock)
 where TaxPeriod=?
 
-union
+union all
 
 SELECT  
  [ID]                      
@@ -833,9 +833,125 @@ SELECT
 ,[IsPaidTable]                   
 ,[ReconciliationValue]                 
 ,101 as Namozag_Name                  
-,Developed_By               
-FROM [TaxVAT].[dbo].[TableVatTax]
+,'Excel Systems' as Developed_By               
+FROM [TaxVAT].[dbo].[TableVatTax] with(nolock)
 where TaxPeriod=?
+
+------------------------------------------------------------------------------------------------
+union all
+------------------------------------------------------------------------------------------------
+
+
+SELECT  
+ [ID]                   
+,[DeclarationTypeID]               
+, trim([UniqueTaxID] collate Arabic_CI_AI)+'_'+convert(nchar(8),[TaxPeriod]) as Artificial_Key
+,1 as FK_VAT_Type_ID               
+,[DocumentNum]                collate Arabic_CI_AI as [DocumentNum]
+,[LinkCodeID]                 
+,[TaxpayerID]                 
+,[UniqueTaxID]                collate Arabic_CI_AI as [UniqueTaxID]
+,[TaxPeriod]                 
+,convert(int,cast(TaxPeriod as varchar(10))+'01') as FK_TaxPeriod_ID   
+   --,'' as TableTaxDetails              collate Arabic_CI_AI
+,Null as TableTaxTotal              
+,Null as TableTaxAdjustment             
+,Null as TableTaxVat               
+--,[SalesDetails]                collate Arabic_CI_AI
+,[SalesTotal]                 
+,[SalesAdjustment]               
+,[SalesVat]                 
+--,[PurchaseDetails]               collate Arabic_CI_AI
+,[PurchaseTotal]                
+,[PurchaseAdjustment]               
+,[PurchaseVat]                
+,[RecivableTax]                
+,[DebtValue]                 
+,[TotalTaxValue]                
+,[ApplicantName]                collate Arabic_CI_AI as [ApplicantName]  
+,[NationalPassNum]               collate Arabic_CI_AI as [NationalPassNum] 
+,[IsSigned]                 collate Arabic_CI_AI as [IsSigned]   
+,[Representitive]                collate Arabic_CI_AI as [Representitive]  
+,[AuthorizationNumber]              collate Arabic_CI_AI as [AuthorizationNumber]
+,[SignedDate]                 
+,[CreationDate]                
+,[UpdatedDate]                
+,[IsDeleted]                 
+,[IsSend]                  
+,[SendDate]                 
+,convert(varchar(8),SendDate ,112) as Fk_Send_Date_ID       
+,[IsPaid]                  
+,[IsReplicated]                
+,[PaymentDate]                
+,[PaymentMethod]                
+,[PersonalizeTypeID]               
+,[ReconciliationType]               
+,[AcceptanceDate]                
+,[RejectionDate]                
+,[RecoPaymentDate]               
+,'' as IsPaidTable               
+,[ReconciliationValue]              
+,10 as Namozag_Name               
+,'IBM' as Developed_By             
+FROM Coexistence_GTA.[dbo].[NonTableVatTax] with(nolock)
+where TaxPeriod=?
+
+union all
+
+SELECT  
+ [ID]                      
+,[DeclarationTypeID]                  
+, trim([UniqueTaxID] collate Arabic_CI_AI)+'_'+convert(nchar(8),[TaxPeriod] ) as Artificial_Key     
+,2 as FK_VAT_Type_ID                  
+,[DocumentNum]                   collate Arabic_CI_AI 
+,[LinkCodeID]                    
+,[TaxpayerID]                    
+,[UniqueTaxID]                   collate Arabic_CI_AI
+,[TaxPeriod]                    
+,convert(int,cast(TaxPeriod as varchar(10))+'01') as FK_TaxPeriod_ID 
+--,[TableTaxDetails]                  collate Arabic_CI_AI
+,[TableTaxTotal]                   
+,[TableTaxAdjustment]                  
+,[TableTaxVat]                   
+--,[SalesTableDetails]                 collate Arabic_CI_AI
+,[SalesTableTotal]                   
+,[SalesTableAdjustment]                 
+,[SalesTableVat]                  
+--,[PurchaseTableDetails]                 collate Arabic_CI_AI
+,[PurchaseTableTotal]                  
+,[PurchaseTableAdjustment]                
+,[PurchaseTableVat]                  
+,[RecivableTableTax]                  
+,[DebtTableValue]                   
+,[TotalTableTaxValue]                  
+,[ApplicantName]                   collate Arabic_CI_AI
+,[NationalPassNum]                  collate Arabic_CI_AI
+,[IsSigned]                    collate Arabic_CI_AI
+,[Representitive]                   collate Arabic_CI_AI
+,[AuthorizationNumber]                 collate Arabic_CI_AI
+,[SignedDate]                    
+,[CreationDate]                   
+,[UpdatedDate]                   
+,[IsDeleted]                    
+,[IsSend]                     
+,[SendDate]                    
+,convert(varchar(8),SendDate ,112) as Fk_Send_Date_ID     
+,[IsPaid]                     
+,[IsReplicated]                   
+,[PaymentDate]                   
+,[PaymentMethod]                   
+,[PersonalizeTypeID]                  
+,[ReconciliationType]                  
+,[AcceptanceDate]                   
+,[RejectionDate]                   
+,[RecoPaymentDate]                  
+,[IsPaidTable]                   
+,[ReconciliationValue]                 
+,101 as Namozag_Name                  
+,'IBM' as Developed_By               
+FROM Coexistence_GTA.[dbo].[TableVatTax] with(nolock)
+where TaxPeriod=?
+
 
 
 ) as declarations</property>
@@ -859,7 +975,7 @@ where TaxPeriod=?
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter1:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};</property>
+                      name="ParameterMapping">"Parameter0:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter1:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter2:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter3:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};</property>
                   </properties>
                   <connections>
                     <connection
@@ -1562,7 +1678,7 @@ where TaxPeriod=?
                           refId="Package\Dim_Declarations\Declarations vat to stage\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
                           codePage="1256"
                           dataType="str"
-                          length="50"
+                          length="13"
                           name="Developed_By" />
                       </externalMetadataColumns>
                     </output>
@@ -1841,7 +1957,7 @@ where TaxPeriod=?
                           refId="Package\Dim_Declarations\Declarations vat to stage\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
                           codePage="1256"
                           dataType="str"
-                          length="50"
+                          length="13"
                           lineageId="Package\Dim_Declarations\Declarations vat to stage\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
                           name="Developed_By" />
                         <outputColumn
@@ -2638,11 +2754,11 @@ SELECT
 ,'' as IsPaidTable               
 ,[ReconciliationValue]              
 ,10 as Namozag_Name               
-,Developed_By             
-FROM [TaxVAT].[dbo].[NonTableVatTax]
+,'Excel Systems' as Developed_By             
+FROM [TaxVAT].[dbo].[NonTableVatTax] with(nolock)
 where TaxPeriod=?
 
-union
+union all
 
 SELECT  
  [ID]                      
@@ -2694,9 +2810,125 @@ SELECT
 ,[IsPaidTable]                   
 ,[ReconciliationValue]                 
 ,101 as Namozag_Name                  
-,Developed_By               
-FROM [TaxVAT].[dbo].[TableVatTax]
+,'Excel Systems' as Developed_By               
+FROM [TaxVAT].[dbo].[TableVatTax] with(nolock)
 where TaxPeriod=?
+
+------------------------------------------------------------------------------------------------
+union all
+------------------------------------------------------------------------------------------------
+
+
+SELECT  
+ [ID]                   
+,[DeclarationTypeID]               
+, trim([UniqueTaxID] collate Arabic_CI_AI)+'_'+convert(nchar(8),[TaxPeriod]) as Artificial_Key
+,1 as FK_VAT_Type_ID               
+,[DocumentNum]                collate Arabic_CI_AI as [DocumentNum]
+,[LinkCodeID]                 
+,[TaxpayerID]                 
+,[UniqueTaxID]                collate Arabic_CI_AI as [UniqueTaxID]
+,[TaxPeriod]                 
+,convert(int,cast(TaxPeriod as varchar(10))+'01') as FK_TaxPeriod_ID   
+   --,'' as TableTaxDetails              collate Arabic_CI_AI
+,Null as TableTaxTotal              
+,Null as TableTaxAdjustment             
+,Null as TableTaxVat               
+--,[SalesDetails]                collate Arabic_CI_AI
+,[SalesTotal]                 
+,[SalesAdjustment]               
+,[SalesVat]                 
+--,[PurchaseDetails]               collate Arabic_CI_AI
+,[PurchaseTotal]                
+,[PurchaseAdjustment]               
+,[PurchaseVat]                
+,[RecivableTax]                
+,[DebtValue]                 
+,[TotalTaxValue]                
+,[ApplicantName]                collate Arabic_CI_AI as [ApplicantName]  
+,[NationalPassNum]               collate Arabic_CI_AI as [NationalPassNum] 
+,[IsSigned]                 collate Arabic_CI_AI as [IsSigned]   
+,[Representitive]                collate Arabic_CI_AI as [Representitive]  
+,[AuthorizationNumber]              collate Arabic_CI_AI as [AuthorizationNumber]
+,[SignedDate]                 
+,[CreationDate]                
+,[UpdatedDate]                
+,[IsDeleted]                 
+,[IsSend]                  
+,[SendDate]                 
+,convert(varchar(8),SendDate ,112) as Fk_Send_Date_ID       
+,[IsPaid]                  
+,[IsReplicated]                
+,[PaymentDate]                
+,[PaymentMethod]                
+,[PersonalizeTypeID]               
+,[ReconciliationType]               
+,[AcceptanceDate]                
+,[RejectionDate]                
+,[RecoPaymentDate]               
+,'' as IsPaidTable               
+,[ReconciliationValue]              
+,10 as Namozag_Name               
+,'IBM' as Developed_By             
+FROM Coexistence_GTA.[dbo].[NonTableVatTax] with(nolock)
+where TaxPeriod=?
+
+union all
+
+SELECT  
+ [ID]                      
+,[DeclarationTypeID]                  
+, trim([UniqueTaxID] collate Arabic_CI_AI)+'_'+convert(nchar(8),[TaxPeriod] ) as Artificial_Key     
+,2 as FK_VAT_Type_ID                  
+,[DocumentNum]                   collate Arabic_CI_AI 
+,[LinkCodeID]                    
+,[TaxpayerID]                    
+,[UniqueTaxID]                   collate Arabic_CI_AI
+,[TaxPeriod]                    
+,convert(int,cast(TaxPeriod as varchar(10))+'01') as FK_TaxPeriod_ID 
+--,[TableTaxDetails]                  collate Arabic_CI_AI
+,[TableTaxTotal]                   
+,[TableTaxAdjustment]                  
+,[TableTaxVat]                   
+--,[SalesTableDetails]                 collate Arabic_CI_AI
+,[SalesTableTotal]                   
+,[SalesTableAdjustment]                 
+,[SalesTableVat]                  
+--,[PurchaseTableDetails]                 collate Arabic_CI_AI
+,[PurchaseTableTotal]                  
+,[PurchaseTableAdjustment]                
+,[PurchaseTableVat]                  
+,[RecivableTableTax]                  
+,[DebtTableValue]                   
+,[TotalTableTaxValue]                  
+,[ApplicantName]                   collate Arabic_CI_AI
+,[NationalPassNum]                  collate Arabic_CI_AI
+,[IsSigned]                    collate Arabic_CI_AI
+,[Representitive]                   collate Arabic_CI_AI
+,[AuthorizationNumber]                 collate Arabic_CI_AI
+,[SignedDate]                    
+,[CreationDate]                   
+,[UpdatedDate]                   
+,[IsDeleted]                    
+,[IsSend]                     
+,[SendDate]                    
+,convert(varchar(8),SendDate ,112) as Fk_Send_Date_ID     
+,[IsPaid]                     
+,[IsReplicated]                   
+,[PaymentDate]                   
+,[PaymentMethod]                   
+,[PersonalizeTypeID]                  
+,[ReconciliationType]                  
+,[AcceptanceDate]                   
+,[RejectionDate]                   
+,[RecoPaymentDate]                  
+,[IsPaidTable]                   
+,[ReconciliationValue]                 
+,101 as Namozag_Name                  
+,'IBM' as Developed_By               
+FROM Coexistence_GTA.[dbo].[TableVatTax] with(nolock)
+where TaxPeriod=?
+
 ) as declarations ) as scd</property>
                     <property
                       dataType="System.String"
@@ -2718,7 +2950,7 @@ where TaxPeriod=?
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter1:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};</property>
+                      name="ParameterMapping">"Parameter0:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter1:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter2:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};"Parameter3:Input",{DEDEE4FE-390A-4076-A11E-D6E5119F0D1E};</property>
                   </properties>
                   <connections>
                     <connection
@@ -3430,7 +3662,7 @@ where TaxPeriod=?
                           refId="Package\Dim_Declarations\Declarations_SCD vat to DWH\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
                           codePage="1256"
                           dataType="str"
-                          length="50"
+                          length="13"
                           name="Developed_By" />
                         <externalMetadataColumn
                           refId="Package\Dim_Declarations\Declarations_SCD vat to DWH\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Output].ExternalColumns[Version]"
@@ -3713,7 +3945,7 @@ where TaxPeriod=?
                           refId="Package\Dim_Declarations\Declarations_SCD vat to DWH\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
                           codePage="1256"
                           dataType="str"
-                          length="50"
+                          length="13"
                           lineageId="Package\Dim_Declarations\Declarations_SCD vat to DWH\VAT_TaxTableVat &amp; NonTaxTableVat.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
                           name="Developed_By" />
                         <outputColumn
@@ -5492,8 +5724,10 @@ where TaxPeriod=?
                           name="Developed_By" />
                         <externalMetadataColumn
                           refId="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH\Dim_Declarations.Inputs[OLE DB Destination Input].ExternalColumns[est5las_Sales_Is_Correct]"
-                          dataType="bool"
-                          name="est5las_Sales_Is_Correct" />
+                          dataType="numeric"
+                          name="est5las_Sales_Is_Correct"
+                          precision="18"
+                          scale="5" />
                         <externalMetadataColumn
                           refId="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH\Dim_Declarations.Inputs[OLE DB Destination Input].ExternalColumns[Namozag_Name]"
                           dataType="i4"
@@ -10598,6 +10832,81 @@ on sms.SalesInvoice_Id=sinvd.Fk_SalesInvoices_Id</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          name="Developed_By"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)"Excel Systems"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)"Excel Systems"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -10622,8 +10931,7 @@ on sms.SalesInvoice_Id=sinvd.Fk_SalesInvoices_Id</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   pinv.*, 1 as FK_Inv_Type_ID,
-case when pinv.Developed_By is null then 'Excel Systems' else pinv.Developed_By end as Developed_Byy
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   pinv.*, 1 as FK_Inv_Type_ID
  FROM [dbo].PurchasesInvoices pinv join Staging_Area.dbo.SentPurchasesInvoices_Stage stg 
  on pinv.PurchaseInvoice_Id=stg.PurchaseInvoiceID
 where
@@ -10878,17 +11186,6 @@ and pinv.IsDeleted=0</property>
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].Columns[Developed_By]"
                           name="Developed_By"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].Columns[Developed_Byy]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].ExternalColumns[Developed_Byy]"
-                          length="50"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].Columns[Developed_Byy]"
-                          name="Developed_Byy"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -10996,12 +11293,6 @@ and pinv.IsDeleted=0</property>
                           dataType="str"
                           length="50"
                           name="Developed_By" />
-                        <externalMetadataColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].ExternalColumns[Developed_Byy]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          name="Developed_Byy" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -11136,13 +11427,6 @@ and pinv.IsDeleted=0</property>
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Error Output].Columns[FK_Inv_Type_ID]"
                           name="FK_Inv_Type_ID" />
                         <outputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Error Output].Columns[Developed_Byy]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Error Output].Columns[Developed_Byy]"
-                          name="Developed_Byy" />
-                        <outputColumn
                           refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -11192,7 +11476,7 @@ and pinv.IsDeleted=0</property>
                     <property
                       dataType="System.Boolean"
                       description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
+                      name="AlwaysUseDefaultCodePage">true</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
@@ -11365,13 +11649,13 @@ and pinv.IsDeleted=0</property>
                           externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input].ExternalColumns[FK_Inv_Type_ID]"
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].Columns[FK_Inv_Type_ID]" />
                         <inputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input].Columns[Developed_Byy]"
-                          cachedCodepage="1256"
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input].Columns[Developed_By]"
+                          cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="Developed_Byy"
+                          cachedName="Developed_By"
                           externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output].Columns[Developed_Byy]" />
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11475,7 +11759,7 @@ and pinv.IsDeleted=0</property>
                           name="FK_Inv_Type_ID" />
                         <externalMetadataColumn
                           refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          codePage="1256"
+                          codePage="1252"
                           dataType="str"
                           length="50"
                           name="Developed_By" />
@@ -11510,8 +11794,13 @@ and pinv.IsDeleted=0</property>
               </components>
               <paths>
                 <path
-                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage.Paths[OLE DB Source Output]"
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage.Paths[Derived Column Output]"
                   endId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage.Paths[OLE DB Source Output]"
+                  endId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices.Outputs[OLE DB Source Output]" />
               </paths>
@@ -11532,6 +11821,81 @@ and pinv.IsDeleted=0</property>
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          name="Developed_By"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)"Excel Systems"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)"Excel Systems"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
                 <component
                   refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices"
                   componentClassID="Microsoft.OLEDBSource"
@@ -11557,8 +11921,7 @@ and pinv.IsDeleted=0</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   sinv.*,2 as FK_Inv_Type_ID,
-case when sinv.Developed_By is null then 'Excel Systems' else sinv.Developed_By end as Developed_Byy
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   sinv.*,2 as FK_Inv_Type_ID
  FROM [dbo].[SalesInvoices] sinv join Staging_Area.dbo.SentSalesInvoices_Stage stg on sinv.SalesInvoice_Id=stg.SalesInvoiceID
 where
 convert(varchar(6),sinv.Invoice_Date,112) =?
@@ -11812,17 +12175,6 @@ and sinv.IsDeleted=0</property>
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].Columns[Developed_By]"
                           name="Developed_By"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].Columns[Developed_Byy]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].ExternalColumns[Developed_Byy]"
-                          length="50"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].Columns[Developed_Byy]"
-                          name="Developed_Byy"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -11930,12 +12282,6 @@ and sinv.IsDeleted=0</property>
                           dataType="str"
                           length="50"
                           name="Developed_By" />
-                        <externalMetadataColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].ExternalColumns[Developed_Byy]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="Developed_Byy" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -12068,13 +12414,6 @@ and sinv.IsDeleted=0</property>
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Error Output].Columns[Developed_Byy]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Error Output].Columns[Developed_Byy]"
-                          name="Developed_Byy" />
                         <outputColumn
                           refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
@@ -12299,13 +12638,13 @@ and sinv.IsDeleted=0</property>
                           externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage.Inputs[OLE DB Destination Input].ExternalColumns[FK_Inv_Type_ID]"
                           lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].Columns[FK_Inv_Type_ID]" />
                         <inputColumn
-                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage.Inputs[OLE DB Destination Input].Columns[Developed_Byy]"
+                          refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage.Inputs[OLE DB Destination Input].Columns[Developed_By]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="Developed_Byy"
+                          cachedName="Developed_By"
                           externalMetadataColumnId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
-                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output].Columns[Developed_Byy]" />
+                          lineageId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -12444,8 +12783,13 @@ and sinv.IsDeleted=0</property>
               </components>
               <paths>
                 <path
-                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage.Paths[OLE DB Source Output]"
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage.Paths[Derived Column Output]"
                   endId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage.Paths[OLE DB Source Output]"
+                  endId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices.Outputs[OLE DB Source Output]" />
               </paths>
@@ -12489,6 +12833,81 @@ and sinv.IsDeleted=0</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          name="Developed_By"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)"Excel Systems"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)"Excel Systems"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -12517,8 +12936,8 @@ and sinv.IsDeleted=0</property>
      [TaxpayerID]
       ,[TaxVatDecID]
       ,[PurchaseInvoiceID] from SentPurshaseInvoices
-where TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod = ? and FK_VAT_Type_ID=1)
-or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod = ? and FK_VAT_Type_ID=2)</property>
+where TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxPeriod = ? and FK_VAT_Type_ID=1)
+or TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxPeriod = ? and FK_VAT_Type_ID=2)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -12668,7 +13087,7 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                     <property
                       dataType="System.Boolean"
                       description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
+                      name="AlwaysUseDefaultCodePage">true</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
@@ -12725,6 +13144,14 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                           cachedName="PurchaseInvoiceID"
                           externalMetadataColumnId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseInvoiceID]"
                           lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices.Outputs[OLE DB Source Output].Columns[PurchaseInvoiceID]" />
+                        <inputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input].Columns[Developed_By]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Developed_By"
+                          externalMetadataColumnId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -12764,6 +13191,12 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                           refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[IsReplicated]"
                           dataType="bool"
                           name="IsReplicated" />
+                        <externalMetadataColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Developed_By" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -12795,8 +13228,13 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
               </components>
               <paths>
                 <path
-                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices.Paths[OLE DB Source Output]"
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices.Paths[Derived Column Output]"
                   endId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices.Paths[OLE DB Source Output]"
+                  endId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices.Outputs[OLE DB Source Output]" />
               </paths>
@@ -12817,6 +13255,81 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]"
+                          name="Developed_By"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)"Excel Systems"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)"Excel Systems"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
                 <component
                   refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices"
                   componentClassID="Microsoft.OLEDBSource"
@@ -12846,8 +13359,8 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
       [TaxPayerID]
       ,[TaxVatDecID]
       ,[SalesInvoiceID] from SentSalesInvoices
-where TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod = ? and FK_VAT_Type_ID=1)
-or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod = ? and FK_VAT_Type_ID=2)</property>
+where TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxPeriod = ? and FK_VAT_Type_ID=1)
+or TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxPeriod = ? and FK_VAT_Type_ID=2)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -12997,7 +13510,7 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                     <property
                       dataType="System.Boolean"
                       description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
+                      name="AlwaysUseDefaultCodePage">true</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
@@ -13054,6 +13567,14 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                           cachedName="SalesInvoiceID"
                           externalMetadataColumnId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[SalesInvoiceID]"
                           lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices.Outputs[OLE DB Source Output].Columns[SalesInvoiceID]" />
+                        <inputColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input].Columns[Developed_By]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Developed_By"
+                          externalMetadataColumnId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
+                          lineageId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Output].Columns[Developed_By]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -13093,6 +13614,12 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                           refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[IsReplicated]"
                           dataType="bool"
                           name="IsReplicated" />
+                        <externalMetadataColumn
+                          refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Developed_By]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Developed_By" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -13124,8 +13651,13 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
               </components>
               <paths>
                 <path
-                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices.Paths[OLE DB Source Output]"
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices.Paths[Derived Column Output]"
                   endId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices.Paths[OLE DB Source Output]"
+                  endId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices.Outputs[OLE DB Source Output]" />
               </paths>
@@ -13143,6 +13675,27 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices" />
       </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\IBM_FLow"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{F4BEBE54-EA58-4748-9AB1-2E6B35AD2CAD}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="IBM_FLow"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>IBM_Data_Transefer.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>IBM_Tax_Period</ParameterName>
+            <BindedVariableOrParameterName>$Package::TaxPeriod_Param</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)"
@@ -13465,8 +14018,8 @@ or TaxVatDecID in (select id from DWH_TAX.[dbo].Dim_Declarations where TaxPeriod
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select det.* from [TaxVAT].dbo.PurchasesInvoicesDetails det
-join Purchase_Master_Stage pur
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select det.* from PurchasesInvoicesDetails det
+join Staging_Area.dbo.Purchase_Master_Stage pur
 on det.Fk_PurchasesInvoices_Id=pur.PurchaseInvoice_Id
 and convert(varchar(6),pur.Invoice_Date,112) =?
 and det.IsDeleted=0</property>
@@ -13495,8 +14048,8 @@ and det.IsDeleted=0</property>
                   <connections>
                     <connection
                       refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Connections[OleDbConnection]"
-                      connectionManagerID="{F478863B-7E19-4F68-967D-8E5972FEB984}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[stg]"
+                      connectionManagerID="{13FB51A3-B580-4A12-A4A6-FE4C00E3E4BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[vat]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -13739,17 +14292,6 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
                           name="InvoiceDate"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -14021,13 +14563,6 @@ and det.IsDeleted=0</property>
                           dataType="dbDate"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
                           name="InvoiceDate" />
-                        <outputColumn
-                          refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -14476,8 +15011,8 @@ and det.IsDeleted=0</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select det.* from [TaxVAT].dbo.SalesInvoicesDetails det
-join Sales_Master_Stage sls
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select det.* from SalesInvoicesDetails det
+join Staging_Area.dbo.Sales_Master_Stage sls
 on det.Fk_SalesInvoices_Id=sls.SalesInvoice_Id
 and convert(varchar(6),sls.Invoice_Date,112) = ?
 and det.IsDeleted=0</property>
@@ -14506,8 +15041,8 @@ and det.IsDeleted=0</property>
                   <connections>
                     <connection
                       refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Connections[OleDbConnection]"
-                      connectionManagerID="{F478863B-7E19-4F68-967D-8E5972FEB984}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[stg]"
+                      connectionManagerID="{13FB51A3-B580-4A12-A4A6-FE4C00E3E4BA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[vat]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -14750,17 +15285,6 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
                           name="InvoiceDate"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -15032,13 +15556,6 @@ and det.IsDeleted=0</property>
                           dataType="dbDate"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
                           name="InvoiceDate" />
-                        <outputColumn
-                          refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -15483,7 +16000,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Declarations SCD_Backup"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15507,7 +16024,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Declarations_Backup"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15532,7 +16049,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete (The Rest) Declarations with No Invoices"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15557,7 +16074,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_BackUp Declarations"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15582,7 +16099,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_BackUp Declarations_SCD"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15606,7 +16123,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_Dim_Declarations"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15623,7 +16140,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_Dim_Declarations_SCD"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15647,7 +16164,7 @@ and det.IsDeleted=0</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Getting (The Rest) Declarations_Finalll with No Invoices"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -15749,7 +16266,7 @@ and det.IsDeleted=0</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_(Purchases_National_ID) in Invoices(Heavy Perofiming &amp;  Optional inside the loop)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15779,7 +16296,7 @@ and det.IsDeleted=0</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_(Purchases_National_ID) in Invoices(relativily Light &amp;  Mandatory inside the loop)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15810,7 +16327,7 @@ and det.IsDeleted=0</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_(Sales_National_ID) in Invoices (Heavy Perfoiming &amp; Optional inside the loop)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15840,7 +16357,7 @@ and det.IsDeleted=0</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_(Sales_National_ID) in Invoices (relativily Light &amp;  Optional inside the loop)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15874,11 +16391,11 @@ and det.IsDeleted=0</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{0E305ACE-D5B1-42FC-9B3B-CE4E786F9B22}"
+      DTS:DTSID="{940D7DAA-71E5-4922-9E6D-BF0B3E7A7C6D}"
       DTS:From="Package\Dim_Declarations"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Filter_Sent_Invoices_Based On Declarations in Staging" />
+      DTS:To="Package\IBM_FLow" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
       DTS:CreationName=""
@@ -15895,6 +16412,14 @@ and det.IsDeleted=0</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 11"
       DTS:To="Package\The Getting &amp; BackUp &amp; Delete of the rest of Declarations with no Invoices" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{97586AB5-DC80-4133-9E44-60181FA691B7}"
+      DTS:From="Package\IBM_FLow"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Filter_Sent_Invoices_Based On Declarations in Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -15971,7 +16496,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Dim_Declarations\Declarations vat to stage"
@@ -15983,11 +16508,11 @@ and det.IsDeleted=0</property>
         <NodeLayout
           Size="281.6,41.6"
           Id="Package\Dim_Declarations\Delete_Current _Period (Dim_Declarations)"
-          TopLeft="5.42857230439475,0.457144107337797" />
+          TopLeft="5.42857230439475,5.5" />
         <NodeLayout
           Size="307.2,41.6"
           Id="Package\Dim_Declarations\Delete_Current _Period (Dim_Declarations_SCD)"
-          TopLeft="151.959186874396,40.4403373203005" />
+          TopLeft="155.387758361356,50.8403374661565" />
         <NodeLayout
           Size="258.4,41.6"
           Id="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH"
@@ -16070,30 +16595,30 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Declarations.PrecedenceConstraints[Constraint 3]"
-          TopLeft="146.228572304395,42.0571441073378">
+          TopLeft="146.228572304395,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-43.1285733261886,59.4428558926622"
+              EndConnector="-43.1285733261886,54.4"
               Start="0,0"
-              End="-43.1285733261886,51.9428558926622">
+              End="-43.1285733261886,46.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7214279463311" />
+                    End="0,23.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.7214279463311"
-                    Point2="0,29.7214279463311"
-                    Point3="-4,29.7214279463311" />
+                    Point1="0,23.2"
+                    Point2="0,27.2"
+                    Point3="-4,27.2" />
                   <mssgle:LineSegment
-                    End="-39.1285733261886,29.7214279463311" />
+                    End="-39.1285733261886,27.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="-39.1285733261886,29.7214279463311"
-                    Point2="-43.1285733261886,29.7214279463311"
-                    Point3="-43.1285733261886,33.7214279463311" />
+                    Point1="-39.1285733261886,27.2"
+                    Point2="-43.1285733261886,27.2"
+                    Point3="-43.1285733261886,31.2" />
                   <mssgle:LineSegment
-                    End="-43.1285733261886,51.9428558926622" />
+                    End="-43.1285733261886,46.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16104,30 +16629,24 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Declarations.PrecedenceConstraints[Constraint 4]"
-          TopLeft="305.559186874396,82.0403373203005">
+          TopLeft="308.987758361356,92.4403374661565">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="36.6693896193542,30.7478988039097"
+              EndConnector="-76.3591818676057,35.5478986580535"
               Start="0,0"
-              End="36.6693896193542,23.2478988039097">
+              End="-68.8591818676057,35.5478986580535">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.3739494019549" />
+                    End="0,31.5478986580535" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.3739494019549"
-                    Point2="0,15.3739494019549"
-                    Point3="4,15.3739494019549" />
+                    Point1="0,31.5478986580535"
+                    Point2="0,35.5478986580535"
+                    Point3="-4,35.5478986580535" />
                   <mssgle:LineSegment
-                    End="32.6693896193542,15.3739494019549" />
-                  <mssgle:CubicBezierSegment
-                    Point1="32.6693896193542,15.3739494019549"
-                    Point2="36.6693896193542,15.3739494019549"
-                    Point3="36.6693896193542,19.3739494019549" />
-                  <mssgle:LineSegment
-                    End="36.6693896193542,23.2478988039097" />
+                    End="-68.8591818676057,35.5478986580535" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16138,9 +16657,9 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="44"
-          IsExpanded="True"
-          PanelSize="460.8,330.4"
-          Size="460.8,374.4"
+          IsExpanded="False"
+          PanelSize="467.2,330.4"
+          Size="184.8,44"
           Id="Package\Dim_Declarations"
           TopLeft="35.8571434677865,162.200001276241" />
         <NodeLayout
@@ -16186,7 +16705,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16214,7 +16735,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -16347,7 +16870,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16375,7 +16900,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16403,7 +16930,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16437,7 +16966,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16465,7 +16996,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -16506,7 +17039,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16540,7 +17075,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -16650,7 +17187,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16684,7 +17223,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16718,7 +17259,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16740,7 +17283,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16768,7 +17313,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16802,7 +17349,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16836,7 +17385,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -16872,9 +17423,9 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.1857142650357,26.497058903429"
+              EndConnector="-9.18571426503604,26.497058903429"
               Start="0,0"
-              End="-9.1857142650357,18.997058903429">
+              End="-9.18571426503604,18.997058903429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -16885,41 +17436,13 @@ and det.IsDeleted=0</property>
                     Point2="0,13.2485294517145"
                     Point3="-4,13.2485294517145" />
                   <mssgle:LineSegment
-                    End="-5.1857142650357,13.2485294517145" />
+                    End="-5.18571426503604,13.2485294517145" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.1857142650357,13.2485294517145"
-                    Point2="-9.1857142650357,13.2485294517145"
-                    Point3="-9.1857142650357,17.2485294517145" />
+                    Point1="-5.18571426503604,13.2485294517145"
+                    Point2="-9.18571426503604,13.2485294517145"
+                    Point3="-9.18571426503604,17.2485294517145" />
                   <mssgle:LineSegment
-                    End="-9.1857142650357,18.997058903429" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="496.657143467786,349.400001276241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.838103371088,-96.3294106922359"
-              Start="0,0"
-              End="137.838103371088,-88.8294106922359">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="133.838103371088,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133.838103371088,0"
-                    Point2="137.838103371088,0"
-                    Point3="137.838103371088,-4" />
-                  <mssgle:LineSegment
-                    End="137.838103371088,-88.8294106922359" />
+                    End="-9.18571426503604,18.997058903429" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16934,20 +17457,26 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-73.2857175773505,35.141176537082"
+              EndConnector="-118.885717577351,57.141176537082"
               Start="0,0"
-              End="-73.2857175773505,27.641176537082">
+              End="-111.385717577351,57.141176537082">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-69.2857175773505,0" />
+                    End="-55.4428587886753,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-69.2857175773505,0"
-                    Point2="-73.2857175773505,0"
-                    Point3="-73.2857175773505,4" />
+                    Point1="-55.4428587886753,0"
+                    Point2="-59.4428587886753,0"
+                    Point3="-59.4428587886753,4" />
                   <mssgle:LineSegment
-                    End="-73.2857175773505,27.641176537082" />
+                    End="-59.4428587886753,53.141176537082" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.4428587886753,53.141176537082"
+                    Point2="-59.4428587886753,57.141176537082"
+                    Point3="-63.4428587886753,57.141176537082" />
+                  <mssgle:LineSegment
+                    End="-111.385717577351,57.141176537082" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16996,20 +17525,20 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="101.985715389011,32.4794103914059"
+              EndConnector="101.985715389011,32.4794103914061"
               Start="0,0"
-              End="94.4857153890109,32.4794103914059">
+              End="94.4857153890111,32.4794103914061">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.4794103914059" />
+                    End="0,28.4794103914061" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.4794103914059"
-                    Point2="0,32.4794103914059"
-                    Point3="4,32.4794103914059" />
+                    Point1="0,28.4794103914061"
+                    Point2="0,32.4794103914061"
+                    Point3="4,32.4794103914061" />
                   <mssgle:LineSegment
-                    End="94.4857153890109,32.4794103914059" />
+                    End="94.4857153890111,32.4794103914061" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17194,16 +17723,16 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.8857148525649,27.2000018961299"
+              EndConnector="46.8857148525649,27.20000189613"
               Start="0,0"
-              End="46.8857148525649,19.7000018961299">
+              End="46.8857148525649,19.70000189613">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.60000094806497" />
+                    End="0,9.600000948065" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.60000094806497"
+                    Point1="0,9.600000948065"
                     Point2="0,13.600000948065"
                     Point3="4,13.600000948065" />
                   <mssgle:LineSegment
@@ -17213,7 +17742,7 @@ and det.IsDeleted=0</property>
                     Point2="46.8857148525649,13.600000948065"
                     Point3="46.8857148525649,17.600000948065" />
                   <mssgle:LineSegment
-                    End="46.8857148525649,19.7000018961299" />
+                    End="46.8857148525649,19.70000189613" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17242,6 +17771,78 @@ and det.IsDeleted=0</property>
                     Point3="-34.097961310673,4" />
                   <mssgle:LineSegment
                     End="-34.097961310673,35.854623107514" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\IBM_FLow"
+          TopLeft="215.428575097298,246.917649478318" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128.257143467786,206.200001276241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.771431629512,40.7176482020774"
+              Start="0,0"
+              End="150.771431629512,33.2176482020774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3588241010387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.3588241010387"
+                    Point2="0,20.3588241010387"
+                    Point3="4,20.3588241010387" />
+                  <mssgle:LineSegment
+                    End="146.771431629512,20.3588241010387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.771431629512,20.3588241010387"
+                    Point2="150.771431629512,20.3588241010387"
+                    Point3="150.771431629512,24.3588241010387" />
+                  <mssgle:LineSegment
+                    End="150.771431629512,33.2176482020774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="342.628575097298,267.717649478318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170.80000507491,-36.2470588943135"
+              Start="0,0"
+              End="163.30000507491,-36.2470588943135">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.4000025374548,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.4000025374548,0"
+                    Point2="85.4000025374548,0"
+                    Point3="85.4000025374548,-4" />
+                  <mssgle:LineSegment
+                    End="85.4000025374548,-32.2470588943135" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.4000025374548,-32.2470588943135"
+                    Point2="85.4000025374548,-36.2470588943135"
+                    Point3="89.4000025374548,-36.2470588943135" />
+                  <mssgle:LineSegment
+                    End="163.30000507491,-36.2470588943135" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17399,7 +18000,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH\Dim_Declarations"
@@ -17439,9 +18040,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="25.74640625,64.7,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17770,7 +18369,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Master_Stage"
@@ -17778,21 +18377,71 @@ and det.IsDeleted=0</property>
         <NodeLayout
           Size="165.6,41.6"
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Purchase_Inovices"
-          TopLeft="330,88" />
+          TopLeft="328.4,87.2" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage\Derived Column"
+          TopLeft="78.6,201.2" />
         <EdgeLayout
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage.Paths[OLE DB Source Output]"
-          TopLeft="410.5,129.6">
+          TopLeft="411.2,128.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,140.4"
+              EndConnector="-256.2,72.4"
               Start="0,0"
-              End="0,132.9">
+              End="-256.2,64.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,132.9" />
+                    End="0,32.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.2"
+                    Point2="0,36.2"
+                    Point3="-4,36.2" />
+                  <mssgle:LineSegment
+                    End="-252.2,36.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-252.2,36.2"
+                    Point2="-256.2,36.2"
+                    Point3="-256.2,40.2" />
+                  <mssgle:LineSegment
+                    End="-256.2,64.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Purchase_Master_Stage.Paths[Derived Column Output]"
+          TopLeft="155,242.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="253.2,27.2"
+              Start="0,0"
+              End="253.2,19.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.59999999999998" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.59999999999998"
+                    Point2="0,13.6"
+                    Point3="4,13.6" />
+                  <mssgle:LineSegment
+                    End="249.2,13.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="249.2,13.6"
+                    Point2="253.2,13.6"
+                    Point3="253.2,17.6" />
+                  <mssgle:LineSegment
+                    End="253.2,19.7" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17829,7 +18478,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Master_Stage"
@@ -17838,28 +18487,76 @@ and det.IsDeleted=0</property>
           Size="147.2,41.6"
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Sales_Invoices"
           TopLeft="337,87" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage\Derived Column"
+          TopLeft="114.6,124.2" />
         <EdgeLayout
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage.Paths[OLE DB Source Output]"
-          TopLeft="407,128.6">
+          TopLeft="337,107.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,100.4"
+              EndConnector="-69.6,37.2000000000001"
               Start="0,0"
-              End="0,92.9">
+              End="-62.1,37.2000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,92.9" />
+                    End="-30.8,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.8,0"
+                    Point2="-34.8,0"
+                    Point3="-34.8,4" />
+                  <mssgle:LineSegment
+                    End="-34.8,33.2000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.8,33.2000000000001"
+                    Point2="-34.8,37.2000000000001"
+                    Point3="-38.8,37.2000000000001" />
+                  <mssgle:LineSegment
+                    End="-62.1,37.2000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8837109375,40.8357421875,55.767421875,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Filter_Invoices_Based On Sent Invoices in Staging\Sales_Master_Stage.Paths[Derived Column Output]"
+          TopLeft="191,165.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212.4,63.1999999999999"
+              Start="0,0"
+              End="212.4,55.6999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.6"
+                    Point2="0,31.6"
+                    Point3="4,31.6" />
+                  <mssgle:LineSegment
+                    End="208.4,31.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208.4,31.6"
+                    Point2="212.4,31.6"
+                    Point3="212.4,35.6" />
+                  <mssgle:LineSegment
+                    End="212.4,55.6999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17890,7 +18587,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="217.6,41.6"
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices_Stage"
@@ -17899,32 +18596,64 @@ and det.IsDeleted=0</property>
           Size="185.6,41.6"
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\SentPurchasesInvoices"
           TopLeft="259.285718701324,78.0000010939206" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices\Derived Column"
+          TopLeft="84.71428913243,121.752943804025" />
         <EdgeLayout
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices.Paths[OLE DB Source Output]"
-          TopLeft="352.085718701324,119.600001093921">
+          TopLeft="259.285718701324,98.8000010939206">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-42.5714295688941,67.7529427101043"
+              EndConnector="-98.171429568894,22.9529427101044"
               Start="0,0"
-              End="-42.5714295688941,60.2529427101043">
+              End="-98.171429568894,15.4529427101044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.8764713550521" />
+                    End="-94.171429568894,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.8764713550521"
-                    Point2="0,33.8764713550521"
-                    Point3="-4,33.8764713550521" />
+                    Point1="-94.171429568894,0"
+                    Point2="-98.171429568894,0"
+                    Point3="-98.171429568894,4" />
                   <mssgle:LineSegment
-                    End="-38.5714295688941,33.8764713550521" />
+                    End="-98.171429568894,15.4529427101044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices.Paths[Derived Column Output]"
+          TopLeft="161.11428913243,163.352943804025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.4,24"
+              Start="0,0"
+              End="148.4,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.99999999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="-38.5714295688941,33.8764713550521"
-                    Point2="-42.5714295688941,33.8764713550521"
-                    Point3="-42.5714295688941,37.8764713550521" />
+                    Point1="0,7.99999999999999"
+                    Point2="0,12"
+                    Point3="4,12" />
                   <mssgle:LineSegment
-                    End="-42.5714295688941,60.2529427101043" />
+                    End="144.4,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.4,12"
+                    Point2="148.4,12"
+                    Point3="148.4,16" />
+                  <mssgle:LineSegment
+                    End="148.4,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17961,7 +18690,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices_Stage"
@@ -17970,40 +18699,76 @@ and det.IsDeleted=0</property>
           Size="162.4,41.6"
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\SentSalesInvoices"
           TopLeft="387,120" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices\Derived Column"
+          TopLeft="149.2,172" />
         <EdgeLayout
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices.Paths[OLE DB Source Output]"
-          TopLeft="468.2,161.6">
+          TopLeft="387,140.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-52.5999999999999,110.4"
+              EndConnector="-85,52"
               Start="0,0"
-              End="-52.5999999999999,102.9">
+              End="-77.5,52">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.2" />
+                    End="-38.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,51.2"
-                    Point2="0,55.2"
-                    Point3="-4,55.2" />
+                    Point1="-38.5,0"
+                    Point2="-42.5,0"
+                    Point3="-42.5,4" />
                   <mssgle:LineSegment
-                    End="-48.5999999999999,55.2" />
+                    End="-42.5,48" />
                   <mssgle:CubicBezierSegment
-                    Point1="-48.5999999999999,55.2"
-                    Point2="-52.5999999999999,55.2"
-                    Point3="-52.5999999999999,59.2" />
+                    Point1="-42.5,48"
+                    Point2="-42.5,52"
+                    Point3="-46.5,52" />
                   <mssgle:LineSegment
-                    End="-52.5999999999999,102.9" />
+                    End="-77.5,52" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.75359375,60.2,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentSalesInvoices.Paths[Derived Column Output]"
+          TopLeft="225.6,213.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190,58.4"
+              Start="0,0"
+              End="190,50.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.2"
+                    Point2="0,29.2"
+                    Point3="4,29.2" />
+                  <mssgle:LineSegment
+                    End="186,29.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="186,29.2"
+                    Point2="190,29.2"
+                    Point3="190,33.2" />
+                  <mssgle:LineSegment
+                    End="190,50.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

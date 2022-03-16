@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C_and_D_Monthly_Loop"
   DTS:PackageType="5"
-  DTS:VersionBuild="250"
-  DTS:VersionGUID="{4CA2724C-2EEF-4189-9CCE-E50C79D38B23}">
+  DTS:VersionBuild="252"
+  DTS:VersionGUID="{23B6C84D-3186-45A6-A7F9-FB93A4076E18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -3778,6 +3778,7 @@ where TaxPeriod=?
           DTS:refId="Package\Dim_Declarations\Delete_Current _Period (Dim_Declarations_SCD)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{AE93EDBE-8D0F-4C78-B328-2D31088B4BBA}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -7330,6 +7331,7 @@ and dc.SendDate=vw.SendDate</property>
           DTS:refId="Package\Dim_Invoices_STG_to_DWH\Delete_Current_Period (Dim_Invoices)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{423E5C83-C082-42BD-A68A-30C41902B108}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -13568,8 +13570,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Unit_Price]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Unit_Price]"
                           name="Product_Unit_Price"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]"
@@ -13579,8 +13581,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]"
                           name="Product_Tax_Value"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Quantity]"
@@ -13590,8 +13592,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Quantity]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Quantity]"
                           name="Product_Quantity"
-                          precision="21"
-                          scale="5"
+                          precision="18"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Net]"
@@ -13601,8 +13603,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Net]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Net]"
                           name="Product_Total_Net"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]"
@@ -13612,8 +13614,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]"
                           name="Product_Total_Tax_Value"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Money]"
@@ -13623,8 +13625,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Money]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Money]"
                           name="Product_Total_Money"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Replicated]"
@@ -13661,8 +13663,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Tax]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Tax]"
                           name="Tax"
-                          precision="21"
-                          scale="5"
+                          precision="18"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[ItemType]"
@@ -13690,8 +13692,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Discount]"
                           name="Discount"
-                          precision="22"
-                          scale="5"
+                          precision="19"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[IsDeleted]"
@@ -13737,6 +13739,17 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
                           name="InvoiceDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
+                          length="50"
+                          lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          name="Developed_By"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -13856,6 +13869,12 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           dataType="dbDate"
                           name="InvoiceDate" />
+                        <externalMetadataColumn
+                          refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Developed_By" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -14003,6 +14022,13 @@ and det.IsDeleted=0</property>
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
                           name="InvoiceDate" />
                         <outputColumn
+                          refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          name="Developed_By" />
+                        <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -14134,48 +14160,48 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Unit_Price]"
                           cachedDataType="numeric"
                           cachedName="Product_Unit_Price"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Unit_Price]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Unit_Price]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Tax_Value]"
                           cachedDataType="numeric"
                           cachedName="Product_Tax_Value"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Quantity]"
                           cachedDataType="numeric"
                           cachedName="Product_Quantity"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="18"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Quantity]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Quantity]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Net]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Net"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Net]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Net]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Tax_Value]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Tax_Value"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Money]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Money"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Money]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Product_Total_Money]" />
                         <inputColumn
@@ -14200,8 +14226,8 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Tax]"
                           cachedDataType="numeric"
                           cachedName="Tax"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="18"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Tax]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Tax]" />
                         <inputColumn
@@ -14220,8 +14246,8 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Discount]"
                           cachedDataType="numeric"
                           cachedName="Discount"
-                          cachedPrecision="22"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\STG_Purchase_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
                           lineageId="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details.Outputs[OLE DB Source Output].Columns[Discount]" />
                         <inputColumn
@@ -14555,8 +14581,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Unit_Price]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Unit_Price]"
                           name="Product_Unit_Price"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]"
@@ -14566,8 +14592,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]"
                           name="Product_Tax_Value"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Quantity]"
@@ -14577,8 +14603,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Quantity]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Quantity]"
                           name="Product_Quantity"
-                          precision="21"
-                          scale="5"
+                          precision="18"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Net]"
@@ -14588,8 +14614,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Net]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Net]"
                           name="Product_Total_Net"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]"
@@ -14599,8 +14625,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]"
                           name="Product_Total_Tax_Value"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Money]"
@@ -14610,8 +14636,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Product_Total_Money]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Money]"
                           name="Product_Total_Money"
-                          precision="21"
-                          scale="5"
+                          precision="19"
+                          scale="3"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Replicated]"
@@ -14648,8 +14674,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Tax]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Tax]"
                           name="Tax"
-                          precision="21"
-                          scale="5"
+                          precision="18"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[ItemType]"
@@ -14677,8 +14703,8 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Discount]"
                           name="Discount"
-                          precision="22"
-                          scale="5"
+                          precision="19"
+                          scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[IsDeleted]"
@@ -14724,6 +14750,17 @@ and det.IsDeleted=0</property>
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
                           name="InvoiceDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
+                          length="50"
+                          lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          name="Developed_By"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -14843,6 +14880,12 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
                           dataType="dbDate"
                           name="InvoiceDate" />
+                        <externalMetadataColumn
+                          refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Developed_By" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -14990,6 +15033,13 @@ and det.IsDeleted=0</property>
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
                           name="InvoiceDate" />
                         <outputColumn
+                          refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          name="Developed_By" />
+                        <outputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -15121,48 +15171,48 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Unit_Price]"
                           cachedDataType="numeric"
                           cachedName="Product_Unit_Price"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Unit_Price]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Unit_Price]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Tax_Value]"
                           cachedDataType="numeric"
                           cachedName="Product_Tax_Value"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Tax_Value]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Quantity]"
                           cachedDataType="numeric"
                           cachedName="Product_Quantity"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="18"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Quantity]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Quantity]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Net]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Net"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Net]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Net]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Tax_Value]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Tax_Value"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Tax_Value]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Tax_Value]" />
                         <inputColumn
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Product_Total_Money]"
                           cachedDataType="numeric"
                           cachedName="Product_Total_Money"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="3"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Product_Total_Money]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Product_Total_Money]" />
                         <inputColumn
@@ -15187,8 +15237,8 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Tax]"
                           cachedDataType="numeric"
                           cachedName="Tax"
-                          cachedPrecision="21"
-                          cachedScale="5"
+                          cachedPrecision="18"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Tax]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Tax]" />
                         <inputColumn
@@ -15207,8 +15257,8 @@ and det.IsDeleted=0</property>
                           refId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].Columns[Discount]"
                           cachedDataType="numeric"
                           cachedName="Discount"
-                          cachedPrecision="22"
-                          cachedScale="5"
+                          cachedPrecision="19"
+                          cachedScale="2"
                           externalMetadataColumnId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
                           lineageId="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals.Outputs[OLE DB Source Output].Columns[Discount]" />
                         <inputColumn
@@ -15418,7 +15468,6 @@ and det.IsDeleted=0</property>
       DTS:refId="Package\The Getting &amp; BackUp &amp; Delete of the rest of Declarations with no Invoices"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{F83997AD-2B1D-4505-A75B-E61E93E0C1F6}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -15477,6 +15526,7 @@ and det.IsDeleted=0</property>
           DTS:refId="Package\The Getting &amp; BackUp &amp; Delete of the rest of Declarations with no Invoices\Delete (The Rest) Declarations with No Invoices"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{CD850A6C-5133-4F1E-80C9-D16EBE64BB1F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -15501,6 +15551,7 @@ and det.IsDeleted=0</property>
           DTS:refId="Package\The Getting &amp; BackUp &amp; Delete of the rest of Declarations with no Invoices\Delete_BackUp Declarations"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{9024DCD9-CB8B-4570-8275-7A63D98084F0}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -15525,6 +15576,7 @@ and det.IsDeleted=0</property>
           DTS:refId="Package\The Getting &amp; BackUp &amp; Delete of the rest of Declarations with no Invoices\Delete_BackUp Declarations_SCD"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{76AA28D1-E47F-42E5-B254-9E1768CF1114}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -16208,7 +16260,7 @@ and det.IsDeleted=0</property>
           PanelSize="338.4,182.4"
           Size="338.4,43.2"
           Id="Package\Filter_Invoices_Based On Sent Invoices in Staging"
-          TopLeft="515.214294488332,278.955884772972" />
+          TopLeft="514.642865907172,279.567649487434" />
         <NodeLayout
           Size="185.6,41.6"
           Id="Package\Filter_Sent_Invoices_Based On Declarations in Staging\SentPurchasesInvoices"
@@ -16820,26 +16872,26 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.61428568387589,25.8852941889668"
+              EndConnector="-9.1857142650357,26.497058903429"
               Start="0,0"
-              End="-8.61428568387589,18.3852941889668">
+              End="-9.1857142650357,18.997058903429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.94264709448342" />
+                    End="0,9.24852945171452" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.94264709448342"
-                    Point2="0,12.9426470944834"
-                    Point3="-4,12.9426470944834" />
+                    Point1="0,9.24852945171452"
+                    Point2="0,13.2485294517145"
+                    Point3="-4,13.2485294517145" />
                   <mssgle:LineSegment
-                    End="-4.61428568387589,12.9426470944834" />
+                    End="-5.1857142650357,13.2485294517145" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.61428568387589,12.9426470944834"
-                    Point2="-8.61428568387589,12.9426470944834"
-                    Point3="-8.61428568387589,16.9426470944834" />
+                    Point1="-5.1857142650357,13.2485294517145"
+                    Point2="-9.1857142650357,13.2485294517145"
+                    Point3="-9.1857142650357,17.2485294517145" />
                   <mssgle:LineSegment
-                    End="-8.61428568387589,18.3852941889668" />
+                    End="-9.1857142650357,18.997058903429" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16940,24 +16992,24 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="684.414294488332,322.155884772972">
+          TopLeft="683.842865907172,322.767649487434">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="101.414286807851,33.091175105868"
+              EndConnector="101.985715389011,32.4794103914059"
               Start="0,0"
-              End="93.9142868078511,33.091175105868">
+              End="94.4857153890109,32.4794103914059">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.091175105868" />
+                    End="0,28.4794103914059" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.091175105868"
-                    Point2="0,33.091175105868"
-                    Point3="4,33.091175105868" />
+                    Point1="0,28.4794103914059"
+                    Point2="0,32.4794103914059"
+                    Point3="4,32.4794103914059" />
                   <mssgle:LineSegment
-                    End="93.9142868078511,33.091175105868" />
+                    End="94.4857153890109,32.4794103914059" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17425,7 +17477,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Dim_Declarations\Getting_Unique_Declarations From STG into STG">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="164,41.6"
           Id="Package\Dim_Declarations\Getting_Unique_Declarations From STG into STG\Declarations_Final"
@@ -17465,7 +17517,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17980,7 +18034,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\STG_Inovices_Details\STG_Purchase_Invoice_Details\Purchase_Details"
@@ -18020,9 +18074,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="7.57488281249999,46.2,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -18053,37 +18105,35 @@ and det.IsDeleted=0</property>
     design-time-name="Package\STG_Inovices_Details\STG_Sales_Invoice_Details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="137.6,41.6"
           Id="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\Sales_Detals"
-          TopLeft="440,119.2" />
+          TopLeft="440,120" />
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\STG_Inovices_Details\STG_Sales_Invoice_Details\STG_Sales_Invoice_Details"
           TopLeft="412,257" />
         <EdgeLayout
           Id="Package\STG_Inovices_Details\STG_Sales_Invoice_Details.Paths[OLE DB Source Output]"
-          TopLeft="511.6,160.8">
+          TopLeft="511.6,161.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,96.2"
+              EndConnector="0,95.4"
               Start="0,0"
-              End="0,88.7">
+              End="0,87.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,88.7" />
+                    End="0,87.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8837109375,38.72841796875,55.767421875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

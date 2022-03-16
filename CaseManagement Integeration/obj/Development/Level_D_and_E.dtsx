@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="109"
-  DTS:VersionGUID="{D6991067-0C9A-4466-A552-FCE9765A6497}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{8F7448CE-18B4-4E5C-83D0-EFD5005803AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4035,21 +4035,6 @@ SELECT  [TaxPeriod]
                               name="IncludeDownStream">true</property>
                           </properties>
                         </inputColumn>
-                        <inputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[Developed_By]"
-                          cachedCodepage="1256"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Developed_By"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              expressionType="Notify"
-                              name="IncludeDownStream">true</property>
-                          </properties>
-                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True" />
@@ -4063,14 +4048,6 @@ SELECT  [TaxPeriod]
                       name="JsonParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]"
-                          mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Inputs[JsonParserTransformInput].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
                           dataType="dbTimeStamp"
@@ -4452,13 +4429,6 @@ SELECT  [TaxPeriod]
                       isErrorOut="true"
                       name="JsonParserTransform Error Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransform Error Output].Columns[ExtractedDate]"
                           dataType="dbTimeStamp"
@@ -5560,21 +5530,6 @@ SELECT  [TaxPeriod]
                               name="IncludeDownStream">true</property>
                           </properties>
                         </inputColumn>
-                        <inputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Inputs[JsonParserTransformInput].Columns[Developed_By]"
-                          cachedCodepage="1256"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Developed_By"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              expressionType="Notify"
-                              name="IncludeDownStream">true</property>
-                          </properties>
-                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True" />
@@ -5588,14 +5543,6 @@ SELECT  [TaxPeriod]
                       name="JsonParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Developed_By]"
-                          mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Inputs[JsonParserTransformInput].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TotalTaxValue]"
                           dataType="numeric"
@@ -6001,13 +5948,6 @@ SELECT  [TaxPeriod]
                       isErrorOut="true"
                       name="JsonParserTransform Error Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransform Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransform Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransform Error Output].Columns[TotalTaxValue]"
                           dataType="numeric"
@@ -6805,17 +6745,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
                           name="ExtractedDate"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -7268,13 +7197,6 @@ SELECT  [TaxPeriod]
                           dataType="dbTimeStamp"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[ExtractedDate]"
                           name="ExtractedDate" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -7760,17 +7682,6 @@ SELECT  [TaxPeriod]
                           precision="18"
                           scale="2"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -8224,13 +8135,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Error Output].Columns[ExtractedDate]"
                           name="ExtractedDate" />
                         <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
-                        <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTableVatTax_Sales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -8382,11 +8286,12 @@ SELECT  [TaxPeriod]
                           externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Tax]"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Tax]" />
                         <inputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].Columns[ID]"
-                          cachedDataType="guid"
-                          cachedName="ID"
+                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].Columns[NonTableVatID]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="NonTableVatID"
                           externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ID]" />
+                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[NonTableVatID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -8552,13 +8457,6 @@ SELECT  [TaxPeriod]
                           externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[UniqueTaxID]"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]" />
                         <inputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].Columns[Id]"
-                          cachedDataType="wstr"
-                          cachedLength="1000"
-                          cachedName="Id"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Id]" />
-                        <inputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].Columns[TaxTypeValue]"
                           cachedDataType="wstr"
                           cachedLength="1000"
@@ -8608,10 +8506,17 @@ SELECT  [TaxPeriod]
                           externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[TotalValue]"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TotalValue]" />
                         <inputColumn
+                          refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].Columns[NonTableVatID]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="NonTableVatID"
+                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
+                          lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[NonTableVatID]" />
+                        <inputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].Columns[ID]"
                           cachedDataType="guid"
                           cachedName="ID"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
+                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ID]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -8727,7 +8632,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{b8992c66-0f22-4f97-8e72-d86dc93cae37}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -17034,13 +16938,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[ExtractedDate]"
                           name="ExtractedDate" />
                         <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
-                        <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -17052,6 +16949,13 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
+                          name="Developed_By" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -17742,7 +17646,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Declaration_Jasons_Vat_to_STG\truncate_STG_Jasons"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{71470AD1-F044-4B57-97B0-7D6BDA0B816A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -17780,7 +17683,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Gamarek_Invoices_Details"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{DA48EC83-99F1-4DBD-9B2A-968629116C8E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -18578,7 +18480,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Gamarek_Invoices_Master"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{6E9D1186-183C-4291-AF75-BCA61B0E54B7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -19790,7 +19691,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened_to_DWH"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{8E359F25-9C79-42F1-B3AA-8A3C587A2A76}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -21299,7 +21199,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{F83DC66F-E03C-4283-88E9-41C2A44A1B0A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -21310,7 +21209,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{4093027C-63A3-4EEF-9047-DED55230E495}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -35579,7 +35477,6 @@ SELECT  [TaxPeriod]
           DTS:refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate_stg_namozag_41"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{8B939ECB-08F9-423B-8A40-FA71BEF06476}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -35657,7 +35554,6 @@ SELECT  [TaxPeriod]
       DTS:refId="Package\Truncate_Gamarek_Invoices"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{48CAFC7E-AE2A-4A2C-AC6C-6C95F0F95910}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -35759,7 +35655,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons"
@@ -35834,7 +35730,7 @@ SELECT  [TaxPeriod]
           PanelSize="262.4,249.6"
           Size="262.4,43.2"
           Id="Package\Declaration_Jasons_STG_to_DWH"
-          TopLeft="44.3428545737751,18.9647061483258" />
+          TopLeft="44.3428545737751,19.5764708627879" />
         <NodeLayout
           Size="160,41.6"
           Id="Package\Declaration_Jasons_Vat_to_STG\NonTable_Jasons"
@@ -35957,9 +35853,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -35968,7 +35862,7 @@ SELECT  [TaxPeriod]
           PanelSize="404,221.6"
           Size="404,43.2"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened_to_DWH"
-          TopLeft="409.714292691678,552.800002187841" />
+          TopLeft="410.285721272838,554.023531616765" />
         <NodeLayout
           Size="189.6,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
@@ -36217,11 +36111,11 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="323.2,524.8"
-          Size="323.2,568"
+          Size="323.2,43.2"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening"
-          TopLeft="409.714292691679,454.482356611172" />
+          TopLeft="410.285721272839,454.482356611172" />
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Truncate_Gamarek_Invoices"
@@ -36292,9 +36186,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="53.4571432293681,53.529410911018"
+              EndConnector="54.0285718105281,53.529410911018"
               Start="0,0"
-              End="53.4571432293681,46.029410911018">
+              End="54.0285718105281,46.029410911018">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -36305,13 +36199,13 @@ SELECT  [TaxPeriod]
                     Point2="0,26.764705455509"
                     Point3="4,26.764705455509" />
                   <mssgle:LineSegment
-                    End="49.4571432293681,26.764705455509" />
+                    End="50.0285718105281,26.764705455509" />
                   <mssgle:CubicBezierSegment
-                    Point1="49.4571432293681,26.764705455509"
-                    Point2="53.4571432293681,26.764705455509"
-                    Point3="53.4571432293681,30.764705455509" />
+                    Point1="50.0285718105281,26.764705455509"
+                    Point2="54.0285718105281,26.764705455509"
+                    Point3="54.0285718105281,30.764705455509" />
                   <mssgle:LineSegment
-                    End="53.4571432293681,46.029410911018" />
+                    End="54.0285718105281,46.029410911018" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36356,24 +36250,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="732.914292691679,738.482356611172">
+          TopLeft="571.885721272839,497.682356611172">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.200000000001,-142.482354423331"
+              EndConnector="40.3999999999988,56.3411750055931"
               Start="0,0"
-              End="-121.200000000001,-134.982354423331">
+              End="40.3999999999988,48.8411750055931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-117.200000000001,0" />
+                    End="0,24.1705875027966" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.200000000001,0"
-                    Point2="-121.200000000001,0"
-                    Point3="-121.200000000001,-4" />
+                    Point1="0,24.1705875027966"
+                    Point2="0,28.1705875027966"
+                    Point3="4,28.1705875027966" />
                   <mssgle:LineSegment
-                    End="-121.200000000001,-134.982354423331" />
+                    End="36.3999999999988,28.1705875027966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.3999999999988,28.1705875027966"
+                    Point2="40.3999999999988,28.1705875027966"
+                    Point3="40.3999999999988,32.1705875027966" />
+                  <mssgle:LineSegment
+                    End="40.3999999999988,48.8411750055931" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36388,9 +36288,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-281.585721306899,-32.2352945809546"
+              EndConnector="-281.585721306899,-31.6235298664925"
               Start="0,0"
-              End="-274.085721306899,-32.2352945809546">
+              End="-274.085721306899,-31.6235298664925">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -36401,13 +36301,13 @@ SELECT  [TaxPeriod]
                     Point2="-140.792860653449,0"
                     Point3="-140.792860653449,-4" />
                   <mssgle:LineSegment
-                    End="-140.792860653449,-28.2352945809546" />
+                    End="-140.792860653449,-27.6235298664925" />
                   <mssgle:CubicBezierSegment
-                    Point1="-140.792860653449,-28.2352945809546"
-                    Point2="-140.792860653449,-32.2352945809546"
-                    Point3="-144.792860653449,-32.2352945809546" />
+                    Point1="-140.792860653449,-27.6235298664925"
+                    Point2="-140.792860653449,-31.6235298664925"
+                    Point3="-144.792860653449,-31.6235298664925" />
                   <mssgle:LineSegment
-                    End="-274.085721306899,-32.2352945809546" />
+                    End="-274.085721306899,-31.6235298664925" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36418,30 +36318,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="175.542854573775,62.1647061483258">
+          TopLeft="175.542854573775,62.7764708627879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="304.628580240328,122.835295930123"
+              EndConnector="304.628580240328,122.223531215661"
               Start="0,0"
-              End="304.628580240328,115.335295930123">
+              End="304.628580240328,114.723531215661">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.4176479650616" />
+                    End="0,57.1117656078305" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.4176479650616"
-                    Point2="0,61.4176479650616"
-                    Point3="4,61.4176479650616" />
+                    Point1="0,57.1117656078305"
+                    Point2="0,61.1117656078305"
+                    Point3="4,61.1117656078305" />
                   <mssgle:LineSegment
-                    End="300.628580240328,61.4176479650616" />
+                    End="300.628580240328,61.1117656078305" />
                   <mssgle:CubicBezierSegment
-                    Point1="300.628580240328,61.4176479650616"
-                    Point2="304.628580240328,61.4176479650616"
-                    Point3="304.628580240328,65.4176479650616" />
+                    Point1="300.628580240328,61.1117656078305"
+                    Point2="304.628580240328,61.1117656078305"
+                    Point3="304.628580240328,65.1117656078305" />
                   <mssgle:LineSegment
-                    End="304.628580240328,115.335295930123" />
+                    End="304.628580240328,114.723531215661" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36579,7 +36479,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="228.8,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Sales_Details_Jason"
@@ -36635,7 +36535,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36669,7 +36571,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36703,7 +36607,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37520,7 +37426,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened\XML Parser Transform"
@@ -37564,7 +37470,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37598,7 +37506,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
