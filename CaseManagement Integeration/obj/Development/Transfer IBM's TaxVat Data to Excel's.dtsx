@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Transfer IBM s TaxVat Data to Excel s"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{090D705D-D4D5-401B-8907-847E69D6FB70}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{5F3E8698-96F7-4C4A-87C3-8182C601726D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,6 +21,7 @@
       DTS:refId="Package\DDLs"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{CB878B3F-FAC8-4096-8BAD-2BFC74712710}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -7776,6 +7777,7 @@
       DTS:refId="Package\Sent Tables"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{75A27A3F-4785-4387-8C60-731727943225}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -9027,6 +9029,1802 @@
           DTS:To="Package\Set DevelopedBY to ExcelSystems\Update TableVatTax" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Withholding IBM Transefer SRC Preparation"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BAFA327C-1F79-48F9-A6E5-8FEF8CB2D775}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Withholding IBM Transefer SRC Preparation">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3BAB64EA-F0F7-4A1F-B187-9E608C7416F1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="IBM_El_Masla7a_Mapped_Withholding"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[IBM_El_Masla7a_Mapped_Withholding]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Connections[OleDbConnection]"
+                      connectionManagerID="{451A8937-637B-434C-A807-B9E10266937B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Excel_WIthholding_Data]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[TransactionData_Id]"
+                          cachedDataType="i4"
+                          cachedName="TransactionData_Id"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[TransactionData_Id]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[TransactionData_Id]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_pageno]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="kst_pageno"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_pageno]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_pageno]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_year]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="kst_year"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_year]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_year]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[bat_prd]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="bat_prd"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[bat_prd]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_prd]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_docdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="kst_docdate"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docdate]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_jul]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="kst_jul"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_jul]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_jul]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_serl]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="kst_serl"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_serl]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_serl]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[gha_num]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="gha_num"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[gha_num]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_num]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[gha_name]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="gha_name"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[gha_name]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_name]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_docnum]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="kst_docnum"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_docnum1]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="kst_docnum1"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum1]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum1]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_docnum2]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="kst_docnum2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum2]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum2]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_ghatype]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_ghatype"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ghatype]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ghatype]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_dealtype]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="kst_dealtype"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_dealtype]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_dealtype]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_ksmval]"
+                          cachedDataType="numeric"
+                          cachedName="kst_ksmval"
+                          cachedPrecision="13"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ksmval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmval]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_ratflag]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_ratflag"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ratflag]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ratflag]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_flag]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_flag"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_flag]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_flag]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_sysdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="kst_sysdate"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_sysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_sysdate]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_ruid]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="kst_ruid"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ruid]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ruid]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_rsysdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="kst_rsysdate"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_rsysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_rsysdate]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_upuid]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="kst_upuid"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_upuid]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upuid]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_upsysdate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="kst_upsysdate"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_upsysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upsysdate]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[flag]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="flag"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[flag]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[flag]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[Taxpayer_Id]"
+                          cachedDataType="i4"
+                          cachedName="Taxpayer_Id"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Taxpayer_Id]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Taxpayer_Id]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_taxid]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="kst_taxid"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_taxid]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxid]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_file]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="kst_file"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_file]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_file]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="kst_date"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_date]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_date]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_natcode]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_natcode"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_natcode]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_natcode]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_totval]"
+                          cachedDataType="numeric"
+                          cachedName="kst_totval"
+                          cachedPrecision="13"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_totval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_totval]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_ksmcode]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_ksmcode"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ksmcode]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmcode]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_netval]"
+                          cachedDataType="numeric"
+                          cachedName="kst_netval"
+                          cachedPrecision="13"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_netval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_netval]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_prcnt]"
+                          cachedDataType="numeric"
+                          cachedName="kst_prcnt"
+                          cachedPrecision="5"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_prcnt]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_prcnt]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_taxval]"
+                          cachedDataType="numeric"
+                          cachedName="kst_taxval"
+                          cachedPrecision="13"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_taxval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxval]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_currency]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="kst_currency"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_currency]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_currency]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_uid]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="kst_uid"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_uid]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_uid]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_reg]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="kst_reg"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_reg]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_reg]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_acttype]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="kst_acttype"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_acttype]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_acttype]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[bat_branch]"
+                          cachedDataType="i4"
+                          cachedName="bat_branch"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[bat_branch]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_branch]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[Zero_Tax_Cause]"
+                          cachedDataType="i4"
+                          cachedName="Zero_Tax_Cause"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Zero_Tax_Cause]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Zero_Tax_Cause]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[line_Number_Inside_Batch]"
+                          cachedDataType="i4"
+                          cachedName="line_Number_Inside_Batch"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[line_Number_Inside_Batch]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[line_Number_Inside_Batch]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[Insertion_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Insertion_Date"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Insertion_Date]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Insertion_Date]" />
+                        <inputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].Columns[kst_lineno]"
+                          cachedCodepage="1256"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="kst_lineno"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_lineno]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_lineno]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[TransactionData_Id]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="TransactionData_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_pageno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          name="kst_pageno" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_year]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          name="kst_year" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[bat_prd]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="bat_prd" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_docdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_jul]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_jul" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_serl]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_serl" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[gha_num]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          name="gha_num" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[gha_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="60"
+                          name="gha_name" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum]"
+                          codePage="1256"
+                          dataType="str"
+                          length="15"
+                          name="kst_docnum" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum1]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_docnum1" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_docnum2]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          name="kst_docnum2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ghatype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ghatype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_dealtype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          name="kst_dealtype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ksmval]"
+                          dataType="numeric"
+                          name="kst_ksmval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ratflag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ratflag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_flag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_sysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_sysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ruid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_ruid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_rsysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_rsysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_upuid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_upuid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_upsysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_upsysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="flag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Taxpayer_Id]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="Taxpayer_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_taxid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          name="kst_taxid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_file]"
+                          codePage="1256"
+                          dataType="str"
+                          length="16"
+                          name="kst_file" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_date]"
+                          dataType="dbTimeStamp"
+                          name="kst_date" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_natcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_natcode" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_totval]"
+                          dataType="numeric"
+                          name="kst_totval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_ksmcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ksmcode" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_netval]"
+                          dataType="numeric"
+                          name="kst_netval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_prcnt]"
+                          dataType="numeric"
+                          name="kst_prcnt"
+                          precision="5"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_taxval]"
+                          dataType="numeric"
+                          name="kst_taxval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_currency]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          name="kst_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_uid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_uid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_reg]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_reg" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_acttype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_acttype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[bat_branch]"
+                          codePage="1256"
+                          dataType="str"
+                          length="50"
+                          name="bat_branch" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Zero_Tax_Cause]"
+                          dataType="wstr"
+                          length="50"
+                          name="Zero_Tax_Cause" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[line_Number_Inside_Batch]"
+                          dataType="i4"
+                          name="line_Number_Inside_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[Insertion_Date]"
+                          dataType="dbTimeStamp"
+                          name="Insertion_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input].ExternalColumns[kst_lineno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          name="kst_lineno" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Khasm_w_Ta7seel_SRC_IBM"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT 
+null as  [TransactionData_Id]
+      ,[kst_pageno]
+      ,[kst_year]
+      ,[tax_period] as [bat_prd]
+      ,[kst_docdate]
+      ,[kst_jul]
+      ,[kst_serl]
+      ,[gha_num]
+      ,[gha_name]
+      ,[kst_docnum]
+      ,[kst_docnum1]
+      ,[kst_docnum2]
+      ,[kst_ghatype]
+      ,[kst_dealtype]
+      ,[kst_ksmval]
+      ,[kst_ratflag]
+      ,[kst_flag]
+      ,[kst_sysdate]
+      ,[kst_ruid]
+      ,[kst_rsysdate]
+      ,[kst_upuid]
+      ,[kst_upsysdate]
+      ,[flag]
+      ,null as [Taxpayer_Id]
+      ,[kst_taxid]
+      ,[kst_file]
+      ,[kst_date]
+      ,[kst_natcode]
+      ,[kst_totval]
+      ,[kst_ksmcode]
+      ,[kst_netval]
+      ,[kst_prcnt]
+      ,[kst_taxval]
+      ,[kst_currency]
+      ,[kst_uid]
+      ,[kst_reg]
+      ,[kst_acttype]
+      ,[bat_branch]
+      ,null as [Zero_Tax_Cause]
+      ,null as  [line_Number_Inside_Batch]
+      ,batch_date as  [Insertion_Date]
+      ,[kst_lineno]
+
+	  --into [Excel_Withholdings_Transations_Mapping].dbo.IBM_El_Masla7a_Mapped_Withholding 
+/****** Script for SelectTopNRows command from SSMS  ******/
+
+  FROM [dbo].[khasm_Excel]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Connections[OleDbConnection]"
+                      connectionManagerID="{8F973704-69C4-42C5-90B2-B14C78617296}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[IBM_vat]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[TransactionData_Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[TransactionData_Id]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[TransactionData_Id]"
+                          name="TransactionData_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_pageno]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_pageno]"
+                          length="4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_pageno]"
+                          name="kst_pageno"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_year]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_year]"
+                          length="4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_year]"
+                          name="kst_year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_prd]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[bat_prd]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_prd]"
+                          name="bat_prd"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docdate]"
+                          name="kst_docdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_jul]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_jul]"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_jul]"
+                          name="kst_jul"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_serl]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_serl]"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_serl]"
+                          name="kst_serl"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_num]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[gha_num]"
+                          length="9"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_num]"
+                          name="gha_num"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_name]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[gha_name]"
+                          length="60"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[gha_name]"
+                          name="gha_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum]"
+                          length="15"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum]"
+                          name="kst_docnum"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum1]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum1]"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum1]"
+                          name="kst_docnum1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum2]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum2]"
+                          length="5"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_docnum2]"
+                          name="kst_docnum2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ghatype]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ghatype]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ghatype]"
+                          name="kst_ghatype"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_dealtype]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_dealtype]"
+                          length="2"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_dealtype]"
+                          name="kst_dealtype"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmval]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ksmval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmval]"
+                          name="kst_ksmval"
+                          precision="13"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ratflag]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ratflag]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ratflag]"
+                          name="kst_ratflag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_flag]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_flag]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_flag]"
+                          name="kst_flag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_sysdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_sysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_sysdate]"
+                          name="kst_sysdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ruid]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ruid]"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ruid]"
+                          name="kst_ruid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_rsysdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_rsysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_rsysdate]"
+                          name="kst_rsysdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upuid]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_upuid]"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upuid]"
+                          name="kst_upuid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upsysdate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_upsysdate]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_upsysdate]"
+                          name="kst_upsysdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[flag]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[flag]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[flag]"
+                          name="flag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Taxpayer_Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Taxpayer_Id]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Taxpayer_Id]"
+                          name="Taxpayer_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxid]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_taxid]"
+                          length="9"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxid]"
+                          name="kst_taxid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_file]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_file]"
+                          length="16"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_file]"
+                          name="kst_file"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_date]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_date]"
+                          name="kst_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_natcode]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_natcode]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_natcode]"
+                          name="kst_natcode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_totval]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_totval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_totval]"
+                          name="kst_totval"
+                          precision="13"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmcode]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ksmcode]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_ksmcode]"
+                          name="kst_ksmcode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_netval]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_netval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_netval]"
+                          name="kst_netval"
+                          precision="13"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_prcnt]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_prcnt]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_prcnt]"
+                          name="kst_prcnt"
+                          precision="5"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxval]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_taxval]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_taxval]"
+                          name="kst_taxval"
+                          precision="13"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_currency]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_currency]"
+                          length="2"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_currency]"
+                          name="kst_currency"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_uid]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_uid]"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_uid]"
+                          name="kst_uid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_reg]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_reg]"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_reg]"
+                          name="kst_reg"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_acttype]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_acttype]"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_acttype]"
+                          name="kst_acttype"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_branch]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[bat_branch]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[bat_branch]"
+                          name="bat_branch"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Zero_Tax_Cause]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Zero_Tax_Cause]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Zero_Tax_Cause]"
+                          name="Zero_Tax_Cause"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[line_Number_Inside_Batch]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[line_Number_Inside_Batch]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[line_Number_Inside_Batch]"
+                          name="line_Number_Inside_Batch"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Insertion_Date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Insertion_Date]"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[Insertion_Date]"
+                          name="Insertion_Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_lineno]"
+                          codePage="1256"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_lineno]"
+                          length="5"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].Columns[kst_lineno]"
+                          name="kst_lineno"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[TransactionData_Id]"
+                          dataType="i4"
+                          name="TransactionData_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_pageno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          name="kst_pageno" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_year]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          name="kst_year" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[bat_prd]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="bat_prd" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_docdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_jul]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_jul" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_serl]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_serl" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[gha_num]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          name="gha_num" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[gha_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="60"
+                          name="gha_name" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum]"
+                          codePage="1256"
+                          dataType="str"
+                          length="15"
+                          name="kst_docnum" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum1]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_docnum1" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_docnum2]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          name="kst_docnum2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ghatype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ghatype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_dealtype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          name="kst_dealtype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ksmval]"
+                          dataType="numeric"
+                          name="kst_ksmval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ratflag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ratflag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_flag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_sysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_sysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ruid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_ruid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_rsysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_rsysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_upuid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_upuid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_upsysdate]"
+                          dataType="dbTimeStamp"
+                          name="kst_upsysdate" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="flag" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Taxpayer_Id]"
+                          dataType="i4"
+                          name="Taxpayer_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_taxid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          name="kst_taxid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_file]"
+                          codePage="1256"
+                          dataType="str"
+                          length="16"
+                          name="kst_file" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_date]"
+                          dataType="dbTimeStamp"
+                          name="kst_date" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_natcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_natcode" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_totval]"
+                          dataType="numeric"
+                          name="kst_totval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_ksmcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_ksmcode" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_netval]"
+                          dataType="numeric"
+                          name="kst_netval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_prcnt]"
+                          dataType="numeric"
+                          name="kst_prcnt"
+                          precision="5"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_taxval]"
+                          dataType="numeric"
+                          name="kst_taxval"
+                          precision="13"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_currency]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          name="kst_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_uid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          name="kst_uid" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_reg]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          name="kst_reg" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_acttype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          name="kst_acttype" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[bat_branch]"
+                          dataType="i4"
+                          name="bat_branch" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Zero_Tax_Cause]"
+                          dataType="i4"
+                          name="Zero_Tax_Cause" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[line_Number_Inside_Batch]"
+                          dataType="i4"
+                          name="line_Number_Inside_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[Insertion_Date]"
+                          dataType="dbTimeStamp"
+                          name="Insertion_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output].ExternalColumns[kst_lineno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          name="kst_lineno" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[TransactionData_Id]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[TransactionData_Id]"
+                          name="TransactionData_Id" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_pageno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_pageno]"
+                          name="kst_pageno" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_year]"
+                          codePage="1256"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_year]"
+                          name="kst_year" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[bat_prd]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[bat_prd]"
+                          name="bat_prd" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docdate]"
+                          name="kst_docdate" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_jul]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_jul]"
+                          name="kst_jul" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_serl]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_serl]"
+                          name="kst_serl" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[gha_num]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[gha_num]"
+                          name="gha_num" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[gha_name]"
+                          codePage="1256"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[gha_name]"
+                          name="gha_name" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum]"
+                          codePage="1256"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum]"
+                          name="kst_docnum" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum1]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum1]"
+                          name="kst_docnum1" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum2]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_docnum2]"
+                          name="kst_docnum2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ghatype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ghatype]"
+                          name="kst_ghatype" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_dealtype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_dealtype]"
+                          name="kst_dealtype" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ksmval]"
+                          dataType="numeric"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ksmval]"
+                          name="kst_ksmval"
+                          precision="13"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ratflag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ratflag]"
+                          name="kst_ratflag" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_flag]"
+                          name="kst_flag" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_sysdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_sysdate]"
+                          name="kst_sysdate" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ruid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ruid]"
+                          name="kst_ruid" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_rsysdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_rsysdate]"
+                          name="kst_rsysdate" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_upuid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_upuid]"
+                          name="kst_upuid" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_upsysdate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_upsysdate]"
+                          name="kst_upsysdate" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[flag]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[flag]"
+                          name="flag" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Taxpayer_Id]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Taxpayer_Id]"
+                          name="Taxpayer_Id" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_taxid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="9"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_taxid]"
+                          name="kst_taxid" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_file]"
+                          codePage="1256"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_file]"
+                          name="kst_file" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_date]"
+                          name="kst_date" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_natcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_natcode]"
+                          name="kst_natcode" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_totval]"
+                          dataType="numeric"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_totval]"
+                          name="kst_totval"
+                          precision="13"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ksmcode]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_ksmcode]"
+                          name="kst_ksmcode" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_netval]"
+                          dataType="numeric"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_netval]"
+                          name="kst_netval"
+                          precision="13"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_prcnt]"
+                          dataType="numeric"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_prcnt]"
+                          name="kst_prcnt"
+                          precision="5"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_taxval]"
+                          dataType="numeric"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_taxval]"
+                          name="kst_taxval"
+                          precision="13"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_currency]"
+                          codePage="1256"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_currency]"
+                          name="kst_currency" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_uid]"
+                          codePage="1256"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_uid]"
+                          name="kst_uid" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_reg]"
+                          codePage="1256"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_reg]"
+                          name="kst_reg" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_acttype]"
+                          codePage="1256"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_acttype]"
+                          name="kst_acttype" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[bat_branch]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[bat_branch]"
+                          name="bat_branch" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Zero_Tax_Cause]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Zero_Tax_Cause]"
+                          name="Zero_Tax_Cause" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[line_Number_Inside_Batch]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[line_Number_Inside_Batch]"
+                          name="line_Number_Inside_Batch" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Insertion_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[Insertion_Date]"
+                          name="Insertion_Date" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_lineno]"
+                          codePage="1256"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[kst_lineno]"
+                          name="kst_lineno" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB.Paths[OLE DB Source Output]"
+                  endId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Withholding IBM Transefer SRC Preparation\Truncate IBM's  Witholding Data"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{706FF753-0B5C-4852-A27D-B1722C5202E9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate IBM's  Witholding Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{451A8937-637B-434C-A807-B9E10266937B}"
+              SQLTask:SqlStatementSource="truncate table [dbo].[IBM_El_Masla7a_Mapped_Withholding]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Withholding IBM Transefer SRC Preparation.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{4165294C-8058-454B-B9B4-3763D03B88D8}"
+          DTS:From="Package\Withholding IBM Transefer SRC Preparation\Truncate IBM's  Witholding Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -9296,7 +11094,7 @@
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="424.8,640.8"
-          Size="424.8,43.2"
+          Size="127.2,43.2"
           Id="Package\DDLs"
           TopLeft="143.87143191902,123.388235431394" />
         <NodeLayout
@@ -9333,7 +11131,7 @@
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="204.8,144.8"
-          Size="204.8,43.2"
+          Size="160,43.2"
           Id="Package\Declarations"
           TopLeft="7.55713895486316,454.117650645167" />
         <NodeLayout
@@ -9402,7 +11200,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -9520,9 +11320,9 @@
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="257.6,324.8"
-          Size="257.6,368"
+          Size="157.6,43.2"
           Id="Package\Sent Tables"
           TopLeft="29.0571362300795,535.105881700879" />
         <NodeLayout
@@ -9564,9 +11364,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -9578,18 +11376,30 @@
           TopLeft="224.214292146722,264.705884472145" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="355.642862032871,166.588235431394">
+          TopLeft="207.47143191902,166.588235431394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,98.117649040751"
+              EndConnector="147.542860227702,98.117649040751"
               Start="0,0"
-              End="0,90.617649040751">
+              End="147.542860227702,90.617649040751">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,90.617649040751" />
+                    End="0,45.0588245203755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.0588245203755"
+                    Point2="0,49.0588245203755"
+                    Point3="4,49.0588245203755" />
+                  <mssgle:LineSegment
+                    End="143.542860227702,49.0588245203755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.542860227702,49.0588245203755"
+                    Point2="147.542860227702,49.0588245203755"
+                    Point3="147.542860227702,53.0588245203755" />
+                  <mssgle:LineSegment
+                    End="147.542860227702,90.617649040751" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9604,9 +11414,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-245.057153191859,146.211766173022"
+              EndConnector="-267.457153191859,146.211766173022"
               Start="0,0"
-              End="-245.057153191859,138.711766173022">
+              End="-267.457153191859,138.711766173022">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9617,13 +11427,13 @@
                     Point2="0,73.1058830865111"
                     Point3="-4,73.1058830865111" />
                   <mssgle:LineSegment
-                    End="-241.057153191859,73.1058830865111" />
+                    End="-263.457153191859,73.1058830865111" />
                   <mssgle:CubicBezierSegment
-                    Point1="-241.057153191859,73.1058830865111"
-                    Point2="-245.057153191859,73.1058830865111"
-                    Point3="-245.057153191859,77.1058830865111" />
+                    Point1="-263.457153191859,73.1058830865111"
+                    Point2="-267.457153191859,73.1058830865111"
+                    Point3="-267.457153191859,77.1058830865111" />
                   <mssgle:LineSegment
-                    End="-245.057153191859,138.711766173022" />
+                    End="-267.457153191859,138.711766173022" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9668,30 +11478,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="157.85713623008,903.105881700879">
+          TopLeft="107.857136230079,578.305881700879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-61.6714258563763,-295.623527970364"
+              EndConnector="-11.6714258563762,29.176472029636"
               Start="0,0"
-              End="-61.6714258563763,-288.123527970364">
+              End="-11.6714258563762,21.676472029636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-143.811763985182" />
+                    End="0,10.588236014818" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-143.811763985182"
-                    Point2="0,-147.811763985182"
-                    Point3="-4,-147.811763985182" />
+                    Point1="0,10.588236014818"
+                    Point2="0,14.588236014818"
+                    Point3="-4,14.588236014818" />
                   <mssgle:LineSegment
-                    End="-57.6714258563763,-147.811763985182" />
+                    End="-7.67142585637623,14.588236014818" />
                   <mssgle:CubicBezierSegment
-                    Point1="-57.6714258563763,-147.811763985182"
-                    Point2="-61.6714258563763,-147.811763985182"
-                    Point3="-61.6714258563763,-151.811763985182" />
+                    Point1="-7.67142585637623,14.588236014818"
+                    Point2="-11.6714258563762,14.588236014818"
+                    Point3="-11.6714258563762,18.588236014818" />
                   <mssgle:LineSegment
-                    End="-61.6714258563763,-288.123527970364" />
+                    End="-11.6714258563762,21.676472029636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9702,30 +11512,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="109.957138954863,497.317650645167">
+          TopLeft="87.5571389548632,497.317650645167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="47.8999972752164,37.7882310557118"
+              EndConnector="20.2999972752163,37.7882310557119"
               Start="0,0"
-              End="47.8999972752164,30.2882310557118">
+              End="20.2999972752163,30.2882310557119">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.8941155278559" />
+                    End="0,14.894115527856" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.8941155278559"
-                    Point2="0,18.8941155278559"
-                    Point3="4,18.8941155278559" />
+                    Point1="0,14.894115527856"
+                    Point2="0,18.894115527856"
+                    Point3="4,18.894115527856" />
                   <mssgle:LineSegment
-                    End="43.8999972752164,18.8941155278559" />
+                    End="16.2999972752163,18.894115527856" />
                   <mssgle:CubicBezierSegment
-                    Point1="43.8999972752164,18.8941155278559"
-                    Point2="47.8999972752164,18.8941155278559"
-                    Point3="47.8999972752164,22.8941155278559" />
+                    Point1="16.2999972752163,18.894115527856"
+                    Point2="20.2999972752163,18.894115527856"
+                    Point3="20.2999972752163,22.894115527856" />
                   <mssgle:LineSegment
-                    End="47.8999972752164,30.2882310557118" />
+                    End="20.2999972752163,30.2882310557119" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9734,6 +11544,55 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Withholding IBM Transefer SRC Preparation\Truncate IBM's  Witholding Data"
+          TopLeft="75.785715482673,5.5" />
+        <EdgeLayout
+          Id="Package\Withholding IBM Transefer SRC Preparation.PrecedenceConstraints[Constraint 5]"
+          TopLeft="191.385715482673,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.914284517327,33.6470598788409"
+              Start="0,0"
+              End="22.914284517327,26.1470598788409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8235299394205" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8235299394205"
+                    Point2="0,16.8235299394205"
+                    Point3="4,16.8235299394205" />
+                  <mssgle:LineSegment
+                    End="18.914284517327,16.8235299394205" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.914284517327,16.8235299394205"
+                    Point2="22.914284517327,16.8235299394205"
+                    Point3="22.914284517327,20.8235299394205" />
+                  <mssgle:LineSegment
+                    End="22.914284517327,26.1470598788409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="417.6,41.6"
+          Id="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB"
+          TopLeft="5.5,80.7470598788409" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="428,177.6"
+          Size="308,43.2"
+          Id="Package\Withholding IBM Transefer SRC Preparation"
+          TopLeft="281.714290511852,623.152942892424" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -9741,7 +11600,7 @@
     design-time-name="Package\Declarations\NonTableVatTax">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Declarations\NonTableVatTax\NonTable_Excel"
@@ -9785,7 +11644,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9819,7 +11680,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9855,7 +11718,7 @@
     design-time-name="Package\Declarations\TableVatTax">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="134.4,41.6"
           Id="Package\Declarations\TableVatTax\Table_Excel"
@@ -9899,7 +11762,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9933,7 +11798,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9971,6 +11838,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_IBM"
+          TopLeft="223.2,80" />
+        <NodeLayout
           Size="232.8,41.6"
           Id="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_Excel"
           TopLeft="198.4,240.8" />
@@ -9978,10 +11849,6 @@
           Size="152.8,41.6"
           Id="Package\Invoice Details\Purchase_Invoice_Details\Derived Column"
           TopLeft="457.6,173.6" />
-        <NodeLayout
-          Size="227.2,41.6"
-          Id="Package\Invoice Details\Purchase_Invoice_Details\Purchase_Invoices_Details_IBM"
-          TopLeft="223.2,80" />
         <EdgeLayout
           Id="Package\Invoice Details\Purchase_Invoice_Details.Paths[OLE DB Source Output]"
           TopLeft="336.8,121.6">
@@ -10089,6 +11956,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_IBM"
+          TopLeft="84.8,60" />
+        <NodeLayout
           Size="215.2,41.6"
           Id="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_Excel"
           TopLeft="60,220.8" />
@@ -10096,10 +11967,6 @@
           Size="152.8,41.6"
           Id="Package\Invoice Details\Sales_Invoice_Details\Derived Column"
           TopLeft="319.2,153.6" />
-        <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\Invoice Details\Sales_Invoice_Details\Sales_Invoices_Details_IBM"
-          TopLeft="84.8,60" />
         <EdgeLayout
           Id="Package\Invoice Details\Sales_Invoice_Details.Paths[OLE DB Source Output]"
           TopLeft="189.2,101.6">
@@ -10205,7 +12072,7 @@
     design-time-name="Package\Invoice Headers\Purchase_Invoices">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Invoice Headers\Purchase_Invoices\Purchase_Invoices_Excel"
@@ -10249,7 +12116,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10277,7 +12146,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10431,7 +12302,7 @@
     design-time-name="Package\Sent Tables\Sent_Purchases">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\Sent Tables\Sent_Purchases\Sent_Purchase_Invoices_Excel"
@@ -10469,7 +12340,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10503,7 +12376,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10636,6 +12511,77 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sent Tables\Sent_Sales\Sent_Purchases_Invoices_IBM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM"
+          TopLeft="143.428573871145,44.0470594412728" />
+        <NodeLayout
+          Size="260,41.6"
+          Id="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding"
+          TopLeft="150.285716845065,148.658825614296" />
+        <EdgeLayout
+          Id="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB.Paths[OLE DB Source Output]"
+          TopLeft="250.628573871145,85.6470594412728">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.6571429739193,63.0117661730228"
+              Start="0,0"
+              End="29.6571429739193,55.5117661730228">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5058830865114" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5058830865114"
+                    Point2="0,31.5058830865114"
+                    Point3="4,31.5058830865114" />
+                  <mssgle:LineSegment
+                    End="25.6571429739193,31.5058830865114" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.6571429739193,31.5058830865114"
+                    Point2="29.6571429739193,31.5058830865114"
+                    Point3="29.6571429739193,35.5058830865114" />
+                  <mssgle:LineSegment
+                    End="29.6571429739193,55.5117661730228" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\Khasm_w_Ta7seel_SRC_IBM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Withholding IBM Transefer SRC Preparation\Transfere IBM's Data To (Excel_WithHolding_Transaction_Mapping)  DB\IBM_El_Masla7a_Mapped_Withholding">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
