@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="126"
-  DTS:VersionGUID="{A6C882F9-540A-4003-A5BA-4100E24DD772}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{91581615-B18F-4571-8089-3CEFF67330FC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -19733,7 +19733,7 @@ SELECT  [TaxPeriod]
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[vw_5asm_w_Ta7seel_cleansed_New]</property>
+                      name="OpenRowset">[dbo].[vw_5asm_w_Ta7seel_cleansed_New_Implementation]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -35238,7 +35238,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons"
@@ -35270,7 +35270,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35304,7 +35306,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -35351,7 +35355,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35379,14 +35385,16 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="256.8,206.4"
-          Size="256.8,249.6"
+          Size="254.4,43.2"
           Id="Package\Declaration_Jasons_Vat_to_STG"
           TopLeft="588.328575880674,51.2000007292804" />
         <NodeLayout
@@ -35441,9 +35449,9 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="613.6,221.6"
-          Size="613.6,43.2"
+          Size="613.6,264.8"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
         <NodeLayout
@@ -35509,7 +35517,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35537,7 +35547,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35565,7 +35577,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35593,7 +35607,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35627,7 +35643,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35661,7 +35679,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35689,7 +35709,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -35799,30 +35821,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="806.685726211509,204.882354715044">
+          TopLeft="806.685726211509,163.282354715044">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-89.9571503308349,95.9176460142364"
+              EndConnector="-91.1571503308348,-68.8823539857636"
               Start="0,0"
-              End="-89.9571503308349,103.417646014236">
+              End="-91.1571503308348,-61.3823539857636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,114.417646014236" />
+                    End="0,-30.4411769928818" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,114.417646014236"
-                    Point2="0,118.417646014236"
-                    Point3="-4,118.417646014236" />
+                    Point1="0,-30.4411769928818"
+                    Point2="0,-34.4411769928818"
+                    Point3="-4,-34.4411769928818" />
                   <mssgle:LineSegment
-                    End="-85.9571503308349,118.417646014236" />
+                    End="-87.1571503308348,-34.4411769928818" />
                   <mssgle:CubicBezierSegment
-                    Point1="-85.9571503308349,118.417646014236"
-                    Point2="-89.9571503308349,118.417646014236"
-                    Point3="-89.9571503308349,114.417646014236" />
+                    Point1="-87.1571503308348,-34.4411769928818"
+                    Point2="-91.1571503308348,-34.4411769928818"
+                    Point3="-91.1571503308348,-38.4411769928818" />
                   <mssgle:LineSegment
-                    End="-89.9571503308349,103.417646014236" />
+                    End="-91.1571503308348,-61.3823539857636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -35867,13 +35889,13 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="588.328575880674,176.00000072928">
+          TopLeft="588.328575880674,72.8000007292804">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-281.585721306899,-135.435294580955"
+              EndConnector="-281.585721306899,-32.2352945809546"
               Start="0,0"
-              End="-274.085721306899,-135.435294580955">
+              End="-274.085721306899,-32.2352945809546">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -35884,13 +35906,13 @@ SELECT  [TaxPeriod]
                     Point2="-140.79286065345,0"
                     Point3="-140.79286065345,-4" />
                   <mssgle:LineSegment
-                    End="-140.79286065345,-131.435294580955" />
+                    End="-140.79286065345,-28.2352945809546" />
                   <mssgle:CubicBezierSegment
-                    Point1="-140.79286065345,-131.435294580955"
-                    Point2="-140.79286065345,-135.435294580955"
-                    Point3="-144.79286065345,-135.435294580955" />
+                    Point1="-140.79286065345,-28.2352945809546"
+                    Point2="-140.79286065345,-32.2352945809546"
+                    Point3="-144.79286065345,-32.2352945809546" />
                   <mssgle:LineSegment
-                    End="-274.085721306899,-135.435294580955" />
+                    End="-274.085721306899,-32.2352945809546" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36943,13 +36965,13 @@ SELECT  [TaxPeriod]
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="232,41.6"
-          Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\5asm_w_Ta7seel_cleansed_New"
-          TopLeft="155.428574075504,40.9882358689622" />
-        <NodeLayout
           Size="228,41.6"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\Dim_Invoices_5asm_w_Ta7seel"
           TopLeft="182.857145971181,159.058825760152" />
+        <NodeLayout
+          Size="232,41.6"
+          Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\5asm_w_Ta7seel_cleansed_New"
+          TopLeft="155.428574075504,40.9882358689622" />
         <EdgeLayout
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41.Paths[OLE DB Source Output]"
           TopLeft="271.428574075504,82.5882358689622">
@@ -36987,6 +37009,32 @@ SELECT  [TaxPeriod]
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\5asm_w_Ta7seel_cleansed_New">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\Dim_Invoices_5asm_w_Ta7seel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened">
     <LayoutInfo>
@@ -37656,32 +37704,6 @@ SELECT  [TaxPeriod]
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47\Namozag_47">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\5asm_w_Ta7seel_cleansed_New">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\Dim_Invoices_5asm_w_Ta7seel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
