@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Post_Execution"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{DC21C911-DE4F-4A39-97D1-33889C40F909}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{B0DCE977-8876-4833-962B-08C72692756D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -152,6 +152,7 @@
       DTS:refId="Package\Delete_Duplicates_across_IncomeTax_Dim_Tables(102 &amp; 106)"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{7788BECA-31BE-46CA-897E-BE27843B0377}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -464,6 +465,7 @@
       DTS:refId="Package\Update_Declarations(est5las_Purchase_Is_Correct) (for nontable &amp; Table) (New Numeric Value)"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{16246066-33EA-421B-BB39-DA4817B5467B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -499,6 +501,7 @@
       DTS:refId="Package\Update_Declarations(est5las_Sales_Is_Correct) (for nontable &amp; Table) (New Numeric Value)"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{71891B61-3130-4590-A757-D67ED252577D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -674,6 +677,7 @@
       DTS:refId="Package\Update_Registered_TaxPayers"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{42C064A7-449D-4740-A694-34CCBC39A8B9}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -745,7 +749,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
-              SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;convert(datetime,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0  &#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;--convert(date,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0&#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)--) and try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) is not null&#xA;&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -902,9 +906,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -932,9 +934,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -956,9 +956,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -986,9 +984,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -1037,9 +1033,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -1313,9 +1307,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -1386,9 +1378,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1422,9 +1412,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1458,9 +1446,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1488,9 +1474,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1524,16 +1508,14 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="452,408"
-          Size="452,43.2"
+          Size="312,43.2"
           Id="Package\Update_IncomeTax_Dim_Tables(102 &amp; 106)"
           TopLeft="217.714289421938,416.564708190311" />
         <NodeLayout
@@ -1763,13 +1745,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="443.714289421938,459.764708190311">
+          TopLeft="373.714289421938,459.764708190311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-138.800000544958,84.4705828900971"
+              EndConnector="-68.800000544958,84.4705828900971"
               Start="0,0"
-              End="-138.800000544958,76.9705828900971">
+              End="-68.800000544958,76.9705828900971">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1780,13 +1762,13 @@
                     Point2="0,42.2352914450485"
                     Point3="-4,42.2352914450485" />
                   <mssgle:LineSegment
-                    End="-134.800000544958,42.2352914450485" />
+                    End="-64.800000544958,42.2352914450485" />
                   <mssgle:CubicBezierSegment
-                    Point1="-134.800000544958,42.2352914450485"
-                    Point2="-138.800000544958,42.2352914450485"
-                    Point3="-138.800000544958,46.2352914450485" />
+                    Point1="-64.800000544958,42.2352914450485"
+                    Point2="-68.800000544958,42.2352914450485"
+                    Point3="-68.800000544958,46.2352914450485" />
                   <mssgle:LineSegment
-                    End="-138.800000544958,76.9705828900971" />
+                    End="-68.800000544958,76.9705828900971" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1797,30 +1779,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="378.628574484221,392.000002041986">
+          TopLeft="376.171431953079,392.000002041986">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.0857149377171,24.564706148325"
+              EndConnector="0,24.564706148325"
               Start="0,0"
-              End="65.0857149377171,17.064706148325">
+              End="0,17.064706148325">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.2823530741625" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.2823530741625"
-                    Point2="0,12.2823530741625"
-                    Point3="4,12.2823530741625" />
-                  <mssgle:LineSegment
-                    End="61.0857149377171,12.2823530741625" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.0857149377171,12.2823530741625"
-                    Point2="65.0857149377171,12.2823530741625"
-                    Point3="65.0857149377171,16.2823530741625" />
-                  <mssgle:LineSegment
-                    End="65.0857149377171,17.064706148325" />
+                    End="0,17.064706148325" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
