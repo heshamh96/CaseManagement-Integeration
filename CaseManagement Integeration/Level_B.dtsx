@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_B"
   DTS:PackageType="5"
-  DTS:VersionBuild="162"
-  DTS:VersionGUID="{4B9F77B8-03A6-4A8B-8144-316D143CCB87}">
+  DTS:VersionBuild="165"
+  DTS:VersionGUID="{A5C86F60-CD72-4A69-B92E-BA3FC28AE9F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -22573,7 +22573,7 @@ where rownumb=1</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
-          SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;convert(datetime,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0  &#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;--convert(date,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0&#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)--) and try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) is not null&#xA;&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -26179,7 +26179,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\Dim_Sales_Master_2">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
           Id="Package\TaxPayers To The Stageing Area\Dim_Sales_Master_2\Sales_Master_2"
@@ -26219,9 +26219,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26257,7 +26255,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\Dim_Tax_Payers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\TaxPayers To The Stageing Area\Dim_Tax_Payers\TaxPayer"
@@ -26297,9 +26295,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26413,7 +26409,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\ig_Master">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="124,41.6"
           Id="Package\TaxPayers To The Stageing Area\ig_Master\ig_Master"
@@ -26453,9 +26449,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
