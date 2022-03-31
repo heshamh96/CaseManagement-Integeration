@@ -4,8 +4,6 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ServerName>.</ServerName>
-        <PathOnServer>/SSISDB/DWH_VAT_BI_Project_Deployment/DWH_VAT_BI</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
