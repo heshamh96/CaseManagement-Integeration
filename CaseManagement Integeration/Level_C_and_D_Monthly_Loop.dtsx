@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C_and_D_Monthly_Loop"
   DTS:PackageType="5"
-  DTS:VersionBuild="265"
-  DTS:VersionGUID="{A1CD738E-A149-4393-9707-1557CBA0F42E}">
+  DTS:VersionBuild="266"
+  DTS:VersionGUID="{4C8B4ABB-1E71-4FA6-8DAF-69992A5F3B08}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -3992,7 +3992,7 @@ and SendDate is not null
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_Current _Period (Dim_Declarations)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -4017,7 +4017,7 @@ and SendDate is not null
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete_Current _Period (Dim_Declarations_SCD)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13810,7 +13810,7 @@ or TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxP
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
-              SQLTask:SqlStatementSource="exec [dbo].[all_declarations_with_no_invoices_sent_purchases_insertion] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="exec [dbo].all_declarations_with_no_invoices_sent_purchases_insertion_loop ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="$Package::TaxPeriod_Param"
@@ -13834,7 +13834,7 @@ or TaxVatDecID in (select id from Staging_Area.dbo.Declarations_Final where TaxP
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
-              SQLTask:SqlStatementSource="exec [dbo].[all_declarations_with_no_invoices_sent_sales_insertion] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="exec all_declarations_with_no_invoices_sent_sales_insertion_loop ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="$Package::TaxPeriod_Param"
@@ -16547,7 +16547,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16569,7 +16571,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16597,7 +16601,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16631,7 +16637,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16659,7 +16667,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -16885,9 +16895,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16915,9 +16923,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16945,9 +16951,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16981,9 +16985,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17011,16 +17013,14 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="496.8,368.8"
-          Size="496.8,43.2"
+          Size="496.8,412"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)"
           TopLeft="339.542861045137,105.458824739159" />
         <NodeLayout
@@ -17504,13 +17504,13 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="339.542861045137,127.058824739159">
+          TopLeft="339.542861045137,311.458824739159">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-70.0857175773505,35.141176537082"
+              EndConnector="-70.0857175773505,-149.258823462918"
               Start="0,0"
-              End="-70.0857175773505,27.641176537082">
+              End="-70.0857175773505,-141.758823462918">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -17519,9 +17519,9 @@ and det.IsDeleted=0</property>
                   <mssgle:CubicBezierSegment
                     Point1="-66.0857175773505,0"
                     Point2="-70.0857175773505,0"
-                    Point3="-70.0857175773505,4" />
+                    Point3="-70.0857175773505,-4" />
                   <mssgle:LineSegment
-                    End="-70.0857175773505,27.641176537082" />
+                    End="-70.0857175773505,-141.758823462918" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18011,7 +18011,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Dim_Declarations\Final_Declarations_Load_Stg_to_DWH\Dim_Declarations"
@@ -18051,7 +18051,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

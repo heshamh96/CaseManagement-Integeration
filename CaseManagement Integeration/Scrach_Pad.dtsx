@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/11/2021 2:20:18 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Scrach_Pad"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{09F75D37-E599-49FC-9BFD-3AF5B8494557}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{AACCE7FC-66B3-4EAE-8D2F-FE6817CF85DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -9730,6 +9730,162 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           </paths>
         </pipeline>
       </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix The E3fa2at and other stuff"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3CF5CF9C-1C12-4201-9144-8622E0AFB704}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix The E3fa2at and other stuff">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e29518ff-0dc2-492e-8f0d-92aeca57f4af}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec [dbo].[all_declaraitons_with_no_invoices]&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ca454231-2213-4da7-9dc5-454f1a00ce34}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SentPurchases_Append (On_Sent_Tables)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into SentTables.dbo.[SentPurshaseInvoices](&#xA; [ID]      &#xA;,[TaxVatDecID]&#xA;,[PurchaseInvoiceID]&#xA;,[CreationDate]&#xA;,Developed_By)&#xA;&#xA;SELECT  a.[ID]      &#xA;,a.[TaxVatDecID]&#xA;,a.[PurchaseInvoiceID]&#xA;,a.[CreationDate]&#xA;,'false_est5las' as Developed_By&#xA;  FROM [Sent_Tables_Try_out].[dbo].[SentPurshaseInvoices] a&#xA;  left join (select distinct PurchaseInvoiceID,TaxVatDecID from SentTables.dbo.SentPurshaseInvoices) as spik &#xA;on a.PurchaseInvoiceID=spik.PurchaseInvoiceID and a.TaxVatDecID=spik.TaxVatDecID &#xA;where  spik.PurchaseInvoiceID is null&#xA;and spik.TaxVatDecID is null&#xA; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2c84c2c3-115a-413f-b015-a370e49073f5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SentSales_Append (On_Sent_Tables)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into SentTables.dbo.SentSalesInvoices(&#xA; [ID]      &#xA;,[TaxVatDecID]&#xA;,[SalesInvoiceID]&#xA;,[CreationDate]&#xA;,Developed_By)&#xA;&#xA;SELECT  a.[ID]      &#xA;,a.[TaxVatDecID]&#xA;,a.[SalesInvoiceID]&#xA;,a.[CreationDate]&#xA;,'false_est5las' as Developed_By&#xA;  FROM [Sent_Tables_Try_out].[dbo].SentSalesInvoices a&#xA;  left join (select distinct [SalesInvoiceID],TaxVatDecID from SentTables.dbo.SentSalesInvoices) as ssik &#xA;on a.[SalesInvoiceID]=ssik.[SalesInvoiceID] and a.TaxVatDecID=ssik.TaxVatDecID &#xA;where  ssik.[SalesInvoiceID] is null&#xA;and ssik.TaxVatDecID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ad9825b2-2d93-4f84-93b2-a2c4482d77d2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sent_Purchases"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec [dbo].all_declarations_with_no_invoices_sent_purchases_insertion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5257c009-8425-4c27-9474-83985f23bfe5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sent_Sales"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec all_declarations_with_no_invoices_sent_sales_insertion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AB9B2AAE-7F3B-4A81-8401-6B11332EF28C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate for the fix"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="truncate table [dbo].[Declarations_Final]&#xA;truncate table [dbo].[SentPurshaseInvoices]&#xA;truncate table [dbo].[SentSalesInvoices]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{47AAEB5C-159E-49AB-B83B-D7EB74CEA25A}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Sent_Purchases" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A574A481-0C6F-4ED5-BD57-5A53C423EBFB}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{45619257-D3BE-4C67-BE21-61C6055C2A4D}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Sent_Sales" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{99D131AF-C010-4AF9-8379-945B5FBC95DA}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2BF7951-D916-404D-BC06-3E0D6AAA8B9F}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\NonTableTaxDetails_Jason"
@@ -24073,7 +24229,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update NonTable_Declarations (NetSales)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24090,7 +24246,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_102"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24107,7 +24263,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_106"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24125,7 +24281,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_Declarations(est5las_Sales_Is_Correct) (for table)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24187,7 +24343,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="144,41.6"
           Id="Package\102_transfere"
@@ -24205,10 +24361,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Id="Package\Declaration_Income_106 (Stg_To_DWH)"
           TopLeft="337.000001362392,97.3764699876514" />
         <NodeLayout
-          Size="276,41.6"
-          Id="Package\Update NonTable_Declarations (NetSales)"
-          TopLeft="397.828576868408,343.000002917121" />
-        <NodeLayout
           Size="204,41.6"
           Id="Package\NonTableTaxDetails_Jason"
           TopLeft="157.428574347983,309.776473196485" />
@@ -24216,6 +24368,10 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Size="185.6,41.6"
           Id="Package\TableTaxDetails_Jason"
           TopLeft="165.142859955223,226.21176777744" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\Update NonTable_Declarations (NetSales)"
+          TopLeft="397.828576868408,343.000002917121" />
         <NodeLayout
           Size="136,41.6"
           Id="Package\Update_102"
@@ -24380,6 +24536,189 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="348.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          TopLeft="6.05714501750711,76.129415943053" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          TopLeft="107.232429035436,140.847060899833" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
+          TopLeft="183.632429035436,182.447060899833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.7292522308084,22.7518216308011"
+              Start="0,0"
+              End="-42.7292522308084,15.2518216308011">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.37591081540052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.37591081540052"
+                    Point2="0,11.3759108154005"
+                    Point3="-4,11.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-38.7292522308084,11.3759108154005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.7292522308084,11.3759108154005"
+                    Point2="-42.7292522308084,11.3759108154005"
+                    Point3="-42.7292522308084,15.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-42.7292522308084,15.2518216308011" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          TopLeft="76.1031768046271,205.198882530635" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
+          TopLeft="76.1031768046271,225.998882530635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.2253946823326,31.9686276874012"
+              Start="0,0"
+              End="71.2253946823326,24.4686276874012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.2253946823326,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.2253946823326,0"
+                    Point2="71.2253946823326,0"
+                    Point3="71.2253946823326,4" />
+                  <mssgle:LineSegment
+                    End="71.2253946823326,24.4686276874012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          TopLeft="8.9285714869597,257.967510218036" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
+          TopLeft="285.72857148696,278.767510218036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.4789115182861,59.5256777722669"
+              Start="0,0"
+              End="-12.9789115182861,59.5256777722669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,55.5256777722669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,55.5256777722669"
+                    Point2="22.5,59.5256777722669"
+                    Point3="18.5,59.5256777722669" />
+                  <mssgle:LineSegment
+                    End="-12.9789115182861,59.5256777722669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="253.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
+          TopLeft="11.6496599686736,317.493187990303" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
+          TopLeft="182.044787026471,117.729415943053">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.1176449567804"
+              Start="0,0"
+              End="0,15.6176449567804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6176449567804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          TopLeft="85.4857187524134,5.5" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
+          TopLeft="170.285718752413,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.1714262650937,29.029415943053"
+              Start="0,0"
+              End="10.1714262650937,21.529415943053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5147079715265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5147079715265"
+                    Point2="0,14.5147079715265"
+                    Point3="4,14.5147079715265" />
+                  <mssgle:LineSegment
+                    End="6.17142626509369,14.5147079715265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.17142626509369,14.5147079715265"
+                    Point2="10.1714262650937,14.5147079715265"
+                    Point3="10.1714262650937,18.5147079715265" />
+                  <mssgle:LineSegment
+                    End="10.1714262650937,21.529415943053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="360.8,430.4"
+          Size="360.8,43.2"
+          Id="Package\Fix The E3fa2at and other stuff"
+          TopLeft="181.142860159582,399.529414192781" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
