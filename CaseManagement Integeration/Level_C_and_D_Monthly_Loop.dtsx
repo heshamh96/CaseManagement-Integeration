@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C_and_D_Monthly_Loop"
   DTS:PackageType="5"
-  DTS:VersionBuild="266"
-  DTS:VersionGUID="{4C8B4ABB-1E71-4FA6-8DAF-69992A5F3B08}">
+  DTS:VersionBuild="270"
+  DTS:VersionGUID="{311D6B54-8DC9-46F6-89D7-3C43435B229E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -16857,22 +16857,22 @@ and det.IsDeleted=0</property>
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)\Sent_Purchases"
-          TopLeft="219.978237586397,112.121010783634" />
+          TopLeft="219.978237586397,112.732775498096" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)\Sent_Sales"
-          TopLeft="86.5632693279592,155.672832122723" />
+          TopLeft="86.5632693279592,156.284596837185" />
         <NodeLayout
           Size="276.8,41.6"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)\SentPurchases_Append (On_Sent_Tables)"
-          TopLeft="93.1029509799243,212.723812811359" />
+          TopLeft="93.1029509799243,213.335577525821" />
         <NodeLayout
           Size="253.6,41.6"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)\SentSales_Append (On_Sent_Tables)"
-          TopLeft="95.8240394616382,272.249490583626" />
+          TopLeft="95.8240394616382,272.861255298088" />
         <EdgeLayout
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing).PrecedenceConstraints[Constraint]"
-          TopLeft="219.978237586397,132.921010783634">
+          TopLeft="219.978237586397,133.532775498096">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16904,20 +16904,20 @@ and det.IsDeleted=0</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.4680264286678,29.2302517478441"
+              EndConnector="10.468026428667,29.8420164623058"
               Start="0,0"
-              End="10.4680264286678,21.7302517478441">
+              End="10.468026428667,22.3420164623058">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="6.46802642866783,0" />
+                    End="6.46802642866703,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.46802642866783,0"
-                    Point2="10.4680264286678,0"
-                    Point3="10.4680264286678,4" />
+                    Point1="6.46802642866703,0"
+                    Point2="10.468026428667,0"
+                    Point3="10.468026428667,4" />
                   <mssgle:LineSegment
-                    End="10.4680264286678,21.7302517478441" />
+                    End="10.468026428667,22.3420164623058" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16928,7 +16928,7 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing).PrecedenceConstraints[Constraint 2]"
-          TopLeft="216.163269327959,176.472832122723">
+          TopLeft="216.163269327959,177.084596837185">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16956,7 +16956,7 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing).PrecedenceConstraints[Constraint 3]"
-          TopLeft="369.902950979924,233.523812811359">
+          TopLeft="369.902950979924,234.135577525821">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17018,9 +17018,9 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="496.8,368.8"
-          Size="496.8,412"
+          Size="496.8,43.2"
           Id="Package\Sent_Stored_Procdures_for declarations_with_No_Invoices(Lighwieght_Performing)"
           TopLeft="339.542861045137,105.458824739159" />
         <NodeLayout
@@ -17054,9 +17054,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17090,9 +17088,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -17504,13 +17500,13 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="339.542861045137,311.458824739159">
+          TopLeft="339.542861045137,127.058824739159">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-70.0857175773505,-149.258823462918"
+              EndConnector="-70.0857175773505,35.141176537082"
               Start="0,0"
-              End="-70.0857175773505,-141.758823462918">
+              End="-70.0857175773505,27.641176537082">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -17519,9 +17515,9 @@ and det.IsDeleted=0</property>
                   <mssgle:CubicBezierSegment
                     Point1="-66.0857175773505,0"
                     Point2="-70.0857175773505,0"
-                    Point3="-70.0857175773505,-4" />
+                    Point3="-70.0857175773505,4" />
                   <mssgle:LineSegment
-                    End="-70.0857175773505,-141.758823462918" />
+                    End="-70.0857175773505,27.641176537082" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Scrach_Pad"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{AACCE7FC-66B3-4EAE-8D2F-FE6817CF85DC}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{EAB5678E-32A2-4420-BA0E-0585027C2D84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -9762,6 +9762,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{ca454231-2213-4da7-9dc5-454f1a00ce34}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9779,6 +9780,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{2c84c2c3-115a-413f-b015-a370e49073f5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -24714,9 +24716,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="360.8,430.4"
-          Size="360.8,43.2"
+          Size="360.8,473.6"
           Id="Package\Fix The E3fa2at and other stuff"
           TopLeft="181.142860159582,399.529414192781" />
       </GraphLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Scrach_Pad"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{09F75D37-E599-49FC-9BFD-3AF5B8494557}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{EAB5678E-32A2-4420-BA0E-0585027C2D84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -9732,6 +9732,164 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Fix The E3fa2at and other stuff"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3CF5CF9C-1C12-4201-9144-8622E0AFB704}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix The E3fa2at and other stuff">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e29518ff-0dc2-492e-8f0d-92aeca57f4af}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec [dbo].[all_declaraitons_with_no_invoices]&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{ca454231-2213-4da7-9dc5-454f1a00ce34}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SentPurchases_Append (On_Sent_Tables)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into SentTables.dbo.[SentPurshaseInvoices](&#xA; [ID]      &#xA;,[TaxVatDecID]&#xA;,[PurchaseInvoiceID]&#xA;,[CreationDate]&#xA;,Developed_By)&#xA;&#xA;SELECT  a.[ID]      &#xA;,a.[TaxVatDecID]&#xA;,a.[PurchaseInvoiceID]&#xA;,a.[CreationDate]&#xA;,'false_est5las' as Developed_By&#xA;  FROM [Sent_Tables_Try_out].[dbo].[SentPurshaseInvoices] a&#xA;  left join (select distinct PurchaseInvoiceID,TaxVatDecID from SentTables.dbo.SentPurshaseInvoices) as spik &#xA;on a.PurchaseInvoiceID=spik.PurchaseInvoiceID and a.TaxVatDecID=spik.TaxVatDecID &#xA;where  spik.PurchaseInvoiceID is null&#xA;and spik.TaxVatDecID is null&#xA; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{2c84c2c3-115a-413f-b015-a370e49073f5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SentSales_Append (On_Sent_Tables)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="insert into SentTables.dbo.SentSalesInvoices(&#xA; [ID]      &#xA;,[TaxVatDecID]&#xA;,[SalesInvoiceID]&#xA;,[CreationDate]&#xA;,Developed_By)&#xA;&#xA;SELECT  a.[ID]      &#xA;,a.[TaxVatDecID]&#xA;,a.[SalesInvoiceID]&#xA;,a.[CreationDate]&#xA;,'false_est5las' as Developed_By&#xA;  FROM [Sent_Tables_Try_out].[dbo].SentSalesInvoices a&#xA;  left join (select distinct [SalesInvoiceID],TaxVatDecID from SentTables.dbo.SentSalesInvoices) as ssik &#xA;on a.[SalesInvoiceID]=ssik.[SalesInvoiceID] and a.TaxVatDecID=ssik.TaxVatDecID &#xA;where  ssik.[SalesInvoiceID] is null&#xA;and ssik.TaxVatDecID is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ad9825b2-2d93-4f84-93b2-a2c4482d77d2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sent_Purchases"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec [dbo].all_declarations_with_no_invoices_sent_purchases_insertion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5257c009-8425-4c27-9474-83985f23bfe5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sent_Sales"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="exec all_declarations_with_no_invoices_sent_sales_insertion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AB9B2AAE-7F3B-4A81-8401-6B11332EF28C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate for the fix"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C30FF569-053E-4A1E-9605-8121BBDD06C4}"
+              SQLTask:SqlStatementSource="truncate table [dbo].[Declarations_Final]&#xA;truncate table [dbo].[SentPurshaseInvoices]&#xA;truncate table [dbo].[SentSalesInvoices]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{47AAEB5C-159E-49AB-B83B-D7EB74CEA25A}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Sent_Purchases" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A574A481-0C6F-4ED5-BD57-5A53C423EBFB}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{45619257-D3BE-4C67-BE21-61C6055C2A4D}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Fix The E3fa2at and other stuff\Sent_Sales" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{99D131AF-C010-4AF9-8379-945B5FBC95DA}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2BF7951-D916-404D-BC06-3E0D6AAA8B9F}"
+          DTS:From="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\NonTableTaxDetails_Jason"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -11449,7 +11607,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="ID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1395:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1665:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11462,7 +11620,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="DeclarationTypeID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1396:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1666:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11476,7 +11634,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="20"
                       cachedName="DocumentNum"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DocumentNum]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1397:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1667:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11489,7 +11647,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="LinkCodeID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[LinkCodeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1398:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1668:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11502,7 +11660,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="TaxpayerID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TaxpayerID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1399:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1669:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11516,7 +11674,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="9"
                       cachedName="UniqueTaxID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1400:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1670:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11529,7 +11687,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="TaxPeriod"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TaxPeriod]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1401:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1671:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11543,7 +11701,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="ApplicantName"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ApplicantName]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1402:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1672:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11557,7 +11715,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="NationalPassNum"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[NationalPassNum]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1403:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1673:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11571,7 +11729,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="100"
                       cachedName="IsSigned"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsSigned]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1404:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1674:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11585,7 +11743,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="Representitive"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[Representitive]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1405:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1675:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11599,7 +11757,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="AuthorizationNumber"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1406:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1676:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11612,7 +11770,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbDate"
                       cachedName="SignedDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SignedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1407:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1677:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11625,7 +11783,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="CreationDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[CreationDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1408:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1678:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11638,7 +11796,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1409:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1679:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11651,7 +11809,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsDeleted"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsDeleted]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1410:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1680:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11664,7 +11822,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsSend"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsSend]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1411:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1681:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11677,7 +11835,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="SendDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SendDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1412:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1682:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11690,7 +11848,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsPaid"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsPaid]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1413:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1683:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11703,7 +11861,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsReplicated"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsReplicated]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1414:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1684:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11716,7 +11874,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="PaymentDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PaymentDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1415:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1685:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11729,7 +11887,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PaymentMethod"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PaymentMethod]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1416:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1686:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11742,7 +11900,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PersonalizeTypeID"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1417:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1687:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11755,7 +11913,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="ReconciliationType"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ReconciliationType]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1418:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1688:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11768,7 +11926,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="AcceptanceDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1419:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1689:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11781,7 +11939,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RejectionDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RejectionDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1420:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1690:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11794,7 +11952,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RecoPaymentDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1421:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1691:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11809,7 +11967,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1422:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1692:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11824,7 +11982,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1423:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1693:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11837,7 +11995,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsExtracted"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsExtracted]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1424:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1694:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11850,7 +12008,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="ExtractedDate"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1425:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1695:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11865,7 +12023,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesTotal]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1426:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1696:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11880,7 +12038,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesAdjustment]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1427:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1697:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11895,7 +12053,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesVat]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1428:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1698:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11908,7 +12066,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="nText"
                       cachedName="PurchaseDetails"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseDetails]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1429:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1699:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11923,7 +12081,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseTotal]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1430:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1700:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11938,7 +12096,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseAdjustment]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1431:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1701:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11953,7 +12111,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseVat]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1432:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1702:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11968,7 +12126,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RecivableTax]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1433:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1703:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11983,7 +12141,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DebtValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1434:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1704:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -11998,7 +12156,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\NonTableTaxDetails_Jason\NonTableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TotalTaxValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1435:invalid">
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1705:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -12023,7 +12181,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TotalTaxValue]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TotalTaxValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1436:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1706:invalid"
                       name="TotalTaxValue"
                       precision="18"
                       scale="2" />
@@ -12031,7 +12189,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DebtValue]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DebtValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1437:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1707:invalid"
                       name="DebtValue"
                       precision="18"
                       scale="2" />
@@ -12039,7 +12197,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RecivableTax]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RecivableTax]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1438:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1708:invalid"
                       name="RecivableTax"
                       precision="18"
                       scale="2" />
@@ -12047,7 +12205,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseVat]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseVat]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1439:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1709:invalid"
                       name="PurchaseVat"
                       precision="18"
                       scale="2" />
@@ -12055,7 +12213,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseAdjustment]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseAdjustment]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1440:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1710:invalid"
                       name="PurchaseAdjustment"
                       precision="18"
                       scale="2" />
@@ -12063,7 +12221,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTotal]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTotal]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1441:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1711:invalid"
                       name="PurchaseTotal"
                       precision="18"
                       scale="2" />
@@ -12071,13 +12229,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseDetails]"
                       dataType="nText"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PurchaseDetails]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1442:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1712:invalid"
                       name="PurchaseDetails" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesVat]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesVat]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1443:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1713:invalid"
                       name="SalesVat"
                       precision="18"
                       scale="2" />
@@ -12085,7 +12243,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesAdjustment]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesAdjustment]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1444:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1714:invalid"
                       name="SalesAdjustment"
                       precision="18"
                       scale="2" />
@@ -12093,7 +12251,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesTotal]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SalesTotal]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1445:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1715:invalid"
                       name="SalesTotal"
                       precision="18"
                       scale="2" />
@@ -12101,19 +12259,19 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1446:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1716:invalid"
                       name="ExtractedDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
                       dataType="bool"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1447:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1717:invalid"
                       name="IsExtracted" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1448:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1718:invalid"
                       name="InquiryTransAmountVAT"
                       precision="18"
                       scale="2" />
@@ -12121,7 +12279,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
                       dataType="numeric"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1449:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1719:invalid"
                       name="ReconciliationValue"
                       precision="18"
                       scale="2" />
@@ -12129,170 +12287,170 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1450:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1720:invalid"
                       name="RecoPaymentDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1451:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1721:invalid"
                       name="RejectionDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1452:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1722:invalid"
                       name="AcceptanceDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1453:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1723:invalid"
                       name="ReconciliationType" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1454:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1724:invalid"
                       name="PersonalizeTypeID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1455:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1725:invalid"
                       name="PaymentMethod" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1456:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1726:invalid"
                       name="PaymentDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
                       dataType="bool"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1457:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1727:invalid"
                       name="IsReplicated" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
                       dataType="bool"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1458:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1728:invalid"
                       name="IsPaid" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SendDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SendDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1459:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1729:invalid"
                       name="SendDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsSend]"
                       dataType="bool"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsSend]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1460:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1730:invalid"
                       name="IsSend" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
                       dataType="bool"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1461:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1731:invalid"
                       name="IsDeleted" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1462:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1732:invalid"
                       name="UpdatedDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1463:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1733:invalid"
                       name="CreationDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
                       dataType="dbDate"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1464:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1734:invalid"
                       name="SignedDate" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1465:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1735:invalid"
                       name="AuthorizationNumber" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Representitive]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Representitive]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1466:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1736:invalid"
                       name="Representitive" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
                       dataType="wstr"
                       length="100"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1467:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1737:invalid"
                       name="IsSigned" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1468:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1738:invalid"
                       name="NationalPassNum" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1469:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1739:invalid"
                       name="ApplicantName" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1470:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1740:invalid"
                       name="TaxPeriod" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
                       dataType="wstr"
                       length="9"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1471:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1741:invalid"
                       name="UniqueTaxID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
                       dataType="guid"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1472:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1742:invalid"
                       name="TaxpayerID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1473:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1743:invalid"
                       name="LinkCodeID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
                       dataType="wstr"
                       length="20"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1474:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1744:invalid"
                       name="DocumentNum" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
                       dataType="i4"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1475:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1745:invalid"
                       name="DeclarationTypeID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ID]"
                       dataType="guid"
                       lineageId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[ID]"
-                      mappedColumnId="Package\NonTableTaxDetails_Jason\1476:invalid"
+                      mappedColumnId="Package\NonTableTaxDetails_Jason\1746:invalid"
                       name="ID" />
                     <outputColumn
                       refId="Package\NonTableTaxDetails_Jason\JSON Parser Transform 1 1.Outputs[JsonParserTransformOutput].Columns[Id]"
@@ -17076,7 +17234,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="ID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1477:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1747:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17089,7 +17247,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="DeclarationTypeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1478:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1748:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17103,7 +17261,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="20"
                       cachedName="DocumentNum"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DocumentNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1479:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1749:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17116,7 +17274,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="LinkCodeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[LinkCodeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1480:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1750:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17129,7 +17287,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="TaxpayerID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TaxpayerID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1481:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1751:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17143,7 +17301,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="9"
                       cachedName="UniqueTaxID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1482:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1752:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17156,7 +17314,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="TaxPeriod"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TaxPeriod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1483:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1753:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17169,7 +17327,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="nText"
                       cachedName="TableTaxDetails"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TableTaxDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1484:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1754:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17184,7 +17342,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TableTaxTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1485:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1755:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17199,7 +17357,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TableTaxAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1486:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1756:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17214,7 +17372,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TableTaxVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1487:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1757:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17229,7 +17387,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1488:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1758:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17244,7 +17402,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1489:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1759:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17259,7 +17417,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SalesTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1490:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1760:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17272,7 +17430,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="nText"
                       cachedName="PurchaseTableDetails"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseTableDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1491:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1761:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17287,7 +17445,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1492:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1762:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17302,7 +17460,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1493:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1763:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17317,7 +17475,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PurchaseTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1494:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1764:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17332,7 +17490,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RecivableTableTax]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1495:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1765:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17347,7 +17505,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[DebtTableValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1496:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1766:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17362,7 +17520,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[TotalTableTaxValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1497:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1767:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17376,7 +17534,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="ApplicantName"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ApplicantName]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1498:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1768:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17390,7 +17548,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="NationalPassNum"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[NationalPassNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1499:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1769:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17404,7 +17562,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="100"
                       cachedName="IsSigned"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsSigned]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1500:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1770:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17418,7 +17576,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="Representitive"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[Representitive]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1501:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1771:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17432,7 +17590,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="AuthorizationNumber"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1502:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1772:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17445,7 +17603,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbDate"
                       cachedName="SignedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SignedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1503:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1773:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17458,7 +17616,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="CreationDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[CreationDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1504:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1774:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17471,7 +17629,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1505:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1775:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17484,7 +17642,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsDeleted"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsDeleted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1506:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1776:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17497,7 +17655,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsSend"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsSend]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1507:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1777:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17510,7 +17668,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="SendDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[SendDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1508:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1778:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17523,7 +17681,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsPaid"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsPaid]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1509:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1779:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17536,7 +17694,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsReplicated"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsReplicated]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1510:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1780:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17549,7 +17707,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="PaymentDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1511:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1781:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17562,7 +17720,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PaymentMethod"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PaymentMethod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1512:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1782:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17575,7 +17733,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PersonalizeTypeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1513:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1783:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17588,7 +17746,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="ReconciliationType"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ReconciliationType]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1514:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1784:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17601,7 +17759,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="AcceptanceDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1515:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1785:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17614,7 +17772,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RejectionDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RejectionDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1516:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1786:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17627,7 +17785,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RecoPaymentDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1517:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1787:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17640,7 +17798,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsPaidTable"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsPaidTable]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1518:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1788:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17655,7 +17813,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1519:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1789:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17670,7 +17828,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1520:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1790:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17685,7 +17843,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[InquiryTransAmountTVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1521:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1791:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17698,7 +17856,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsExtracted"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[IsExtracted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1522:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1792:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17711,7 +17869,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="ExtractedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Sales.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1523:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1793:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17736,19 +17894,19 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1524:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1794:invalid"
                       name="ExtractedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1525:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1795:invalid"
                       name="IsExtracted" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountTVAT]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountTVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1526:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1796:invalid"
                       name="InquiryTransAmountTVAT"
                       precision="18"
                       scale="2" />
@@ -17756,7 +17914,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1527:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1797:invalid"
                       name="InquiryTransAmountVAT"
                       precision="18"
                       scale="2" />
@@ -17764,7 +17922,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1528:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1798:invalid"
                       name="ReconciliationValue"
                       precision="18"
                       scale="2" />
@@ -17772,138 +17930,138 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsPaidTable]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsPaidTable]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1529:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1799:invalid"
                       name="IsPaidTable" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1530:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1800:invalid"
                       name="RecoPaymentDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1531:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1801:invalid"
                       name="RejectionDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1532:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1802:invalid"
                       name="AcceptanceDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1533:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1803:invalid"
                       name="ReconciliationType" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1534:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1804:invalid"
                       name="PersonalizeTypeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1535:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1805:invalid"
                       name="PaymentMethod" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1536:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1806:invalid"
                       name="PaymentDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1537:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1807:invalid"
                       name="IsReplicated" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1538:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1808:invalid"
                       name="IsPaid" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SendDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SendDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1539:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1809:invalid"
                       name="SendDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsSend]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsSend]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1540:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1810:invalid"
                       name="IsSend" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1541:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1811:invalid"
                       name="IsDeleted" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1542:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1812:invalid"
                       name="UpdatedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1543:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1813:invalid"
                       name="CreationDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
                       dataType="dbDate"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1544:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1814:invalid"
                       name="SignedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1545:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1815:invalid"
                       name="AuthorizationNumber" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Representitive]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Representitive]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1546:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1816:invalid"
                       name="Representitive" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
                       dataType="wstr"
                       length="100"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1547:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1817:invalid"
                       name="IsSigned" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1548:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1818:invalid"
                       name="NationalPassNum" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1549:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1819:invalid"
                       name="ApplicantName" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TotalTableTaxValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TotalTableTaxValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1550:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1820:invalid"
                       name="TotalTableTaxValue"
                       precision="18"
                       scale="2" />
@@ -17911,7 +18069,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DebtTableValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DebtTableValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1551:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1821:invalid"
                       name="DebtTableValue"
                       precision="18"
                       scale="2" />
@@ -17919,7 +18077,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RecivableTableTax]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[RecivableTableTax]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1552:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1822:invalid"
                       name="RecivableTableTax"
                       precision="18"
                       scale="2" />
@@ -17927,7 +18085,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1553:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1823:invalid"
                       name="PurchaseTableVat"
                       precision="18"
                       scale="2" />
@@ -17935,7 +18093,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1554:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1824:invalid"
                       name="PurchaseTableAdjustment"
                       precision="18"
                       scale="2" />
@@ -17943,7 +18101,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1555:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1825:invalid"
                       name="PurchaseTableTotal"
                       precision="18"
                       scale="2" />
@@ -17951,13 +18109,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableDetails]"
                       dataType="nText"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[PurchaseTableDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1556:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1826:invalid"
                       name="PurchaseTableDetails" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1557:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1827:invalid"
                       name="SalesTableVat"
                       precision="18"
                       scale="2" />
@@ -17965,7 +18123,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1558:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1828:invalid"
                       name="SalesTableAdjustment"
                       precision="18"
                       scale="2" />
@@ -17973,7 +18131,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[SalesTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1559:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1829:invalid"
                       name="SalesTableTotal"
                       precision="18"
                       scale="2" />
@@ -17981,7 +18139,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1560:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1830:invalid"
                       name="TableTaxVat"
                       precision="18"
                       scale="2" />
@@ -17989,7 +18147,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1561:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1831:invalid"
                       name="TableTaxAdjustment"
                       precision="18"
                       scale="2" />
@@ -17997,7 +18155,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1562:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1832:invalid"
                       name="TableTaxTotal"
                       precision="18"
                       scale="2" />
@@ -18005,51 +18163,51 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxDetails]"
                       dataType="nText"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TableTaxDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1563:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1833:invalid"
                       name="TableTaxDetails" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1564:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1834:invalid"
                       name="TaxPeriod" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
                       dataType="wstr"
                       length="9"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1565:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1835:invalid"
                       name="UniqueTaxID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
                       dataType="guid"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1566:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1836:invalid"
                       name="TaxpayerID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1567:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1837:invalid"
                       name="LinkCodeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
                       dataType="wstr"
                       length="20"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1568:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1838:invalid"
                       name="DocumentNum" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1569:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1839:invalid"
                       name="DeclarationTypeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ID]"
                       dataType="guid"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[ID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1570:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1840:invalid"
                       name="ID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1.Outputs[JsonParserTransformOutput].Columns[Id]"
@@ -18786,7 +18944,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="ID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1571:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1841:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18799,7 +18957,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="DeclarationTypeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1572:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1842:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18813,7 +18971,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="20"
                       cachedName="DocumentNum"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[DocumentNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1573:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1843:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18826,7 +18984,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="LinkCodeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[LinkCodeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1574:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1844:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18839,7 +18997,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="guid"
                       cachedName="TaxpayerID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TaxpayerID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1575:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1845:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18853,7 +19011,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="9"
                       cachedName="UniqueTaxID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1576:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1846:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18866,7 +19024,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="TaxPeriod"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TaxPeriod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1577:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1847:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18879,7 +19037,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="nText"
                       cachedName="TableTaxDetails"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TableTaxDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1578:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1848:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18894,7 +19052,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TableTaxTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1579:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1849:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18909,7 +19067,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TableTaxAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1580:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1850:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18924,7 +19082,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TableTaxVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1581:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1851:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18937,7 +19095,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="nText"
                       cachedName="SalesTableDetails"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SalesTableDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1582:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1852:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18952,7 +19110,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SalesTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1583:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1853:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18967,7 +19125,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SalesTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1584:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1854:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18982,7 +19140,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SalesTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1585:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1855:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -18997,7 +19155,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PurchaseTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1586:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1856:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19012,7 +19170,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PurchaseTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1587:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1857:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19027,7 +19185,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PurchaseTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1588:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1858:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19042,7 +19200,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[RecivableTableTax]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1589:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1859:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19057,7 +19215,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[DebtTableValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1590:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1860:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19072,7 +19230,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[TotalTableTaxValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1591:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1861:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19086,7 +19244,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="ApplicantName"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ApplicantName]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1592:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1862:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19100,7 +19258,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="NationalPassNum"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[NationalPassNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1593:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1863:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19114,7 +19272,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="100"
                       cachedName="IsSigned"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsSigned]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1594:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1864:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19128,7 +19286,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="Representitive"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Representitive]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1595:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1865:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19142,7 +19300,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedLength="50"
                       cachedName="AuthorizationNumber"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1596:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1866:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19155,7 +19313,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbDate"
                       cachedName="SignedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SignedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1597:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1867:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19168,7 +19326,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="CreationDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[CreationDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1598:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1868:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19181,7 +19339,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1599:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1869:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19194,7 +19352,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsDeleted"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsDeleted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1600:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1870:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19207,7 +19365,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsSend"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsSend]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1601:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1871:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19220,7 +19378,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="SendDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[SendDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1602:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1872:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19233,7 +19391,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsPaid"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsPaid]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1603:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1873:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19246,7 +19404,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsReplicated"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsReplicated]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1604:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1874:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19259,7 +19417,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="PaymentDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1605:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1875:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19272,7 +19430,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PaymentMethod"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PaymentMethod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1606:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1876:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19285,7 +19443,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="PersonalizeTypeID"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1607:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1877:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19298,7 +19456,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="i4"
                       cachedName="ReconciliationType"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ReconciliationType]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1608:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1878:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19311,7 +19469,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="AcceptanceDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1609:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1879:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19324,7 +19482,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RejectionDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[RejectionDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1610:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1880:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19337,7 +19495,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="RecoPaymentDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1611:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1881:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19350,7 +19508,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsPaidTable"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsPaidTable]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1612:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1882:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19365,7 +19523,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1613:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1883:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19380,7 +19538,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1614:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1884:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19395,7 +19553,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedPrecision="18"
                       cachedScale="2"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[InquiryTransAmountTVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1615:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1885:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19408,7 +19566,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="bool"
                       cachedName="IsExtracted"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[IsExtracted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1616:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1886:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19421,7 +19579,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="ExtractedDate"
                       lineageId="Package\TableTaxDetails_Jason\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1617:invalid">
+                      mappedColumnId="Package\TableTaxDetails_Jason\1887:invalid">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -19446,19 +19604,19 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ExtractedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1618:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1888:invalid"
                       name="ExtractedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsExtracted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1619:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1889:invalid"
                       name="IsExtracted" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountTVAT]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountTVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1620:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1890:invalid"
                       name="InquiryTransAmountTVAT"
                       precision="18"
                       scale="2" />
@@ -19466,7 +19624,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[InquiryTransAmountVAT]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1621:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1891:invalid"
                       name="InquiryTransAmountVAT"
                       precision="18"
                       scale="2" />
@@ -19474,7 +19632,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ReconciliationValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1622:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1892:invalid"
                       name="ReconciliationValue"
                       precision="18"
                       scale="2" />
@@ -19482,138 +19640,138 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsPaidTable]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsPaidTable]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1623:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1893:invalid"
                       name="IsPaidTable" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RecoPaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1624:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1894:invalid"
                       name="RecoPaymentDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RejectionDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1625:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1895:invalid"
                       name="RejectionDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[AcceptanceDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1626:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1896:invalid"
                       name="AcceptanceDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ReconciliationType]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1627:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1897:invalid"
                       name="ReconciliationType" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PersonalizeTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1628:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1898:invalid"
                       name="PersonalizeTypeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PaymentMethod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1629:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1899:invalid"
                       name="PaymentMethod" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PaymentDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1630:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1900:invalid"
                       name="PaymentDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsReplicated]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1631:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1901:invalid"
                       name="IsReplicated" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsPaid]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1632:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1902:invalid"
                       name="IsPaid" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SendDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SendDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1633:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1903:invalid"
                       name="SendDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsSend]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsSend]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1634:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1904:invalid"
                       name="IsSend" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
                       dataType="bool"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsDeleted]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1635:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1905:invalid"
                       name="IsDeleted" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[UpdatedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1636:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1906:invalid"
                       name="UpdatedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
                       dataType="dbTimeStamp"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[CreationDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1637:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1907:invalid"
                       name="CreationDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
                       dataType="dbDate"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SignedDate]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1638:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1908:invalid"
                       name="SignedDate" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[AuthorizationNumber]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1639:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1909:invalid"
                       name="AuthorizationNumber" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[Representitive]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[Representitive]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1640:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1910:invalid"
                       name="Representitive" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
                       dataType="wstr"
                       length="100"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[IsSigned]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1641:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1911:invalid"
                       name="IsSigned" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[NationalPassNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1642:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1912:invalid"
                       name="NationalPassNum" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
                       dataType="wstr"
                       length="50"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ApplicantName]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1643:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1913:invalid"
                       name="ApplicantName" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TotalTableTaxValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TotalTableTaxValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1644:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1914:invalid"
                       name="TotalTableTaxValue"
                       precision="18"
                       scale="2" />
@@ -19621,7 +19779,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DebtTableValue]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DebtTableValue]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1645:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1915:invalid"
                       name="DebtTableValue"
                       precision="18"
                       scale="2" />
@@ -19629,7 +19787,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RecivableTableTax]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[RecivableTableTax]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1646:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1916:invalid"
                       name="RecivableTableTax"
                       precision="18"
                       scale="2" />
@@ -19637,7 +19795,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1647:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1917:invalid"
                       name="PurchaseTableVat"
                       precision="18"
                       scale="2" />
@@ -19645,7 +19803,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1648:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1918:invalid"
                       name="PurchaseTableAdjustment"
                       precision="18"
                       scale="2" />
@@ -19653,7 +19811,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[PurchaseTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1649:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1919:invalid"
                       name="PurchaseTableTotal"
                       precision="18"
                       scale="2" />
@@ -19661,7 +19819,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1650:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1920:invalid"
                       name="SalesTableVat"
                       precision="18"
                       scale="2" />
@@ -19669,7 +19827,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1651:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1921:invalid"
                       name="SalesTableAdjustment"
                       precision="18"
                       scale="2" />
@@ -19677,7 +19835,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1652:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1922:invalid"
                       name="SalesTableTotal"
                       precision="18"
                       scale="2" />
@@ -19685,13 +19843,13 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableDetails]"
                       dataType="nText"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[SalesTableDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1653:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1923:invalid"
                       name="SalesTableDetails" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxVat]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxVat]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1654:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1924:invalid"
                       name="TableTaxVat"
                       precision="18"
                       scale="2" />
@@ -19699,7 +19857,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxAdjustment]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxAdjustment]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1655:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1925:invalid"
                       name="TableTaxAdjustment"
                       precision="18"
                       scale="2" />
@@ -19707,7 +19865,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxTotal]"
                       dataType="numeric"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxTotal]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1656:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1926:invalid"
                       name="TableTaxTotal"
                       precision="18"
                       scale="2" />
@@ -19715,51 +19873,51 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxDetails]"
                       dataType="nText"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TableTaxDetails]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1657:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1927:invalid"
                       name="TableTaxDetails" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TaxPeriod]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1658:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1928:invalid"
                       name="TaxPeriod" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
                       dataType="wstr"
                       length="9"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[UniqueTaxID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1659:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1929:invalid"
                       name="UniqueTaxID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
                       dataType="guid"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[TaxpayerID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1660:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1930:invalid"
                       name="TaxpayerID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[LinkCodeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1661:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1931:invalid"
                       name="LinkCodeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
                       dataType="wstr"
                       length="20"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DocumentNum]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1662:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1932:invalid"
                       name="DocumentNum" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
                       dataType="i4"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[DeclarationTypeID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1663:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1933:invalid"
                       name="DeclarationTypeID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ID]"
                       dataType="guid"
                       lineageId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[ID]"
-                      mappedColumnId="Package\TableTaxDetails_Jason\1664:invalid"
+                      mappedColumnId="Package\TableTaxDetails_Jason\1934:invalid"
                       name="ID" />
                     <outputColumn
                       refId="Package\TableTaxDetails_Jason\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[Id]"
@@ -24073,7 +24231,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update NonTable_Declarations (NetSales)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24090,7 +24248,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_102"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24107,7 +24265,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_106"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24125,7 +24283,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update_Declarations(est5las_Sales_Is_Correct) (for table)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -24187,7 +24345,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="144,41.6"
           Id="Package\102_transfere"
@@ -24205,10 +24363,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Id="Package\Declaration_Income_106 (Stg_To_DWH)"
           TopLeft="337.000001362392,97.3764699876514" />
         <NodeLayout
-          Size="276,41.6"
-          Id="Package\Update NonTable_Declarations (NetSales)"
-          TopLeft="397.828576868408,343.000002917121" />
-        <NodeLayout
           Size="204,41.6"
           Id="Package\NonTableTaxDetails_Jason"
           TopLeft="157.428574347983,309.776473196485" />
@@ -24216,6 +24370,10 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Size="185.6,41.6"
           Id="Package\TableTaxDetails_Jason"
           TopLeft="165.142859955223,226.21176777744" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\Update NonTable_Declarations (NetSales)"
+          TopLeft="397.828576868408,343.000002917121" />
         <NodeLayout
           Size="136,41.6"
           Id="Package\Update_102"
@@ -24380,6 +24538,189 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="348.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          TopLeft="6.05714501750711,76.129415943053" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          TopLeft="107.232429035436,140.847060899833" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
+          TopLeft="183.632429035436,182.447060899833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.7292522308084,22.7518216308011"
+              Start="0,0"
+              End="-42.7292522308084,15.2518216308011">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.37591081540052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.37591081540052"
+                    Point2="0,11.3759108154005"
+                    Point3="-4,11.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-38.7292522308084,11.3759108154005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.7292522308084,11.3759108154005"
+                    Point2="-42.7292522308084,11.3759108154005"
+                    Point3="-42.7292522308084,15.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-42.7292522308084,15.2518216308011" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          TopLeft="76.1031768046271,205.198882530635" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
+          TopLeft="76.1031768046271,225.998882530635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.2253946823326,31.9686276874012"
+              Start="0,0"
+              End="71.2253946823326,24.4686276874012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.2253946823326,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.2253946823326,0"
+                    Point2="71.2253946823326,0"
+                    Point3="71.2253946823326,4" />
+                  <mssgle:LineSegment
+                    End="71.2253946823326,24.4686276874012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          TopLeft="8.9285714869597,257.967510218036" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
+          TopLeft="285.72857148696,278.767510218036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.4789115182861,59.5256777722669"
+              Start="0,0"
+              End="-12.9789115182861,59.5256777722669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,55.5256777722669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,55.5256777722669"
+                    Point2="22.5,59.5256777722669"
+                    Point3="18.5,59.5256777722669" />
+                  <mssgle:LineSegment
+                    End="-12.9789115182861,59.5256777722669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="253.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
+          TopLeft="11.6496599686736,317.493187990303" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
+          TopLeft="182.044787026471,117.729415943053">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.1176449567804"
+              Start="0,0"
+              End="0,15.6176449567804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6176449567804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          TopLeft="85.4857187524134,5.5" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
+          TopLeft="170.285718752413,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.1714262650937,29.029415943053"
+              Start="0,0"
+              End="10.1714262650937,21.529415943053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5147079715265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5147079715265"
+                    Point2="0,14.5147079715265"
+                    Point3="4,14.5147079715265" />
+                  <mssgle:LineSegment
+                    End="6.17142626509369,14.5147079715265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.17142626509369,14.5147079715265"
+                    Point2="10.1714262650937,14.5147079715265"
+                    Point3="10.1714262650937,18.5147079715265" />
+                  <mssgle:LineSegment
+                    End="10.1714262650937,21.529415943053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="360.8,430.4"
+          Size="360.8,473.6"
+          Id="Package\Fix The E3fa2at and other stuff"
+          TopLeft="181.142860159582,399.529414192781" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

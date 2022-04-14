@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="130"
-  DTS:VersionGUID="{2BB47277-8509-4D7B-941E-512057875AAE}">
+  DTS:VersionBuild="131"
+  DTS:VersionGUID="{B1982C07-3B2A-4D02-BB00-F62EA53A1202}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35450,9 +35450,9 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="613.6,221.6"
-          Size="613.6,43.2"
+          Size="613.6,264.8"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
         <NodeLayout
