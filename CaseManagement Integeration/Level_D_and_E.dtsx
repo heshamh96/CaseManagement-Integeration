@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="131"
-  DTS:VersionGUID="{B1982C07-3B2A-4D02-BB00-F62EA53A1202}">
+  DTS:VersionBuild="136"
+  DTS:VersionGUID="{24C6B94E-0309-41FD-8AE3-EE39F152E1BB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23970,7 +23970,7 @@ SELECT  [TaxPeriod]
                     <property
                       dataType="System.Boolean"
                       description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
+                      name="AlwaysUseDefaultCodePage">true</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
@@ -24009,6 +24009,105 @@ SELECT  [TaxPeriod]
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[TransactionDate]"
+                          cachedDataType="dbDate"
+                          cachedName="TransactionDate"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[TransactionDate]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionDate]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[RecordDate_Year]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="RecordDate_Year"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[RecordDate_Year]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordDate_Year]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[RecordTypeName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="RecordTypeName"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[RecordTypeName]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordTypeName]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Replicated]"
+                          cachedDataType="bool"
+                          cachedName="Replicated"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Replicated]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Replicated]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Closed_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Closed_Date"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Closed_Date]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed_Date]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Closed]"
+                          cachedDataType="bool"
+                          cachedName="Closed"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Closed]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Last_Transaction_Number]"
+                          cachedDataType="i4"
+                          cachedName="Last_Transaction_Number"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Last_Transaction_Number]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Last_Transaction_Number]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Total_Taxes_Money]"
+                          cachedDataType="numeric"
+                          cachedName="Total_Taxes_Money"
+                          cachedPrecision="35"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Total_Taxes_Money]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Taxes_Money]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Total_Money]"
+                          cachedDataType="numeric"
+                          cachedName="Total_Money"
+                          cachedPrecision="38"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Total_Money]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Money]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Tax_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Tax_Year"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Tax_Year]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Tax_Year]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Modification_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modification_Date"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Modification_Date]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Modification_Date]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Creation_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Creation_Date"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Creation_Date]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Creation_Date]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Geha_Code]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="Geha_Code"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Geha_Code]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Geha_Code]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[Taxpayer_Id]"
+                          cachedDataType="guid"
+                          cachedName="Taxpayer_Id"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Taxpayer_Id]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Taxpayer_Id]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[TransactionData_Id]"
+                          cachedDataType="guid"
+                          cachedName="TransactionData_Id"
+                          externalMetadataColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[TransactionData_Id]"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionData_Id]" />
                         <inputColumn
                           refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].Columns[P_Transactions_@Year]"
                           cachedDataType="wstr"
@@ -24349,6 +24448,75 @@ SELECT  [TaxPeriod]
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[TransactionDate]"
+                          dataType="dbDate"
+                          name="TransactionDate" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[RecordDate_Year]"
+                          dataType="wstr"
+                          length="50"
+                          name="RecordDate_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[RecordTypeName]"
+                          dataType="wstr"
+                          length="50"
+                          name="RecordTypeName" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Replicated]"
+                          dataType="bool"
+                          name="Replicated" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Closed_Date]"
+                          dataType="dbTimeStamp"
+                          name="Closed_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Closed]"
+                          dataType="bool"
+                          name="Closed" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Last_Transaction_Number]"
+                          dataType="i4"
+                          name="Last_Transaction_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Total_Taxes_Money]"
+                          dataType="numeric"
+                          name="Total_Taxes_Money"
+                          precision="35"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Total_Money]"
+                          dataType="numeric"
+                          name="Total_Money"
+                          precision="38"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Tax_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Tax_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Modification_Date]"
+                          dataType="dbTimeStamp"
+                          name="Modification_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Creation_Date]"
+                          dataType="dbTimeStamp"
+                          name="Creation_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Geha_Code]"
+                          dataType="wstr"
+                          length="9"
+                          name="Geha_Code" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[Taxpayer_Id]"
+                          dataType="guid"
+                          name="Taxpayer_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[TransactionData_Id]"
+                          dataType="guid"
+                          name="TransactionData_Id" />
+                        <externalMetadataColumn
                           refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44.Inputs[OLE DB Destination Input].ExternalColumns[P_Transactions_@Year]"
                           dataType="wstr"
                           length="1000"
@@ -24683,7 +24851,7 @@ SELECT  [TaxPeriod]
                       dataType="System.Boolean"
                       description="Include all upstream parent columns into output except the one you selected to parse. By default only parsed columns from Input document is included in the output. If you wish to include all other upstream columns in the output too then check this option."
                       expressionType="Notify"
-                      name="OutputAllUpstreamColumns">false</property>
+                      name="OutputAllUpstreamColumns">true</property>
                     <property
                       dataType="System.Int32"
                       description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
@@ -24855,6 +25023,210 @@ SELECT  [TaxPeriod]
                           cachedDataType="nText"
                           cachedName="Transaction_Details"
                           lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Transaction_Details]" />
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[TransactionData_Id]"
+                          cachedDataType="guid"
+                          cachedName="TransactionData_Id"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[TransactionData_Id]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionData_Id]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Taxpayer_Id]"
+                          cachedDataType="guid"
+                          cachedName="Taxpayer_Id"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Taxpayer_Id]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Taxpayer_Id]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Geha_Code]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="Geha_Code"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Geha_Code]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Geha_Code]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Creation_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Creation_Date"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Creation_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Creation_Date]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Modification_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Modification_Date"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Modification_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Modification_Date]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Tax_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Tax_Year"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Tax_Year]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Tax_Year]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Total_Money]"
+                          cachedDataType="numeric"
+                          cachedName="Total_Money"
+                          cachedPrecision="38"
+                          cachedScale="2"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Total_Money]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Money]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Total_Taxes_Money]"
+                          cachedDataType="numeric"
+                          cachedName="Total_Taxes_Money"
+                          cachedPrecision="35"
+                          cachedScale="2"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Total_Taxes_Money]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Taxes_Money]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Last_Transaction_Number]"
+                          cachedDataType="i4"
+                          cachedName="Last_Transaction_Number"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Last_Transaction_Number]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Last_Transaction_Number]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Closed]"
+                          cachedDataType="bool"
+                          cachedName="Closed"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Closed]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Closed_Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Closed_Date"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Closed_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed_Date]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Replicated]"
+                          cachedDataType="bool"
+                          cachedName="Replicated"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[Replicated]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Replicated]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[RecordTypeName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="RecordTypeName"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[RecordTypeName]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordTypeName]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[RecordDate_Year]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="RecordDate_Year"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[RecordDate_Year]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordDate_Year]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[TransactionDate]"
+                          cachedDataType="dbDate"
+                          cachedName="TransactionDate"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionDate]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              expressionType="Notify"
+                              name="IncludeDownStream">true</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True" />
@@ -24868,6 +25240,105 @@ SELECT  [TaxPeriod]
                       name="XmlParserTransformOutput"
                       truncationRowDisposition="FailComponent">
                       <outputColumns>
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionDate]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[TransactionDate]"
+                          name="TransactionDate" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordDate_Year]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordDate_Year]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[RecordDate_Year]"
+                          name="RecordDate_Year" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordTypeName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[RecordTypeName]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[RecordTypeName]"
+                          name="RecordTypeName" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Replicated]"
+                          dataType="bool"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Replicated]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Replicated]"
+                          name="Replicated" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Closed_Date]"
+                          name="Closed_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed]"
+                          dataType="bool"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Closed]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Closed]"
+                          name="Closed" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Last_Transaction_Number]"
+                          dataType="i4"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Last_Transaction_Number]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Last_Transaction_Number]"
+                          name="Last_Transaction_Number" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Taxes_Money]"
+                          dataType="numeric"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Taxes_Money]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Total_Taxes_Money]"
+                          name="Total_Taxes_Money"
+                          precision="35"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Money]"
+                          dataType="numeric"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Total_Money]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Total_Money]"
+                          name="Total_Money"
+                          precision="38"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Tax_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Tax_Year]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Tax_Year]"
+                          name="Tax_Year" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Modification_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Modification_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Modification_Date]"
+                          name="Modification_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Creation_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Creation_Date]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Creation_Date]"
+                          name="Creation_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Geha_Code]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Geha_Code]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Geha_Code]"
+                          name="Geha_Code" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Taxpayer_Id]"
+                          dataType="guid"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[Taxpayer_Id]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[Taxpayer_Id]"
+                          name="Taxpayer_Id" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionData_Id]"
+                          dataType="guid"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[TransactionData_Id]"
+                          mappedColumnId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Inputs[XmlParserTransformInput].Columns[TransactionData_Id]"
+                          name="TransactionData_Id" />
                         <outputColumn
                           refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransformOutput].Columns[P_Transactions_@Year]"
                           dataType="wstr"
@@ -25454,6 +25925,90 @@ SELECT  [TaxPeriod]
                       isErrorOut="true"
                       name="XmlParserTransform Error Output">
                       <outputColumns>
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[TransactionDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[TransactionDate]"
+                          name="TransactionDate" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[RecordDate_Year]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[RecordDate_Year]"
+                          name="RecordDate_Year" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[RecordTypeName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[RecordTypeName]"
+                          name="RecordTypeName" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Replicated]"
+                          dataType="bool"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Replicated]"
+                          name="Replicated" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Closed_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Closed_Date]"
+                          name="Closed_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Closed]"
+                          dataType="bool"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Closed]"
+                          name="Closed" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Last_Transaction_Number]"
+                          dataType="i4"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Last_Transaction_Number]"
+                          name="Last_Transaction_Number" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Total_Taxes_Money]"
+                          dataType="numeric"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Total_Taxes_Money]"
+                          name="Total_Taxes_Money"
+                          precision="35"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Total_Money]"
+                          dataType="numeric"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Total_Money]"
+                          name="Total_Money"
+                          precision="38"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Tax_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Tax_Year]"
+                          name="Tax_Year" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Modification_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Modification_Date]"
+                          name="Modification_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Creation_Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Creation_Date]"
+                          name="Creation_Date" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Geha_Code]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Geha_Code]"
+                          name="Geha_Code" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Taxpayer_Id]"
+                          dataType="guid"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[Taxpayer_Id]"
+                          name="Taxpayer_Id" />
+                        <outputColumn
+                          refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[TransactionData_Id]"
+                          dataType="guid"
+                          lineageId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[TransactionData_Id]"
+                          name="TransactionData_Id" />
                         <outputColumn
                           refId="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform.Outputs[XmlParserTransform Error Output].Columns[P_Transactions_@Year]"
                           dataType="wstr"
@@ -35450,9 +36005,9 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="613.6,221.6"
-          Size="613.6,264.8"
+          Size="613.6,43.2"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
         <NodeLayout
@@ -35555,20 +36110,20 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-16.3428621350505,33.929411129803"
+              EndConnector="-16.3428621350508,33.929411129803"
               Start="0,0"
-              End="-16.3428621350505,26.429411129803">
+              End="-16.3428621350508,26.429411129803">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-12.3428621350505,0" />
+                    End="-12.3428621350508,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-12.3428621350505,0"
-                    Point2="-16.3428621350505,0"
-                    Point3="-16.3428621350505,4" />
+                    Point1="-12.3428621350508,0"
+                    Point2="-16.3428621350508,0"
+                    Point3="-16.3428621350508,4" />
                   <mssgle:LineSegment
-                    End="-16.3428621350505,26.429411129803" />
+                    End="-16.3428621350508,26.429411129803" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -35583,20 +36138,20 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="68.4571427695602,22.5"
+              EndConnector="68.4571427695598,22.5"
               Start="0,0"
-              End="68.4571427695602,15">
+              End="68.4571427695598,15">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="64.4571427695602,0" />
+                    End="64.4571427695598,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="64.4571427695602,0"
-                    Point2="68.4571427695602,0"
-                    Point3="68.4571427695602,4" />
+                    Point1="64.4571427695598,0"
+                    Point2="68.4571427695598,0"
+                    Point3="68.4571427695598,4" />
                   <mssgle:LineSegment
-                    End="68.4571427695602,15" />
+                    End="68.4571427695598,15" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -35778,9 +36333,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32.428571810528,54.1411756254799"
+              EndConnector="32.4285718105281,54.1411756254799"
               Start="0,0"
-              End="32.428571810528,46.6411756254799">
+              End="32.4285718105281,46.6411756254799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -35791,13 +36346,13 @@ SELECT  [TaxPeriod]
                     Point2="0,27.07058781274"
                     Point3="4,27.07058781274" />
                   <mssgle:LineSegment
-                    End="28.428571810528,27.07058781274" />
+                    End="28.4285718105281,27.07058781274" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.428571810528,27.07058781274"
-                    Point2="32.428571810528,27.07058781274"
-                    Point3="32.428571810528,31.07058781274" />
+                    Point1="28.4285718105281,27.07058781274"
+                    Point2="32.4285718105281,27.07058781274"
+                    Point3="32.4285718105281,31.07058781274" />
                   <mssgle:LineSegment
-                    End="32.428571810528,46.6411756254799" />
+                    End="32.4285718105281,46.6411756254799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -35846,9 +36401,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-37.5809558615399,61.847057435752"
+              EndConnector="-37.58095586154,61.847057435752"
               Start="0,0"
-              End="-37.5809558615399,54.347057435752">
+              End="-37.58095586154,54.347057435752">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -35859,13 +36414,13 @@ SELECT  [TaxPeriod]
                     Point2="0,30.923528717876"
                     Point3="-4,30.923528717876" />
                   <mssgle:LineSegment
-                    End="-33.5809558615399,30.923528717876" />
+                    End="-33.58095586154,30.923528717876" />
                   <mssgle:CubicBezierSegment
-                    Point1="-33.5809558615399,30.923528717876"
-                    Point2="-37.5809558615399,30.923528717876"
-                    Point3="-37.5809558615399,34.923528717876" />
+                    Point1="-33.58095586154,30.923528717876"
+                    Point2="-37.58095586154,30.923528717876"
+                    Point3="-37.58095586154,34.923528717876" />
                   <mssgle:LineSegment
-                    End="-37.5809558615399,54.347057435752" />
+                    End="-37.58095586154,54.347057435752" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37158,55 +37713,15 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform"
           TopLeft="255.2,133.6" />
         <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44"
-          TopLeft="288,231.2" />
-        <NodeLayout
           Size="214.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44"
           TopLeft="225.6,37.6" />
-        <EdgeLayout
-          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[XmlParserTransformOutput]"
-          TopLeft="346.4,175.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.0000000000001,56"
-              Start="0,0"
-              End="20.0000000000001,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24"
-                    Point2="0,28"
-                    Point3="4,28" />
-                  <mssgle:LineSegment
-                    End="16.0000000000001,28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.0000000000001,28"
-                    Point2="20.0000000000001,28"
-                    Point3="20.0000000000001,32" />
-                  <mssgle:LineSegment
-                    End="20.0000000000001,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[OLE DB Source Output]"
           TopLeft="332.8,79.2">
@@ -37238,27 +37753,50 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44"
+          TopLeft="249.6,226.4" />
+        <EdgeLayout
+          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[XmlParserTransformOutput]"
+          TopLeft="346.4,175.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.4,51.2"
+              Start="0,0"
+              End="-18.4,43.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6"
+                    Point2="0,25.6"
+                    Point3="-4,25.6" />
+                  <mssgle:LineSegment
+                    End="-14.4,25.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.4,25.6"
+                    Point2="-18.4,25.6"
+                    Point3="-18.4,29.6" />
+                  <mssgle:LineSegment
+                    End="-18.4,43.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44">
     <Properties>
@@ -37276,7 +37814,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43\Namozag_43"
@@ -37320,9 +37858,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37331,9 +37867,9 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-35.1999999999999,41.6"
+              EndConnector="-35.2,41.6"
               Start="0,0"
-              End="-35.1999999999999,34.1">
+              End="-35.2,34.1">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -37344,21 +37880,19 @@ SELECT  [TaxPeriod]
                     Point2="0,20.8"
                     Point3="-4,20.8" />
                   <mssgle:LineSegment
-                    End="-31.1999999999999,20.8" />
+                    End="-31.2,20.8" />
                   <mssgle:CubicBezierSegment
-                    Point1="-31.1999999999999,20.8"
-                    Point2="-35.1999999999999,20.8"
-                    Point3="-35.1999999999999,24.8" />
+                    Point1="-31.2,20.8"
+                    Point2="-35.2,20.8"
+                    Point3="-35.2,24.8" />
                   <mssgle:LineSegment
-                    End="-35.1999999999999,34.1" />
+                    End="-35.2,34.1" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37697,6 +38231,19 @@ SELECT  [TaxPeriod]
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47\Namozag_47">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

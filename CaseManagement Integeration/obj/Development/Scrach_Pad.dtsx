@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Scrach_Pad"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{EAB5678E-32A2-4420-BA0E-0585027C2D84}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E900332C-A324-4423-9B03-4D609410AA92}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -9745,6 +9745,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{e29518ff-0dc2-492e-8f0d-92aeca57f4af}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9762,7 +9763,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{ca454231-2213-4da7-9dc5-454f1a00ce34}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9780,7 +9780,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{2c84c2c3-115a-413f-b015-a370e49073f5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9798,6 +9797,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{ad9825b2-2d93-4f84-93b2-a2c4482d77d2}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9815,6 +9815,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\Sent_Sales"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{5257c009-8425-4c27-9474-83985f23bfe5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -9832,6 +9833,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:refId="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{AB9B2AAE-7F3B-4A81-8401-6B11332EF28C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -24363,6 +24365,189 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Id="Package\Declaration_Income_106 (Stg_To_DWH)"
           TopLeft="337.000001362392,97.3764699876514" />
         <NodeLayout
+          Size="348.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
+          TopLeft="6.05714501750711,75.5176512285909" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
+          TopLeft="107.232429035436,140.235296185371" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Sent_Sales"
+          TopLeft="76.1031768046271,204.587117816173" />
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
+          TopLeft="8.9285714869597,257.967510218036" />
+        <NodeLayout
+          Size="253.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
+          TopLeft="11.6496599686736,317.493187990303" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
+          TopLeft="85.4857187524134,5.5" />
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
+          TopLeft="182.044787026471,117.117651228591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.1176449567804"
+              Start="0,0"
+              End="0,15.6176449567804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6176449567804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
+          TopLeft="170.285718752413,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.1714262650937,28.4176512285909"
+              Start="0,0"
+              End="10.1714262650937,20.9176512285909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.2088256142955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.2088256142955"
+                    Point2="0,14.2088256142955"
+                    Point3="4,14.2088256142955" />
+                  <mssgle:LineSegment
+                    End="6.17142626509371,14.2088256142955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.17142626509371,14.2088256142955"
+                    Point2="10.1714262650937,14.2088256142955"
+                    Point3="10.1714262650937,18.2088256142955" />
+                  <mssgle:LineSegment
+                    End="10.1714262650937,20.9176512285909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
+          TopLeft="183.632429035436,181.835296185371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.7292522308084,22.751821630801"
+              Start="0,0"
+              End="-42.7292522308084,15.251821630801">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.37591081540052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.37591081540052"
+                    Point2="0,11.3759108154005"
+                    Point3="-4,11.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-38.7292522308084,11.3759108154005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.7292522308084,11.3759108154005"
+                    Point2="-42.7292522308084,11.3759108154005"
+                    Point3="-42.7292522308084,15.3759108154005" />
+                  <mssgle:LineSegment
+                    End="-42.7292522308084,15.251821630801" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
+          TopLeft="76.1031768046271,225.387117816173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.2253946823326,32.5803924018632"
+              Start="0,0"
+              End="71.2253946823326,25.0803924018632">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.2253946823326,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.2253946823326,0"
+                    Point2="71.2253946823326,0"
+                    Point3="71.2253946823326,4" />
+                  <mssgle:LineSegment
+                    End="71.2253946823326,25.0803924018632" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
+          TopLeft="285.72857148696,278.767510218036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.4789115182861,59.5256777722669"
+              Start="0,0"
+              End="-12.9789115182861,59.5256777722669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,55.5256777722669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,55.5256777722669"
+                    Point2="22.5,59.5256777722669"
+                    Point3="18.5,59.5256777722669" />
+                  <mssgle:LineSegment
+                    End="-12.9789115182861,59.5256777722669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="360.8,430.4"
+          Size="360.8,473.6"
+          Id="Package\Fix The E3fa2at and other stuff"
+          TopLeft="181.142860159582,399.529414192781" />
+        <NodeLayout
           Size="204,41.6"
           Id="Package\NonTableTaxDetails_Jason"
           TopLeft="157.428574347983,309.776473196485" />
@@ -24538,189 +24723,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="348.8,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\Fill_All_Declarations_with no Invoices(Declarations_Final)"
-          TopLeft="6.05714501750711,76.129415943053" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\Sent_Purchases"
-          TopLeft="107.232429035436,140.847060899833" />
-        <EdgeLayout
-          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 5]"
-          TopLeft="183.632429035436,182.447060899833">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-42.7292522308084,22.7518216308011"
-              Start="0,0"
-              End="-42.7292522308084,15.2518216308011">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.37591081540052" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.37591081540052"
-                    Point2="0,11.3759108154005"
-                    Point3="-4,11.3759108154005" />
-                  <mssgle:LineSegment
-                    End="-38.7292522308084,11.3759108154005" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-38.7292522308084,11.3759108154005"
-                    Point2="-42.7292522308084,11.3759108154005"
-                    Point3="-42.7292522308084,15.3759108154005" />
-                  <mssgle:LineSegment
-                    End="-42.7292522308084,15.2518216308011" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\Sent_Sales"
-          TopLeft="76.1031768046271,205.198882530635" />
-        <EdgeLayout
-          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 6]"
-          TopLeft="76.1031768046271,225.998882530635">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.2253946823326,31.9686276874012"
-              Start="0,0"
-              End="71.2253946823326,24.4686276874012">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="67.2253946823326,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.2253946823326,0"
-                    Point2="71.2253946823326,0"
-                    Point3="71.2253946823326,4" />
-                  <mssgle:LineSegment
-                    End="71.2253946823326,24.4686276874012" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276.8,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\SentPurchases_Append (On_Sent_Tables)"
-          TopLeft="8.9285714869597,257.967510218036" />
-        <EdgeLayout
-          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 7]"
-          TopLeft="285.72857148696,278.767510218036">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-20.4789115182861,59.5256777722669"
-              Start="0,0"
-              End="-12.9789115182861,59.5256777722669">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,55.5256777722669" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,55.5256777722669"
-                    Point2="22.5,59.5256777722669"
-                    Point3="18.5,59.5256777722669" />
-                  <mssgle:LineSegment
-                    End="-12.9789115182861,59.5256777722669" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="253.6,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\SentSales_Append (On_Sent_Tables)"
-          TopLeft="11.6496599686736,317.493187990303" />
-        <EdgeLayout
-          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint]"
-          TopLeft="182.044787026471,117.729415943053">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.1176449567804"
-              Start="0,0"
-              End="0,15.6176449567804">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.6176449567804" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Fix The E3fa2at and other stuff\Truncate for the fix"
-          TopLeft="85.4857187524134,5.5" />
-        <EdgeLayout
-          Id="Package\Fix The E3fa2at and other stuff.PrecedenceConstraints[Constraint 1]"
-          TopLeft="170.285718752413,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.1714262650937,29.029415943053"
-              Start="0,0"
-              End="10.1714262650937,21.529415943053">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.5147079715265" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5147079715265"
-                    Point2="0,14.5147079715265"
-                    Point3="4,14.5147079715265" />
-                  <mssgle:LineSegment
-                    End="6.17142626509369,14.5147079715265" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.17142626509369,14.5147079715265"
-                    Point2="10.1714262650937,14.5147079715265"
-                    Point3="10.1714262650937,18.5147079715265" />
-                  <mssgle:LineSegment
-                    End="10.1714262650937,21.529415943053" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="360.8,430.4"
-          Size="360.8,473.6"
-          Id="Package\Fix The E3fa2at and other stuff"
-          TopLeft="181.142860159582,399.529414192781" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
