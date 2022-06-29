@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_B"
   DTS:PackageType="5"
-  DTS:VersionBuild="165"
-  DTS:VersionGUID="{A5C86F60-CD72-4A69-B92E-BA3FC28AE9F6}">
+  DTS:VersionBuild="167"
+  DTS:VersionGUID="{D50F48F3-6EDE-490D-9416-C68120690175}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4365,6 +4365,23 @@ SELECT CONVERT(nvarchar,dc.Unique_Tax_ID) as Unique_Tax_ID
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5C72AD80-0AF4-460F-ACE3-50DEC59D3752}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="  update  g&#xA;  set &#xA;  g.District_Name=u.District_Name,&#xA;  g.DistrictVat_Name=u.DistrictVat_Name,&#xA;  g.Region_Name=u.Region_Name&#xA;  from&#xA;  Dim_Gehat_5asm_w_ta7seel g join Dim_TaxPayers_Universe u on u.Unique_Tax_Id=g.Unique_Tax_Id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The_Registered_Taxpeayers_Univers (DistrictVat_Name,DistrictVat_Code)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -4483,6 +4500,14 @@ SELECT CONVERT(nvarchar,dc.Unique_Tax_ID) as Unique_Tax_ID
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 11"
           DTS:To="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Set The_Registered_Taxpeayers_Universe with Null  (District-Vat_Name,District-Vat_Code,Region,Region_Code)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{433950F4-A262-4D15-BBB4-3030691A6557}"
+          DTS:From="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The_Registered_Taxpeayers_Univers (Region_Name,Region_Code)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 15]"
           DTS:CreationName=""
@@ -23261,6 +23286,32 @@ where rownumb=1</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="487.2,41.6"
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          TopLeft="39.771429262356,1174.16470819031" />
+        <EdgeLayout
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 12]"
+          TopLeft="285.2408172809,1136.41008716645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7546210238609"
+              Start="0,0"
+              End="0,30.2546210238609">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2546210238609" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
@@ -24220,7 +24271,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24248,7 +24301,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24282,7 +24337,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24316,7 +24373,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24350,7 +24409,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24378,7 +24439,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24406,7 +24469,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24434,7 +24499,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -24827,26 +24894,26 @@ where rownumb=1</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-524.204092462278,47.7983190973034"
+              EndConnector="-524.204092462278,47.798319097303"
               Start="0,0"
-              End="-524.204092462278,40.2983190973034">
+              End="-524.204092462278,40.298319097303">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.8991595486517" />
+                    End="0,19.8991595486515" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.8991595486517"
-                    Point2="0,23.8991595486517"
-                    Point3="-4,23.8991595486517" />
+                    Point1="0,19.8991595486515"
+                    Point2="0,23.8991595486515"
+                    Point3="-4,23.8991595486515" />
                   <mssgle:LineSegment
-                    End="-520.204092462278,23.8991595486517" />
+                    End="-520.204092462278,23.8991595486515" />
                   <mssgle:CubicBezierSegment
-                    Point1="-520.204092462278,23.8991595486517"
-                    Point2="-524.204092462278,23.8991595486517"
-                    Point3="-524.204092462278,27.8991595486517" />
+                    Point1="-520.204092462278,23.8991595486515"
+                    Point2="-524.204092462278,23.8991595486515"
+                    Point3="-524.204092462278,27.8991595486515" />
                   <mssgle:LineSegment
-                    End="-524.204092462278,40.2983190973034" />
+                    End="-524.204092462278,40.298319097303" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24997,26 +25064,26 @@ where rownumb=1</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="177.28300921361,14.2386543652006"
+              EndConnector="177.283009213611,14.238654365201"
               Start="0,0"
-              End="169.78300921361,14.2386543652006">
+              End="169.783009213611,14.238654365201">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="84.641504606805,0" />
+                    End="84.6415046068053,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="84.641504606805,0"
-                    Point2="88.641504606805,0"
-                    Point3="88.641504606805,4" />
+                    Point1="84.6415046068053,0"
+                    Point2="88.6415046068053,0"
+                    Point3="88.6415046068053,4" />
                   <mssgle:LineSegment
-                    End="88.641504606805,10.2386543652006" />
+                    End="88.6415046068053,10.238654365201" />
                   <mssgle:CubicBezierSegment
-                    Point1="88.641504606805,10.2386543652006"
-                    Point2="88.641504606805,14.2386543652006"
-                    Point3="92.641504606805,14.2386543652006" />
+                    Point1="88.6415046068053,10.238654365201"
+                    Point2="88.6415046068053,14.238654365201"
+                    Point3="92.6415046068053,14.238654365201" />
                   <mssgle:LineSegment
-                    End="169.78300921361,14.2386543652006" />
+                    End="169.783009213611,14.238654365201" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
