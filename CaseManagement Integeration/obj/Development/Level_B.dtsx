@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_B"
   DTS:PackageType="5"
-  DTS:VersionBuild="163"
-  DTS:VersionGUID="{079406CE-8A0B-4364-A8ED-EBA1A11BA36E}">
+  DTS:VersionBuild="168"
+  DTS:VersionGUID="{64FA044E-58D9-4030-8DCE-EB8BD4169057}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4365,6 +4365,23 @@ SELECT CONVERT(nvarchar,dc.Unique_Tax_ID) as Unique_Tax_ID
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5C72AD80-0AF4-460F-ACE3-50DEC59D3752}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
+              SQLTask:SqlStatementSource="  update  g&#xA;  set &#xA;  g.District_Name=u.District_Name,&#xA;  g.DistrictVat_Name=u.DistrictVat_Name,&#xA;  g.Region_Name=u.Region_Name&#xA;  from&#xA;  Dim_Gehat_5asm_w_ta7seel g join Dim_TaxPayers_Universe u on u.Unique_Tax_Id=g.Unique_Tax_Id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The_Registered_Taxpeayers_Univers (DistrictVat_Name,DistrictVat_Code)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -4483,6 +4500,14 @@ SELECT CONVERT(nvarchar,dc.Unique_Tax_ID) as Unique_Tax_ID
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 11"
           DTS:To="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Set The_Registered_Taxpeayers_Universe with Null  (District-Vat_Name,District-Vat_Code,Region,Region_Code)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{433950F4-A262-4D15-BBB4-3030691A6557}"
+          DTS:From="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The_Registered_Taxpeayers_Univers (Region_Name,Region_Code)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 15]"
           DTS:CreationName=""
@@ -22573,7 +22598,7 @@ where rownumb=1</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F7318975-42C3-4F09-82FB-D41A06D96A6C}"
-          SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;convert(datetime,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0  &#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="with is_sent_Zero_or_NoValue_Dec_3times as(&#xA;select UniqueTaxID,sum(Degree) as flag from(&#xA;select *&#xA;,case when datediff(M,[pervious Period], Converted_TaxPeriod)  =1 and datediff(M, [prevpervious Period],[pervious Period])=1 then 1 else 0 end Degree &#xA;from(&#xA;&#xA;select *&#xA;,lag(Converted_TaxPeriod,1,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'pervious Period'&#xA;,lag(Converted_TaxPeriod,2,0) over(partition by UniqueTaxID order by Converted_TaxPeriod) as 'prevpervious Period'&#xA;from (  &#xA;&#xA;&#xA;SELECT &#xA;UniqueTaxID,&#xA;--convert(date,convert(varchar(10),dec.[Fk_TaxPeriod_ID] ))Converted_TaxPeriod&#xA;try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) Converted_TaxPeriod&#xA;FROM Dim_Declarations dec&#xA;where dec.DeclarationTypeID=2 or &#xA;(dec.DeclarationTypeID !=2 and&#xA;PurchaseVat=0 &#xA;and PurchaseAdjustment=0&#xA;and PurchaseTotal=0&#xA;and SalesVat=0 &#xA;and SalesAdjustment=0&#xA;and SalesTotal=0&#xA;and RecivableTax=0 &#xA;and TotalTaxValue=0&#xA;--and TableTaxTotal=0 &#xA;--and TableTaxAdjustment=0&#xA;--and TableTaxVat=0&#xA;)--) and try_cast(TRY_CAST(dec.[Fk_TaxPeriod_ID] as varchar(8)) as datetime) is not null&#xA;&#xA;&#xA;                                         ) a&#xA;                                        )b&#xA;                                      )c&#xA;group by UniqueTaxID&#xA;    &#xA;    )&#xA;&#xA;update tp &#xA;set tp.is_sent_Zero_or_NoValue_Dec_3times=flag&#xA;from Dim_Registered_TaxPayers tp join is_sent_Zero_or_NoValue_Dec_3times cte&#xA;on tp.Unique_Tax_Id=cte.UniqueTaxID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -22724,6 +22749,10 @@ where rownumb=1</property>
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Truncate_TaxPayers_from_DWH"
           TopLeft="73.1244976334946,11.5084034456101" />
         <NodeLayout
+          Size="487.2,41.6"
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name)"
+          TopLeft="39.771429262356,1174.16470819031" />
+        <NodeLayout
           Size="463.2,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The_Registered_Taxpeayers_Univers (DistrictVat_Name,DistrictVat_Code)"
           TopLeft="48.6530615762094,1022.52773533206" />
@@ -22871,6 +22900,28 @@ where rownumb=1</property>
                     Point3="27.7877519240531,40.3394968585368" />
                   <mssgle:LineSegment
                     End="27.7877519240531,65.1789937170737" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 12]"
+          TopLeft="285.2408172809,1136.41008716645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7546210238609"
+              Start="0,0"
+              End="0,30.2546210238609">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2546210238609" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23263,9 +23314,9 @@ where rownumb=1</property>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="772,1514.4"
-          Size="772,43.2"
+          Size="772,1557.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH"
           TopLeft="0.489795926708382,231.905883617844" />
         <NodeLayout
@@ -24220,7 +24271,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24248,7 +24301,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24282,7 +24337,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24316,7 +24373,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24350,7 +24409,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24378,7 +24439,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24406,7 +24469,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24434,7 +24499,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -24827,26 +24894,26 @@ where rownumb=1</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-524.204092462278,47.7983190973034"
+              EndConnector="-524.204092462278,47.798319097303"
               Start="0,0"
-              End="-524.204092462278,40.2983190973034">
+              End="-524.204092462278,40.298319097303">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.8991595486517" />
+                    End="0,19.8991595486515" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.8991595486517"
-                    Point2="0,23.8991595486517"
-                    Point3="-4,23.8991595486517" />
+                    Point1="0,19.8991595486515"
+                    Point2="0,23.8991595486515"
+                    Point3="-4,23.8991595486515" />
                   <mssgle:LineSegment
-                    End="-520.204092462278,23.8991595486517" />
+                    End="-520.204092462278,23.8991595486515" />
                   <mssgle:CubicBezierSegment
-                    Point1="-520.204092462278,23.8991595486517"
-                    Point2="-524.204092462278,23.8991595486517"
-                    Point3="-524.204092462278,27.8991595486517" />
+                    Point1="-520.204092462278,23.8991595486515"
+                    Point2="-524.204092462278,23.8991595486515"
+                    Point3="-524.204092462278,27.8991595486515" />
                   <mssgle:LineSegment
-                    End="-524.204092462278,40.2983190973034" />
+                    End="-524.204092462278,40.298319097303" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24993,30 +25060,30 @@ where rownumb=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="772.489795926708,253.505883617844">
+          TopLeft="772.489795926708,1010.70588361784">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="177.28300921361,14.2386543652006"
+              EndConnector="177.283009213611,-742.961345634799"
               Start="0,0"
-              End="169.78300921361,14.2386543652006">
+              End="169.783009213611,-742.961345634799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="84.641504606805,0" />
+                    End="84.6415046068053,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="84.641504606805,0"
-                    Point2="88.641504606805,0"
-                    Point3="88.641504606805,4" />
+                    Point1="84.6415046068053,0"
+                    Point2="88.6415046068053,0"
+                    Point3="88.6415046068053,-4" />
                   <mssgle:LineSegment
-                    End="88.641504606805,10.2386543652006" />
+                    End="88.6415046068053,-738.961345634799" />
                   <mssgle:CubicBezierSegment
-                    Point1="88.641504606805,10.2386543652006"
-                    Point2="88.641504606805,14.2386543652006"
-                    Point3="92.641504606805,14.2386543652006" />
+                    Point1="88.6415046068053,-738.961345634799"
+                    Point2="88.6415046068053,-742.961345634799"
+                    Point3="92.6415046068053,-742.961345634799" />
                   <mssgle:LineSegment
-                    End="169.78300921361,14.2386543652006" />
+                    End="169.783009213611,-742.961345634799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -25209,7 +25276,7 @@ where rownumb=1</property>
     design-time-name="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_Registered_TaxPayers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_Registered_TaxPayers\Stg_Dim_TaxPayers_Registred"
@@ -25249,7 +25316,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25280,7 +25349,7 @@ where rownumb=1</property>
     design-time-name="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_TaxPayers_Universe">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_TaxPayers_Universe\TaxPayers_Universe"
@@ -25320,7 +25389,9 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

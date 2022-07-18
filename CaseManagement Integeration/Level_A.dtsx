@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/14/2021 2:49:42 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_A"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{75D8DACA-D105-400A-B987-F1538DF471CB}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{0039B99D-F3EB-476F-AA81-14E1210646B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1936,6 +1936,336 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Dim_Income_Region"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CC2A2363-A9C9-43B9-AA0F-275D6F5DF53B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Income_Region"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Income_Region\Dim_Income_Regions"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_Income_Regions"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Dim_Income_Regions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Income_Region\Dim_Income_Regions.Connections[OleDbConnection]"
+                  connectionManagerID="{F7318975-42C3-4F09-82FB-D41A06D96A6C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].Columns[reg_code]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="reg_code"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[RegionCode]"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_code]" />
+                    <inputColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].Columns[reg_desc]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="reg_desc"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[Region_Name]"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_desc]" />
+                    <inputColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].Columns[reg_adress]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="reg_adress"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[Region_Address]"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_adress]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[RegionCode]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="RegionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[Region_Name]"
+                      codePage="1256"
+                      dataType="str"
+                      length="50"
+                      name="Region_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input].ExternalColumns[Region_Address]"
+                      codePage="1256"
+                      dataType="str"
+                      length="60"
+                      name="Region_Address" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Income_Region\Dim_Income_Regions.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Income_Region\Dim_Income_Regions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Dim_Income_Regions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Income_Region\Dim_Income_Regions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Income_Region\Ig_Region"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Ig_Region"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Igregion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Income_Region\Ig_Region.Connections[OleDbConnection]"
+                  connectionManagerID="{45741BD4-9A15-46F5-A0B6-CEB28C2F6094}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Lkp_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_code]"
+                      length="2"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_code]"
+                      name="reg_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_desc]"
+                      length="50"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_desc]"
+                      name="reg_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_adress]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_adress]"
+                      length="60"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].Columns[reg_adress]"
+                      name="reg_adress"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="reg_code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      length="50"
+                      name="reg_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output].ExternalColumns[reg_adress]"
+                      codePage="1256"
+                      dataType="str"
+                      length="60"
+                      name="reg_adress" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_code]"
+                      name="reg_code" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_desc]"
+                      name="reg_desc" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_adress]"
+                      codePage="1256"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[reg_adress]"
+                      name="reg_adress" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Income_Region.Paths[OLE DB Source Output]"
+              endId="Package\Dim_Income_Region\Dim_Income_Regions.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim_Income_Region\Ig_Region.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Dim_Region"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -2560,6 +2890,412 @@ SELECT distinct [RegionCode]
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Dim_Sales_Region_Income"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{70E91C99-EC01-4B83-B621-20D7F929D1B7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Sales_Region_Income"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_Sales_Region_Income"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Dim_Sales_Region_Income]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Connections[OleDbConnection]"
+                  connectionManagerID="{F7318975-42C3-4F09-82FB-D41A06D96A6C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].Columns[Gov_Code]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Gov_Code"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[Gov_Code]"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Gov_Code]" />
+                    <inputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].Columns[bran_code]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="bran_code"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[bran_code]"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[bran_code]" />
+                    <inputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].Columns[Reg_code]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Reg_code"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[Region_Code]"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Reg_code]" />
+                    <inputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].Columns[dis_desc]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dis_desc"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[District_Name]"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_desc]" />
+                    <inputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].Columns[dis_code]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="dis_code"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[District_Code]"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[District_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      name="District_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[District_Name]"
+                      codePage="1256"
+                      dataType="str"
+                      length="100"
+                      name="District_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[Region_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="Region_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[Gov_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="Gov_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input].ExternalColumns[bran_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      name="bran_code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Sales_Region_Income\ig_District"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ig_District"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[igdistrict]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Sales_Region_Income\ig_District.Connections[OleDbConnection]"
+                  connectionManagerID="{438EFCC1-0048-4EF5-A209-B89B1AB94227}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Withholdings_Flattened]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_code]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[dis_code]"
+                      length="3"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_code]"
+                      name="dis_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[dis_desc]"
+                      length="100"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[dis_desc]"
+                      name="dis_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Gov_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[Gov_Code]"
+                      length="2"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Gov_Code]"
+                      name="Gov_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[Reg_code]"
+                      length="2"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[Reg_code]"
+                      name="Reg_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[bran_code]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[bran_code]"
+                      length="3"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].Columns[bran_code]"
+                      name="bran_code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[dis_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      name="dis_code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[dis_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      length="100"
+                      name="dis_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[Gov_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="Gov_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[Reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      name="Reg_code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output].ExternalColumns[bran_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      name="bran_code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[dis_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[dis_code]"
+                      name="dis_code" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[dis_desc]"
+                      codePage="1256"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[dis_desc]"
+                      name="dis_desc" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[Gov_Code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[Gov_Code]"
+                      name="Gov_Code" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[Reg_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[Reg_code]"
+                      name="Reg_code" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[bran_code]"
+                      codePage="1256"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[bran_code]"
+                      name="bran_code" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Sales_Region_Income.Paths[OLE DB Source Output]"
+              endId="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim_Sales_Region_Income\ig_District.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Dim_TaxPayer_Categories"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -3159,11 +3895,11 @@ SELECT distinct [RegionCode]
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{0651C178-074D-44B5-89F0-2293ED3CB339}"
+      DTS:DTSID="{A38EF085-CAFA-445B-90E5-AA8625C2311B}"
       DTS:From="Package\Dim_Districts_Load"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Dim_Districts_Vat_Load" />
+      DTS:To="Package\Dim_Income_Region" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
@@ -3196,6 +3932,22 @@ SELECT distinct [RegionCode]
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Dim_Gehat_Categories" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{40637658-551B-471D-ACAA-5B22831BB84F}"
+      DTS:From="Package\Dim_Income_Region"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Dim_Sales_Region_Income" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{A9F4707C-0B2F-404B-8EEA-210E9C70B3BD}"
+      DTS:From="Package\Dim_Sales_Region_Income"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Dim_Districts_Vat_Load" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3227,7 +3979,7 @@ SELECT distinct [RegionCode]
           PanelSize="215.2,155.2"
           Size="192.8,43.2"
           Id="Package\Dim_Districts_Load"
-          TopLeft="526.11948509234,89.48876990606" />
+          TopLeft="250.119480392088,243.088772093901" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Dim_Districts_Vat_Load\Dim_Districts_Vat_New"
@@ -3242,7 +3994,7 @@ SELECT distinct [RegionCode]
           PanelSize="214.4,203.2"
           Size="214.4,43.2"
           Id="Package\Dim_Districts_Vat_Load"
-          TopLeft="556.737668235758,199.27272866499" />
+          TopLeft="268.166234749987,360.77861328299" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Dim_Gehat_Categories"
@@ -3250,7 +4002,7 @@ SELECT distinct [RegionCode]
         <NodeLayout
           Size="135.2,41.6"
           Id="Package\Dim_Region"
-          TopLeft="597.85715303859,300.541180001164" />
+          TopLeft="510.428580121119,365.388239734149" />
         <NodeLayout
           Size="165.6,41.6"
           Id="Package\Dim_Sales_Region"
@@ -3331,64 +4083,30 @@ SELECT distinct [RegionCode]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="411.600003576279,153.094119502434">
+          TopLeft="310.800003576279,173.894119502434">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114.519481516061,-42.005349596374"
+              EndConnector="35.7194768158089,69.1946525914673"
               Start="0,0"
-              End="107.019481516061,-42.005349596374">
+              End="35.7194768158089,61.6946525914673">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="53.2597407580305,0" />
+                    End="0,30.5973262957336" />
                   <mssgle:CubicBezierSegment
-                    Point1="53.2597407580305,0"
-                    Point2="57.2597407580305,0"
-                    Point3="57.2597407580305,-4" />
+                    Point1="0,30.5973262957336"
+                    Point2="0,34.5973262957336"
+                    Point3="4,34.5973262957336" />
                   <mssgle:LineSegment
-                    End="57.2597407580305,-38.005349596374" />
+                    End="31.7194768158089,34.5973262957336" />
                   <mssgle:CubicBezierSegment
-                    Point1="57.2597407580305,-38.005349596374"
-                    Point2="57.2597407580305,-42.005349596374"
-                    Point3="61.2597407580305,-42.005349596374" />
+                    Point1="31.7194768158089,34.5973262957336"
+                    Point2="35.7194768158089,34.5973262957336"
+                    Point3="35.7194768158089,38.5973262957336" />
                   <mssgle:LineSegment
-                    End="107.019481516061,-42.005349596374" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="622.51948509234,132.68876990606">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.418183143418,66.58395875893"
-              Start="0,0"
-              End="41.418183143418,59.08395875893">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.291979379465" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.291979379465"
-                    Point2="0,33.291979379465"
-                    Point3="4,33.291979379465" />
-                  <mssgle:LineSegment
-                    End="37.418183143418,33.291979379465" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.418183143418,33.291979379465"
-                    Point2="41.418183143418,33.291979379465"
-                    Point3="41.418183143418,37.291979379465" />
-                  <mssgle:LineSegment
-                    End="41.418183143418,59.08395875893" />
+                    End="35.7194768158089,61.6946525914673" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3399,18 +4117,18 @@ SELECT distinct [RegionCode]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="664.697410637174,242.47272866499">
+          TopLeft="482.566234749987,384.28342650857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.068451336174"
+              EndConnector="27.8623453711317,0"
               Start="0,0"
-              End="0,50.568451336174">
+              End="20.3623453711317,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.568451336174" />
+                    End="20.3623453711317,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3455,30 +4173,18 @@ SELECT distinct [RegionCode]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="665.45715303859,342.141180001164">
+          TopLeft="645.628580121119,389.929416526478">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="111.685715125045,30.729413317643"
+              EndConnector="48.7142880425162,0"
               Start="0,0"
-              End="111.685715125045,23.229413317643">
+              End="41.2142880425162,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.3647066588215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.3647066588215"
-                    Point2="0,15.3647066588215"
-                    Point3="4,15.3647066588215" />
-                  <mssgle:LineSegment
-                    End="107.685715125045,15.3647066588215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.685715125045,15.3647066588215"
-                    Point2="111.685715125045,15.3647066588215"
-                    Point3="111.685715125045,19.3647066588215" />
-                  <mssgle:LineSegment
-                    End="111.685715125045,23.229413317643" />
+                    End="41.2142880425162,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3513,6 +4219,92 @@ SELECT distinct [RegionCode]
                     Point3="103.942857468858,20.0588214938617" />
                   <mssgle:LineSegment
                     End="103.942857468858,24.6176429877235" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Dim_Income_Region"
+          TopLeft="502.285718139337,250.729413609356" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="442.919480392088,268.109092851629">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.366237747249,0"
+              Start="0,0"
+              End="51.866237747249,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.866237747249,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Dim_Sales_Region_Income"
+          TopLeft="706.742864723595,247.435295164379" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="678.285718139337,269.882354386868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.4571465842579,0"
+              Start="0,0"
+              End="20.9571465842579,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.9571465842579,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="809.942864723595,289.035295164379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-434.576629973608,71.7433181186115"
+              Start="0,0"
+              End="-434.576629973608,64.2433181186115">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8716590593057" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8716590593057"
+                    Point2="0,35.8716590593057"
+                    Point3="-4,35.8716590593057" />
+                  <mssgle:LineSegment
+                    End="-430.576629973608,35.8716590593057" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-430.576629973608,35.8716590593057"
+                    Point2="-434.576629973608,35.8716590593057"
+                    Point3="-434.576629973608,39.8716590593057" />
+                  <mssgle:LineSegment
+                    End="-434.576629973608,64.2433181186115" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3601,7 +4393,7 @@ SELECT distinct [RegionCode]
     design-time-name="Package\Dim_Districts_Load\Dim_Districts_New">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="148.8,41.6"
           Id="Package\Dim_Districts_Load\Dim_Districts_New\District_Details"
@@ -3641,9 +4433,7 @@ SELECT distinct [RegionCode]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3734,7 +4524,7 @@ SELECT distinct [RegionCode]
     design-time-name="Package\Dim_Districts_Vat_Load\Dim_Districts_Vat_New">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,41.6"
           Id="Package\Dim_Districts_Vat_Load\Dim_Districts_Vat_New\Sales_Office"
@@ -3774,7 +4564,9 @@ SELECT distinct [RegionCode]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4016,7 +4808,7 @@ SELECT distinct [RegionCode]
     design-time-name="Package\Dim_Sales_Region">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\Dim_Sales_Region\Sales_Region"
@@ -4056,9 +4848,7 @@ SELECT distinct [RegionCode]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4218,6 +5008,158 @@ SELECT distinct [RegionCode]
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_TaxPayer_Types\TaxPayer_Types">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Income_Region">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Dim_Income_Region\Ig_Region"
+          TopLeft="156.571431237824,54.4470595871289" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Dim_Income_Region\Dim_Income_Regions"
+          TopLeft="208.571432123379,167.011767048159" />
+        <EdgeLayout
+          Id="Package\Dim_Income_Region.Paths[OLE DB Source Output]"
+          TopLeft="219.771431237824,96.0470595871289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.2000008855548,70.9647074610304"
+              Start="0,0"
+              End="79.2000008855548,63.4647074610304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4823537305152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.4823537305152"
+                    Point2="0,35.4823537305152"
+                    Point3="4,35.4823537305152" />
+                  <mssgle:LineSegment
+                    End="75.2000008855548,35.4823537305152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75.2000008855548,35.4823537305152"
+                    Point2="79.2000008855548,35.4823537305152"
+                    Point3="79.2000008855548,39.4823537305152" />
+                  <mssgle:LineSegment
+                    End="79.2000008855548,63.4647074610304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Income_Region\Ig_Region">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Income_Region\Dim_Income_Regions">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Sales_Region_Income">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Dim_Sales_Region_Income\ig_District"
+          TopLeft="248.8,52.8" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income"
+          TopLeft="236,153.6" />
+        <EdgeLayout
+          Id="Package\Dim_Sales_Region_Income.Paths[OLE DB Source Output]"
+          TopLeft="311.6,94.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.6,59.2"
+              Start="0,0"
+              End="27.6,51.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6"
+                    Point2="0,29.6"
+                    Point3="4,29.6" />
+                  <mssgle:LineSegment
+                    End="23.6,29.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.6,29.6"
+                    Point2="27.6,29.6"
+                    Point3="27.6,33.6" />
+                  <mssgle:LineSegment
+                    End="27.6,51.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Sales_Region_Income\ig_District">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Sales_Region_Income\Dim_Sales_Region_Income">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
