@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="136"
-  DTS:VersionGUID="{24C6B94E-0309-41FD-8AE3-EE39F152E1BB}">
+  DTS:VersionBuild="137"
+  DTS:VersionGUID="{2CAA3ECC-5075-42AA-9B56-6BEF5882C1A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35871,7 +35871,7 @@ SELECT  [TaxPeriod]
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="262.4,249.6"
-          Size="262.4,43.2"
+          Size="262,43"
           Id="Package\Declaration_Jasons_STG_to_DWH"
           TopLeft="44.3428545737751,18.9647061483258" />
         <NodeLayout
@@ -35950,15 +35950,15 @@ SELECT  [TaxPeriod]
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="256.8,206.4"
-          Size="254.4,43.2"
+          Size="254,43"
           Id="Package\Declaration_Jasons_Vat_to_STG"
           TopLeft="588.328575880674,51.2000007292804" />
         <NodeLayout
-          Size="227.2,41.6"
+          Size="227,42"
           Id="Package\Dim_Gamarek_Invoices_Details"
           TopLeft="373.142863497442,267.435297352221" />
         <NodeLayout
-          Size="227.2,41.6"
+          Size="227,42"
           Id="Package\Dim_Gamarek_Invoices_Master"
           TopLeft="366.571434814103,185.000002078449" />
         <NodeLayout
@@ -36000,46 +36000,48 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="613.6,221.6"
-          Size="613.6,43.2"
+          Size="614,43"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
         <NodeLayout
-          Size="189.6,41.6"
+          Size="190,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
           TopLeft="68.9142916017652,91.3882387860833" />
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44"
           TopLeft="112.114296574496,200.752944496841" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43"
           TopLeft="26.1714344394452,255.482355626644" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_45"
           TopLeft="164.228577209005,292.611767339871" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_46"
           TopLeft="90.5142902393731,362.305885347281" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47"
           TopLeft="116.228576391571,428.329414776205" />
         <NodeLayout
-          Size="210.4,41.6"
+          Size="210,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate all Other Namazeg"
           TopLeft="24.8000058582852,143.352942928888" />
         <NodeLayout
-          Size="205.6,41.6"
+          Size="206,42"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate_stg_namozag_41"
           TopLeft="41.9428626118875,23.5294131717878" />
         <EdgeLayout
@@ -36258,17 +36260,17 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
-          PanelSize="323.2,524.8"
-          Size="280,43.2"
+          IsExpanded="True"
+          PanelSize="323,525"
+          Size="323,568"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening"
           TopLeft="410.285721272839,455.094121325634" />
         <NodeLayout
-          Size="212.8,41.6"
+          Size="213,42"
           Id="Package\Truncate_Gamarek_Invoices"
           TopLeft="700.285726211509,163.282354715044" />
         <NodeLayout
-          Size="260,41.6"
+          Size="260,42"
           Id="Package\Update Dim Gamarek Master(TaxLoss)"
           TopLeft="387.857149462311,359.352945700154" />
         <EdgeLayout
@@ -36329,30 +36331,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="517.857149462311,400.952945700154">
+          TopLeft="517.857149462311,401.352945700154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32.4285718105281,54.1411756254799"
+              EndConnector="53.9285718105281,53.74117562548"
               Start="0,0"
-              End="32.4285718105281,46.6411756254799">
+              End="53.9285718105281,46.24117562548">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.07058781274" />
+                    End="0,22.87058781274" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.07058781274"
-                    Point2="0,27.07058781274"
-                    Point3="4,27.07058781274" />
+                    Point1="0,22.87058781274"
+                    Point2="0,26.87058781274"
+                    Point3="4,26.87058781274" />
                   <mssgle:LineSegment
-                    End="28.4285718105281,27.07058781274" />
+                    End="49.9285718105281,26.87058781274" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.4285718105281,27.07058781274"
-                    Point2="32.4285718105281,27.07058781274"
-                    Point3="32.4285718105281,31.07058781274" />
+                    Point1="49.9285718105281,26.87058781274"
+                    Point2="53.9285718105281,26.87058781274"
+                    Point3="53.9285718105281,30.87058781274" />
                   <mssgle:LineSegment
-                    End="32.4285718105281,46.6411756254799" />
+                    End="53.9285718105281,46.24117562548" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36397,30 +36399,24 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="550.285721272839,498.294121325634">
+          TopLeft="410.285721272839,739.094121325634">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-37.58095586154,61.847057435752"
+              EndConnector="102.61904413846,-178.952942564248"
               Start="0,0"
-              End="-37.58095586154,54.347057435752">
+              End="102.61904413846,-171.452942564248">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.923528717876" />
+                    End="98.6190441384599,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.923528717876"
-                    Point2="0,30.923528717876"
-                    Point3="-4,30.923528717876" />
+                    Point1="98.6190441384599,0"
+                    Point2="102.61904413846,0"
+                    Point3="102.61904413846,-4" />
                   <mssgle:LineSegment
-                    End="-33.58095586154,30.923528717876" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-33.58095586154,30.923528717876"
-                    Point2="-37.58095586154,30.923528717876"
-                    Point3="-37.58095586154,34.923528717876" />
-                  <mssgle:LineSegment
-                    End="-37.58095586154,54.347057435752" />
+                    End="102.61904413846,-171.452942564248" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37798,6 +37794,19 @@ SELECT  [TaxPeriod]
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44">
     <Properties>
       <Property>
@@ -38231,19 +38240,6 @@ SELECT  [TaxPeriod]
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47\Namozag_47">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

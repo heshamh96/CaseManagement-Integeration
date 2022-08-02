@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_A"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{CD2B9555-C4EC-46BC-BAC0-ADEE091DAA47}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{0039B99D-F3EB-476F-AA81-14E1210646B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3977,7 +3977,7 @@ SELECT distinct [RegionCode]
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="215.2,155.2"
-          Size="215.2,43.2"
+          Size="192.8,43.2"
           Id="Package\Dim_Districts_Load"
           TopLeft="250.119480392088,243.088772093901" />
         <NodeLayout
@@ -4087,9 +4087,9 @@ SELECT distinct [RegionCode]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.9194768158089,69.1946525914672"
+              EndConnector="35.7194768158089,69.1946525914673"
               Start="0,0"
-              End="46.9194768158089,61.6946525914672">
+              End="35.7194768158089,61.6946525914673">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4100,13 +4100,13 @@ SELECT distinct [RegionCode]
                     Point2="0,34.5973262957336"
                     Point3="4,34.5973262957336" />
                   <mssgle:LineSegment
-                    End="42.9194768158089,34.5973262957336" />
+                    End="31.7194768158089,34.5973262957336" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.9194768158089,34.5973262957336"
-                    Point2="46.9194768158089,34.5973262957336"
-                    Point3="46.9194768158089,38.5973262957336" />
+                    Point1="31.7194768158089,34.5973262957336"
+                    Point2="35.7194768158089,34.5973262957336"
+                    Point3="35.7194768158089,38.5973262957336" />
                   <mssgle:LineSegment
-                    End="46.9194768158089,61.6946525914672" />
+                    End="35.7194768158089,61.6946525914673" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4233,18 +4233,18 @@ SELECT distinct [RegionCode]
           TopLeft="502.285718139337,250.729413609356" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="465.319480392088,268.109092851629">
+          TopLeft="442.919480392088,268.109092851629">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="36.966237747249,0"
+              EndConnector="59.366237747249,0"
               Start="0,0"
-              End="29.466237747249,0">
+              End="51.866237747249,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="29.466237747249,0" />
+                    End="51.866237747249,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
