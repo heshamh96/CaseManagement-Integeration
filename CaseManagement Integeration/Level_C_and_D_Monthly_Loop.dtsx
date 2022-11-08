@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C_and_D_Monthly_Loop"
   DTS:PackageType="5"
-  DTS:VersionBuild="270"
-  DTS:VersionGUID="{311D6B54-8DC9-46F6-89D7-3C43435B229E}">
+  DTS:VersionBuild="271"
+  DTS:VersionGUID="{7F48D00D-1205-4806-8852-54351E495EE2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -16547,9 +16547,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16571,9 +16569,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16601,9 +16597,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16637,9 +16631,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16667,16 +16659,14 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="44"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="467.2,330.4"
-          Size="467.2,44"
+          Size="467.2,374.4"
           Id="Package\Dim_Declarations"
           TopLeft="35.8571434677865,162.200001276241" />
         <NodeLayout
@@ -16895,7 +16885,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16923,7 +16915,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16951,7 +16945,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16985,7 +16981,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17013,7 +17011,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -17054,7 +17054,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17088,7 +17090,9 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -17466,30 +17470,30 @@ and det.IsDeleted=0</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="269.457143467787,206.200001276241">
+          TopLeft="269.457143467787,536.600001276241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.57143162951149,40.717648202077"
+              EndConnector="9.57143162951149,-289.682351797923"
               Start="0,0"
-              End="9.57143162951149,33.217648202077">
+              End="9.57143162951149,-282.182351797923">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.3588241010385" />
+                    End="0,-140.841175898962" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.3588241010385"
-                    Point2="0,20.3588241010385"
-                    Point3="4,20.3588241010385" />
+                    Point1="0,-140.841175898962"
+                    Point2="0,-144.841175898962"
+                    Point3="4,-144.841175898962" />
                   <mssgle:LineSegment
-                    End="5.57143162951149,20.3588241010385" />
+                    End="5.57143162951149,-144.841175898962" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.57143162951149,20.3588241010385"
-                    Point2="9.57143162951149,20.3588241010385"
-                    Point3="9.57143162951149,24.3588241010385" />
+                    Point1="5.57143162951149,-144.841175898962"
+                    Point2="9.57143162951149,-144.841175898962"
+                    Point3="9.57143162951149,-148.841175898962" />
                   <mssgle:LineSegment
-                    End="9.57143162951149,33.217648202077" />
+                    End="9.57143162951149,-282.182351797923" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17861,7 +17865,7 @@ and det.IsDeleted=0</property>
     design-time-name="Package\Dim_Declarations\Declarations vat to stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177.6,41.6"
           Id="Package\Dim_Declarations\Declarations vat to stage\Staging_Declarations"
@@ -17901,9 +17905,7 @@ and det.IsDeleted=0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
