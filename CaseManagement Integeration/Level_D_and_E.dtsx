@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="137"
-  DTS:VersionGUID="{2CAA3ECC-5075-42AA-9B56-6BEF5882C1A3}">
+  DTS:VersionBuild="138"
+  DTS:VersionGUID="{8EF7AB89-906D-4D20-B0D1-EC21D113516F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35871,7 +35871,7 @@ SELECT  [TaxPeriod]
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="262.4,249.6"
-          Size="262,43"
+          Size="262.4,43.2"
           Id="Package\Declaration_Jasons_STG_to_DWH"
           TopLeft="44.3428545737751,18.9647061483258" />
         <NodeLayout
@@ -35950,15 +35950,15 @@ SELECT  [TaxPeriod]
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="256.8,206.4"
-          Size="254,43"
+          Size="254.4,43.2"
           Id="Package\Declaration_Jasons_Vat_to_STG"
           TopLeft="588.328575880674,51.2000007292804" />
         <NodeLayout
-          Size="227,42"
+          Size="227.2,41.6"
           Id="Package\Dim_Gamarek_Invoices_Details"
           TopLeft="373.142863497442,267.435297352221" />
         <NodeLayout
-          Size="227,42"
+          Size="227.2,41.6"
           Id="Package\Dim_Gamarek_Invoices_Master"
           TopLeft="366.571434814103,185.000002078449" />
         <NodeLayout
@@ -36008,40 +36008,40 @@ SELECT  [TaxPeriod]
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
-          PanelSize="613.6,221.6"
-          Size="614,43"
+          PanelSize="614,221.6"
+          Size="614.4,43.2"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_41_Flattened"
           TopLeft="68.9142916017652,91.3882387860833" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44"
           TopLeft="112.114296574496,200.752944496841" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43"
           TopLeft="26.1714344394452,255.482355626644" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_45"
           TopLeft="164.228577209005,292.611767339871" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_46"
           TopLeft="90.5142902393731,362.305885347281" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47"
           TopLeft="116.228576391571,428.329414776205" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate all Other Namazeg"
           TopLeft="24.8000058582852,143.352942928888" />
         <NodeLayout
-          Size="206,42"
+          Size="206.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Truncate_stg_namozag_41"
           TopLeft="41.9428626118875,23.5294131717878" />
         <EdgeLayout
@@ -36260,17 +36260,17 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="True"
-          PanelSize="323,525"
-          Size="323,568"
+          IsExpanded="False"
+          PanelSize="323.2,524.8"
+          Size="323.2,43.2"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening"
           TopLeft="410.285721272839,455.094121325634" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\Truncate_Gamarek_Invoices"
           TopLeft="700.285726211509,163.282354715044" />
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\Update Dim Gamarek Master(TaxLoss)"
           TopLeft="387.857149462311,359.352945700154" />
         <EdgeLayout
@@ -36331,30 +36331,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="517.857149462311,401.352945700154">
+          TopLeft="517.857149462311,400.952945700154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="53.9285718105281,53.74117562548"
+              EndConnector="54.028571810528,54.1411756254799"
               Start="0,0"
-              End="53.9285718105281,46.24117562548">
+              End="54.028571810528,46.6411756254799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.87058781274" />
+                    End="0,23.07058781274" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.87058781274"
-                    Point2="0,26.87058781274"
-                    Point3="4,26.87058781274" />
+                    Point1="0,23.07058781274"
+                    Point2="0,27.07058781274"
+                    Point3="4,27.07058781274" />
                   <mssgle:LineSegment
-                    End="49.9285718105281,26.87058781274" />
+                    End="50.028571810528,27.07058781274" />
                   <mssgle:CubicBezierSegment
-                    Point1="49.9285718105281,26.87058781274"
-                    Point2="53.9285718105281,26.87058781274"
-                    Point3="53.9285718105281,30.87058781274" />
+                    Point1="50.028571810528,27.07058781274"
+                    Point2="54.028571810528,27.07058781274"
+                    Point3="54.028571810528,31.07058781274" />
                   <mssgle:LineSegment
-                    End="53.9285718105281,46.24117562548" />
+                    End="54.028571810528,46.6411756254799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36399,24 +36399,30 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="410.285721272839,739.094121325634">
+          TopLeft="571.885721272839,498.294121325634">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="102.61904413846,-178.952942564248"
+              EndConnector="-58.78095586154,61.847057435752"
               Start="0,0"
-              End="102.61904413846,-171.452942564248">
+              End="-58.78095586154,54.347057435752">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="98.6190441384599,0" />
+                    End="0,26.923528717876" />
                   <mssgle:CubicBezierSegment
-                    Point1="98.6190441384599,0"
-                    Point2="102.61904413846,0"
-                    Point3="102.61904413846,-4" />
+                    Point1="0,26.923528717876"
+                    Point2="0,30.923528717876"
+                    Point3="-4,30.923528717876" />
                   <mssgle:LineSegment
-                    End="102.61904413846,-171.452942564248" />
+                    End="-54.78095586154,30.923528717876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.78095586154,30.923528717876"
+                    Point2="-58.78095586154,30.923528717876"
+                    Point3="-58.78095586154,34.923528717876" />
+                  <mssgle:LineSegment
+                    End="-58.78095586154,54.347057435752" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37515,7 +37521,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="228,41.6"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH\Dim_Invoices_Namozag_41\Dim_Invoices_5asm_w_Ta7seel"
@@ -37555,7 +37561,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37715,47 +37723,13 @@ SELECT  [TaxPeriod]
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\XML Parser Transform"
           TopLeft="255.2,133.6" />
         <NodeLayout
-          Size="214.4,41.6"
-          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44"
-          TopLeft="225.6,37.6" />
-        <EdgeLayout
-          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[OLE DB Source Output]"
-          TopLeft="332.8,79.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.6,54.4"
-              Start="0,0"
-              End="13.6,46.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.2"
-                    Point2="0,27.2"
-                    Point3="4,27.2" />
-                  <mssgle:LineSegment
-                    End="9.60000000000002,27.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.60000000000002,27.2"
-                    Point2="13.6,27.2"
-                    Point3="13.6,31.2" />
-                  <mssgle:LineSegment
-                    End="13.6,46.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="156.8,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\Namozag_42_44"
           TopLeft="249.6,226.4" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44\DistributionsGainsData42_44"
+          TopLeft="225.6,37.6" />
         <EdgeLayout
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[XmlParserTransformOutput]"
           TopLeft="346.4,175.2">
@@ -37782,6 +37756,40 @@ SELECT  [TaxPeriod]
                     Point3="-18.4,29.6" />
                   <mssgle:LineSegment
                     End="-18.4,43.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_42_44.Paths[OLE DB Source Output]"
+          TopLeft="332.8,79.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.6,54.4"
+              Start="0,0"
+              End="13.6,46.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.2"
+                    Point2="0,27.2"
+                    Point3="4,27.2" />
+                  <mssgle:LineSegment
+                    End="9.60000000000002,27.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.60000000000002,27.2"
+                    Point2="13.6,27.2"
+                    Point3="13.6,31.2" />
+                  <mssgle:LineSegment
+                    End="13.6,46.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -37823,7 +37831,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="139.2,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_43\Namozag_43"
@@ -37867,7 +37875,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37901,7 +37911,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -37937,7 +37949,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_45">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="169.6,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_45\CapitalGainsData45"
@@ -37981,7 +37993,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -38003,7 +38017,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -38039,7 +38055,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_46">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_46\XML Parser Transform"
@@ -38083,7 +38099,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -38117,7 +38135,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -38153,7 +38173,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Invoices_5asm_w_Ta7seel_Flattening\Namozag_47\XML Parser Transform"
@@ -38185,7 +38205,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -38219,7 +38241,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
