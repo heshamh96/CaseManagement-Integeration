@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_B"
   DTS:PackageType="5"
-  DTS:VersionBuild="173"
-  DTS:VersionGUID="{5A604C42-D0E7-42E2-A52A-B21A1E176368}">
+  DTS:VersionBuild="177"
+  DTS:VersionGUID="{7E10CA01-DF31-4652-89F4-FF86DF015143}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3816,6 +3816,11 @@ where rownumb=1</property>
                           dataType="str"
                           length="10"
                           name="IncomeRegion_Code" />
+                        <externalMetadataColumn
+                          refId="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_TaxPayers_Universe\Dim_TaxPayers_Universe.Inputs[OLE DB Destination Input].ExternalColumns[TaxPayer_Address]"
+                          dataType="wstr"
+                          length="100"
+                          name="TaxPayer_Address" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -9676,6 +9681,12 @@ OPTION (MAXRECURSION 0)</property>
                       dataType="str"
                       length="14"
                       name="Year_Quarter_Period" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Date\Dim_Date.Inputs[OLE DB Destination Input].ExternalColumns[Year_Half_Period]"
+                      codePage="1256"
+                      dataType="str"
+                      length="14"
+                      name="Year_Half_Period" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -14039,6 +14050,7 @@ SELECT  [Taxpayer_Id]
           DTS:refId="Package\TaxPayers To The Stageing Area\Fetch Dummy Companies from Physical Files _Updated"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{eef0295e-4efa-41f2-a44b-4f4c4a053474}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -16418,6 +16430,7 @@ SELECT  [dis_code]
           DTS:refId="Package\TaxPayers To The Stageing Area\Truncate_Dummy_Companies_At_Source"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{7dce3284-f775-4d5c-b4f3-3db53bf21cd9}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -22835,6 +22848,10 @@ where rownumb=1</property>
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Truncate_TaxPayers_from_DWH"
           TopLeft="73.1244976334946,11.5084034456101" />
         <NodeLayout
+          Size="303.2,41.6"
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update TaxPayer_Universe (Taxpayer_Address)"
+          TopLeft="129.142859342147,1328.0000023337" />
+        <NodeLayout
           Size="591.2,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update The Gehat_5asm_w_Ta7seel (Region_Name,District_Name,District_Vat_Name,IncomeRegion_Name)"
           TopLeft="46.6285722362752,1249.41176806915" />
@@ -23058,6 +23075,40 @@ where rownumb=1</property>
                     Point3="29.1285722362752,19.7882357960339" />
                   <mssgle:LineSegment
                     End="29.1285722362752,24.0764715920677" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 14]"
+          TopLeft="342.228572236275,1291.01176806915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.4857128941283,36.9882342645471"
+              Start="0,0"
+              End="-61.4857128941283,29.4882342645471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.4941171322736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4941171322736"
+                    Point2="0,18.4941171322736"
+                    Point3="-4,18.4941171322736" />
+                  <mssgle:LineSegment
+                    End="-57.4857128941283,18.4941171322736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.4857128941283,18.4941171322736"
+                    Point2="-61.4857128941283,18.4941171322736"
+                    Point3="-61.4857128941283,22.4941171322736" />
+                  <mssgle:LineSegment
+                    End="-61.4857128941283,29.4882342645471" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23454,51 +23505,13 @@ where rownumb=1</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="303.2,41.6"
-          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Update TaxPayer_Universe (Taxpayer_Address)"
-          TopLeft="129.142859342147,1328.0000023337" />
-        <EdgeLayout
-          Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH.PrecedenceConstraints[Constraint 14]"
-          TopLeft="342.228572236275,1291.01176806915">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61.4857128941283,36.9882342645471"
-              Start="0,0"
-              End="-61.4857128941283,29.4882342645471">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.4941171322736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.4941171322736"
-                    Point2="0,18.4941171322736"
-                    Point3="-4,18.4941171322736" />
-                  <mssgle:LineSegment
-                    End="-57.4857128941283,18.4941171322736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-57.4857128941283,18.4941171322736"
-                    Point2="-61.4857128941283,18.4941171322736"
-                    Point3="-61.4857128941283,22.4941171322736" />
-                  <mssgle:LineSegment
-                    End="-61.4857128941283,29.4882342645471" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="812.8,1514.4"
-          Size="812.8,43.2"
+          Size="368.8,43.2"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH"
-          TopLeft="3.3469388325081,231.905883617844" />
+          TopLeft="2.77551025134795,231.294118903382" />
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH_Old\Dim_Dummy_Companies"
@@ -24451,9 +24464,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24481,9 +24492,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24517,9 +24526,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24553,9 +24560,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24589,9 +24594,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24619,9 +24622,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24649,9 +24650,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24679,9 +24678,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -25074,26 +25071,26 @@ where rownumb=1</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-503.804092462278,47.798319097303"
+              EndConnector="-726.375521043438,47.1865543828408"
               Start="0,0"
-              End="-503.804092462278,40.298319097303">
+              End="-726.375521043438,39.6865543828408">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.8991595486515" />
+                    End="0,19.5932771914204" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.8991595486515"
-                    Point2="0,23.8991595486515"
-                    Point3="-4,23.8991595486515" />
+                    Point1="0,19.5932771914204"
+                    Point2="0,23.5932771914204"
+                    Point3="-4,23.5932771914204" />
                   <mssgle:LineSegment
-                    End="-499.804092462278,23.8991595486515" />
+                    End="-722.375521043438,23.5932771914204" />
                   <mssgle:CubicBezierSegment
-                    Point1="-499.804092462278,23.8991595486515"
-                    Point2="-503.804092462278,23.8991595486515"
-                    Point3="-503.804092462278,27.8991595486515" />
+                    Point1="-722.375521043438,23.5932771914204"
+                    Point2="-726.375521043438,23.5932771914204"
+                    Point3="-726.375521043438,27.5932771914204" />
                   <mssgle:LineSegment
-                    End="-503.804092462278,40.298319097303" />
+                    End="-726.375521043438,39.6865543828408" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -25240,30 +25237,30 @@ where rownumb=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="816.146938832508,253.505883617844">
+          TopLeft="371.575510251348,252.894118903382">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="136.483009213611,14.238654365201"
+              EndConnector="581.054437794771,14.8504190796632"
               Start="0,0"
-              End="128.983009213611,14.238654365201">
+              End="573.554437794771,14.8504190796632">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="64.2415046068054,0" />
+                    End="286.527218897385,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="64.2415046068054,0"
-                    Point2="68.2415046068054,0"
-                    Point3="68.2415046068054,4" />
+                    Point1="286.527218897385,0"
+                    Point2="290.527218897385,0"
+                    Point3="290.527218897385,4" />
                   <mssgle:LineSegment
-                    End="68.2415046068054,10.238654365201" />
+                    End="290.527218897385,10.8504190796632" />
                   <mssgle:CubicBezierSegment
-                    Point1="68.2415046068054,10.238654365201"
-                    Point2="68.2415046068054,14.238654365201"
-                    Point3="72.2415046068054,14.238654365201" />
+                    Point1="290.527218897385,10.8504190796632"
+                    Point2="290.527218897385,14.8504190796632"
+                    Point3="294.527218897385,14.8504190796632" />
                   <mssgle:LineSegment
-                    End="128.983009213611,14.238654365201" />
+                    End="573.554437794771,14.8504190796632" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -25542,7 +25539,7 @@ where rownumb=1</property>
     design-time-name="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_TaxPayers_Universe">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\All TaxPayers_from STG_Area_&amp;_WithHodlings_to_DWH\Dim_TaxPayers_Universe\TaxPayers_Universe"
@@ -25582,9 +25579,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26005,7 +26000,7 @@ where rownumb=1</property>
     design-time-name="Package\Dim_Date">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="117.6,41.6"
           Id="Package\Dim_Date\Date_ID"
@@ -26049,9 +26044,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26085,9 +26078,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26404,7 +26395,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\Dim_Sales_Master">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\TaxPayers To The Stageing Area\Dim_Sales_Master\Excel_Sales_Master"
@@ -26444,9 +26435,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26534,7 +26523,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\Dim_Tax_Payers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\TaxPayers To The Stageing Area\Dim_Tax_Payers\TaxPayer"
@@ -26574,9 +26563,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26586,7 +26573,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\Fetch Dummy Companies from Physical Files _Updated">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="216,41.6"
           Id="Package\TaxPayers To The Stageing Area\Fetch Dummy Companies from Physical Files _Updated\Tax_Vat_Dummy_Companies"
@@ -26626,9 +26613,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26690,7 +26675,7 @@ where rownumb=1</property>
     design-time-name="Package\TaxPayers To The Stageing Area\ig_Master">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="124,41.6"
           Id="Package\TaxPayers To The Stageing Area\ig_Master\ig_Master"
@@ -26730,9 +26715,7 @@ where rownumb=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

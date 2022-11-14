@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_D_and_E"
   DTS:PackageType="5"
-  DTS:VersionBuild="138"
-  DTS:VersionGUID="{8EF7AB89-906D-4D20-B0D1-EC21D113516F}">
+  DTS:VersionBuild="139"
+  DTS:VersionGUID="{1906896C-1F34-47C8-A3D2-90ACBF987380}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -776,7 +776,8 @@
                           name="UniqueTaxID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          dataType="guid"
+                          dataType="wstr"
+                          length="100"
                           name="FK_ID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
@@ -987,7 +988,8 @@
                           name="UniqueTaxID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          dataType="guid"
+                          dataType="wstr"
+                          length="100"
                           name="FK_ID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
@@ -1824,7 +1826,8 @@ SELECT  [TaxPeriod]
                           name="UniqueTaxID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          dataType="guid"
+                          dataType="wstr"
+                          length="100"
                           name="FK_ID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Purchases_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
@@ -2023,7 +2026,8 @@ SELECT  [TaxPeriod]
                           name="UniqueTaxID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          dataType="guid"
+                          dataType="wstr"
+                          length="100"
                           name="FK_ID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Sales_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
@@ -2232,7 +2236,8 @@ SELECT  [TaxPeriod]
                           name="UniqueTaxID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Tax_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[FK_ID]"
-                          dataType="guid"
+                          dataType="wstr"
+                          length="100"
                           name="FK_ID" />
                         <externalMetadataColumn
                           refId="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Tax_Details_Jason.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
@@ -9519,7 +9524,7 @@ SELECT  [TaxPeriod]
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Developed_By"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\1178:invalid"
                           mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[Developed_By]">
                           <properties>
                             <property
@@ -12885,7 +12890,7 @@ SELECT  [TaxPeriod]
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Developed_By"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
+                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\854:invalid"
                           mappedColumnId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\JSON Parser Transform 1 2.Outputs[JsonParserTransformOutput].Columns[Developed_By]">
                           <properties>
                             <property
@@ -14232,17 +14237,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
                           name="ExtractedDate"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -14475,12 +14469,6 @@ SELECT  [TaxPeriod]
                           refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].ExternalColumns[ExtractedDate]"
                           dataType="dbTimeStamp"
                           name="ExtractedDate" />
-                        <externalMetadataColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          name="Developed_By" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -14765,13 +14753,6 @@ SELECT  [TaxPeriod]
                           dataType="dbTimeStamp"
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[ExtractedDate]"
                           name="ExtractedDate" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                         <outputColumn
                           refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_Purchases.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -16406,17 +16387,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].Columns[ExtractedDate]"
                           name="ExtractedDate"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].Columns[Developed_By]"
-                          name="Developed_By"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -16649,12 +16619,6 @@ SELECT  [TaxPeriod]
                           refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].ExternalColumns[ExtractedDate]"
                           dataType="dbTimeStamp"
                           name="ExtractedDate" />
-                        <externalMetadataColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Output].ExternalColumns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          name="Developed_By" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -16951,13 +16915,6 @@ SELECT  [TaxPeriod]
                           lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
-                        <outputColumn
-                          refId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          codePage="1256"
-                          dataType="str"
-                          length="50"
-                          lineageId="Package\Declaration_Jasons_Vat_to_STG\Table_Jasons\TableVatTax_TableTax.Outputs[OLE DB Source Error Output].Columns[Developed_By]"
-                          name="Developed_By" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -35826,9 +35783,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35862,16 +35817,14 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="262.4,249.6"
-          Size="262.4,43.2"
+          Size="262.4,292.8"
           Id="Package\Declaration_Jasons_STG_to_DWH"
           TopLeft="44.3428545737751,18.9647061483258" />
         <NodeLayout
@@ -36008,7 +35961,7 @@ SELECT  [TaxPeriod]
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
-          PanelSize="614,221.6"
+          PanelSize="614.4,221.6"
           Size="614.4,43.2"
           Id="Package\Dim_Invoices_5asm_w_ta7seel_Withholding_flattened &amp; Mapped to el Masla7a by Excel &amp; IBM_to _to_DWH"
           TopLeft="205.904765411299,560.141178761386" />
@@ -36075,7 +36028,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36103,7 +36058,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36131,7 +36088,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36159,7 +36118,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36193,7 +36154,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36227,7 +36190,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36255,7 +36220,9 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -36437,26 +36404,26 @@ SELECT  [TaxPeriod]
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-281.585721306899,-32.2352945809546"
+              EndConnector="-281.585721306899,45.0980387523787"
               Start="0,0"
-              End="-274.085721306899,-32.2352945809546">
+              End="-274.085721306899,45.0980387523787">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-136.79286065345,0" />
+                    End="-164.03321847553,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-136.79286065345,0"
-                    Point2="-140.79286065345,0"
-                    Point3="-140.79286065345,-4" />
+                    Point1="-164.03321847553,0"
+                    Point2="-168.03321847553,0"
+                    Point3="-168.03321847553,4" />
                   <mssgle:LineSegment
-                    End="-140.79286065345,-28.2352945809546" />
+                    End="-168.03321847553,41.0980387523787" />
                   <mssgle:CubicBezierSegment
-                    Point1="-140.79286065345,-28.2352945809546"
-                    Point2="-140.79286065345,-32.2352945809546"
-                    Point3="-144.79286065345,-32.2352945809546" />
+                    Point1="-168.03321847553,41.0980387523787"
+                    Point2="-168.03321847553,45.0980387523787"
+                    Point3="-172.03321847553,45.0980387523787" />
                   <mssgle:LineSegment
-                    End="-274.085721306899,-32.2352945809546" />
+                    End="-274.085721306899,45.0980387523787" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36467,30 +36434,18 @@ SELECT  [TaxPeriod]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="175.542854573775,62.1647061483258">
+          TopLeft="306.742854573775,209.315687446721">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="304.628580240328,122.835295930123"
+              EndConnector="59.8285802403279,0"
               Start="0,0"
-              End="304.628580240328,115.335295930123">
+              End="52.3285802403279,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.4176479650616" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,57.4176479650616"
-                    Point2="0,61.4176479650616"
-                    Point3="4,61.4176479650616" />
-                  <mssgle:LineSegment
-                    End="300.628580240328,61.4176479650616" />
-                  <mssgle:CubicBezierSegment
-                    Point1="300.628580240328,61.4176479650616"
-                    Point2="304.628580240328,61.4176479650616"
-                    Point3="304.628580240328,65.4176479650616" />
-                  <mssgle:LineSegment
-                    End="304.628580240328,115.335295930123" />
+                    End="52.3285802403279,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -36506,7 +36461,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="247.2,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\Dim_NonTable_Sales_Details_Jason"
@@ -36522,7 +36477,7 @@ SELECT  [TaxPeriod]
         <NodeLayout
           Size="245.6,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons\NonTable_Purchases_Details_Jason"
-          TopLeft="106.285716095749,36.7058828677273" />
+          TopLeft="105.714287514589,37.3176475821894" />
         <EdgeLayout
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons.Paths[OLE DB Source Output1]"
           TopLeft="549.885721749676,77.6941181532652">
@@ -36554,33 +36509,29 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Declaration_Jasons_STG_to_DWH\NonTable_Jasons.Paths[OLE DB Source Output]"
-          TopLeft="230.42857315589,78.3058828677273">
+          TopLeft="230.14285886531,78.9176475821894">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.8000016044168"
+              EndConnector="0,72.1882368899546"
               Start="0,0"
-              End="0,65.3000016044168">
+              End="0,64.6882368899546">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.3000016044168" />
+                    End="0,64.6882368899546" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -36632,7 +36583,7 @@ SELECT  [TaxPeriod]
     design-time-name="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="228.8,41.6"
           Id="Package\Declaration_Jasons_STG_to_DWH\Table_Jasons\Dim_Table_Sales_Details_Jason"
@@ -36688,9 +36639,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36724,9 +36673,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -36760,9 +36707,7 @@ SELECT  [TaxPeriod]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Level_C"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{8ED4EBBE-57B8-4147-BF18-B847D51C6DD0}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{B12BE59A-CDF7-4CB2-9D61-34816ED50402}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1159,7 +1159,7 @@ when sp.FilingName = N'جدول' then sum(TransactionAmount) end as goods,
 --,sp.Taxyrmo
 convert(smalldatetime,SUBSTRING(convert(varchar (8),SP.taxyrmo,112),1,8)) as taxyrmo
 
-FROM [Sales_Tax_Payments].[dbo].[Sales_Tax_Payments_View_table] SP
+FROM [Sales_Tax_Payments].[dbo].[Sales_Tax_Payments_View]SP
 where SP.Name = N'ضريبة إقرار' and 
 convert(smalldatetime,SUBSTRING(convert(varchar (8),SP.taxyrmo,112),1,8)) &gt;'2018-12-31 00:00:00'
 group by sp.Rin,sp.FilingName,convert(smalldatetime,SUBSTRING(convert(varchar (8),SP.taxyrmo,112),1,8))
@@ -1345,7 +1345,7 @@ group by cons.rin , cons.taxyrmo) as  aggregated_Payments</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate STG &amp; DWH Payments"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -11294,7 +11294,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate_namazeg el Da5l"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13045,7 +13045,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate_Namazeg el Da5l in DWH"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13110,6 +13110,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Dim_SectionTypes" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{68A0F450-8F32-4AA3-9B0D-94D470DB14CE}"
+      DTS:From="Package\Dim_Witholding_Discount_Types"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\DIM_Payments" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{EB79D213-80FD-4DA7-ABFE-40848B57FA23}"
@@ -13165,6 +13173,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Namazeg el Da5l STG to DWH" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{54E162CC-FB6E-4E94-96B3-DACBCF29A675}"
+      DTS:From="Package\Dim_ProductTypes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Dim_Withholding_Transaction_Types" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -13217,9 +13233,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13253,9 +13267,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -13281,6 +13293,14 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           Size="148,41.6"
           Id="Package\Dim_TaxTypes"
           TopLeft="86.4285729004413,247.070590219366" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\Dim_Withholding_Transaction_Types"
+          TopLeft="391.42857809456,326.87058989119" />
+        <NodeLayout
+          Size="232.8,41.6"
+          Id="Package\Dim_Witholding_Discount_Types"
+          TopLeft="397.14286390616,405.176473342341" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Income_Declarations_Flatteining\102_transfere"
@@ -13324,7 +13344,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13358,7 +13380,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -13399,7 +13423,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13421,7 +13447,9 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -13495,6 +13523,28 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
                     Point3="-24.8000001702989,16.4647063488778" />
                   <mssgle:LineSegment
                     End="-24.8000001702989,17.4294126977557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="397.14286390616,427.241180055859">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.542862731097,0"
+              Start="0,0"
+              End="-147.042862731097,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-147.042862731097,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13606,6 +13656,28 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="515.68572100036,368.47058989119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7058834511516"
+              Start="0,0"
+              End="0,29.2058834511516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2058834511516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="439.285721766706,73.564706622358">
           <EdgeLayout.Curve>
@@ -13645,26 +13717,26 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="60.2000003235681,39.9176464518054"
+              EndConnector="60.2000003235681,39.917646451806"
               Start="0,0"
-              End="60.2000003235681,32.4176464518054">
+              End="60.2000003235681,32.417646451806">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.9588232259027" />
+                    End="0,15.958823225903" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.9588232259027"
-                    Point2="0,19.9588232259027"
-                    Point3="4,19.9588232259027" />
+                    Point1="0,15.958823225903"
+                    Point2="0,19.958823225903"
+                    Point3="4,19.958823225903" />
                   <mssgle:LineSegment
-                    End="56.2000003235681,19.9588232259027" />
+                    End="56.2000003235681,19.958823225903" />
                   <mssgle:CubicBezierSegment
-                    Point1="56.2000003235681,19.9588232259027"
-                    Point2="60.2000003235681,19.9588232259027"
-                    Point3="60.2000003235681,23.9588232259027" />
+                    Point1="56.2000003235681,19.958823225903"
+                    Point2="60.2000003235681,19.958823225903"
+                    Point3="60.2000003235681,23.958823225903" />
                   <mssgle:LineSegment
-                    End="60.2000003235681,32.4176464518054" />
+                    End="60.2000003235681,32.417646451806" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13701,28 +13773,32 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="252.8,41.6"
-          Id="Package\Dim_Withholding_Transaction_Types"
-          TopLeft="391.42857809456,326.87058989119" />
-        <NodeLayout
-          Size="232.8,41.6"
-          Id="Package\Dim_Witholding_Discount_Types"
-          TopLeft="397.14286390616,405.176473342341" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="515.68572100036,368.47058989119">
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="239.257144097893,333.470590948646">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.7058834511516"
+              EndConnector="152.171433996668,14.1999989425436"
               Start="0,0"
-              End="0,29.2058834511516">
+              End="144.671433996668,14.1999989425436">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.2058834511516" />
+                    End="60.2501610208153,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.2501610208153,0"
+                    Point2="64.2501610208153,0"
+                    Point3="64.2501610208153,4" />
+                  <mssgle:LineSegment
+                    End="64.2501610208153,10.1999989425436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.2501610208153,10.1999989425436"
+                    Point2="64.2501610208153,14.1999989425436"
+                    Point3="68.2501610208153,14.1999989425436" />
+                  <mssgle:LineSegment
+                    End="144.671433996668,14.1999989425436" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13960,7 +14036,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
     design-time-name="Package\DIM_Payments\STG_Payments">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="148.8,41.6"
           Id="Package\DIM_Payments\STG_Payments\Dim_Payments"
@@ -14000,9 +14076,7 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14323,6 +14397,158 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_TaxTypes\TaxType">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Withholding_Transaction_Types">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Dim_Withholding_Transaction_Types\Transaction_Types"
+          TopLeft="216.571432259618,42.8235300123485" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\Dim_Withholding_Transaction_Types\Dim_Withholding_Transaction_Types"
+          TopLeft="222.285718071217,173.129414192781" />
+        <EdgeLayout
+          Id="Package\Dim_Withholding_Transaction_Types.Paths[OLE DB Source Output]"
+          TopLeft="299.771432259618,84.4235300123486">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48.9142858115994,88.705884180432"
+              Start="0,0"
+              End="48.9142858115994,81.205884180432">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.352942090216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.352942090216"
+                    Point2="0,44.352942090216"
+                    Point3="4,44.352942090216" />
+                  <mssgle:LineSegment
+                    End="44.9142858115994,44.352942090216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.9142858115994,44.352942090216"
+                    Point2="48.9142858115994,44.352942090216"
+                    Point3="48.9142858115994,48.352942090216" />
+                  <mssgle:LineSegment
+                    End="48.9142858115994,81.205884180432" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Withholding_Transaction_Types\Dim_Withholding_Transaction_Types">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Withholding_Transaction_Types\Transaction_Types">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Witholding_Discount_Types">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Dim_Witholding_Discount_Types\Witthholding_Types"
+          TopLeft="368,76" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\Dim_Witholding_Discount_Types\Dim_Withholding_Discount_Types"
+          TopLeft="345.6,236" />
+        <EdgeLayout
+          Id="Package\Dim_Witholding_Discount_Types.Paths[OLE DB Source Output]"
+          TopLeft="453.6,117.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.6,118.4"
+              Start="0,0"
+              End="11.6,110.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.2"
+                    Point2="0,59.2"
+                    Point3="4,59.2" />
+                  <mssgle:LineSegment
+                    End="7.60000000000002,59.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.60000000000002,59.2"
+                    Point2="11.6,59.2"
+                    Point3="11.6,63.2" />
+                  <mssgle:LineSegment
+                    End="11.6,110.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Witholding_Discount_Types\Dim_Withholding_Discount_Types">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Witholding_Discount_Types\Witthholding_Types">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14660,158 +14886,6 @@ where a.DeclarationNum=106 and a.DeclarationType!=4</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Namazeg el Da5l STG to DWH\Declaration_Income_106 (Stg_To_DWH)\VW_106">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Dim_Withholding_Transaction_Types">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Dim_Withholding_Transaction_Types\Transaction_Types"
-          TopLeft="216.571432259618,42.8235300123485" />
-        <NodeLayout
-          Size="252.8,41.6"
-          Id="Package\Dim_Withholding_Transaction_Types\Dim_Withholding_Transaction_Types"
-          TopLeft="222.285718071217,173.129414192781" />
-        <EdgeLayout
-          Id="Package\Dim_Withholding_Transaction_Types.Paths[OLE DB Source Output]"
-          TopLeft="299.771432259618,84.4235300123486">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48.9142858115994,88.705884180432"
-              Start="0,0"
-              End="48.9142858115994,81.205884180432">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.352942090216" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.352942090216"
-                    Point2="0,44.352942090216"
-                    Point3="4,44.352942090216" />
-                  <mssgle:LineSegment
-                    End="44.9142858115994,44.352942090216" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.9142858115994,44.352942090216"
-                    Point2="48.9142858115994,44.352942090216"
-                    Point3="48.9142858115994,48.352942090216" />
-                  <mssgle:LineSegment
-                    End="48.9142858115994,81.205884180432" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Dim_Witholding_Discount_Types">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Dim_Witholding_Discount_Types\Witthholding_Types"
-          TopLeft="368,76" />
-        <NodeLayout
-          Size="239.2,41.6"
-          Id="Package\Dim_Witholding_Discount_Types\Dim_Withholding_Discount_Types"
-          TopLeft="345.6,236" />
-        <EdgeLayout
-          Id="Package\Dim_Witholding_Discount_Types.Paths[OLE DB Source Output]"
-          TopLeft="453.6,117.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.6,118.4"
-              Start="0,0"
-              End="11.6,110.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,55.2"
-                    Point2="0,59.2"
-                    Point3="4,59.2" />
-                  <mssgle:LineSegment
-                    End="7.60000000000002,59.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.60000000000002,59.2"
-                    Point2="11.6,59.2"
-                    Point3="11.6,63.2" />
-                  <mssgle:LineSegment
-                    End="11.6,110.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Withholding_Transaction_Types\Transaction_Types">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Withholding_Transaction_Types\Dim_Withholding_Transaction_Types">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Witholding_Discount_Types\Witthholding_Types">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Witholding_Discount_Types\Dim_Withholding_Discount_Types">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
